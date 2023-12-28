@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 //
 import AvatarPreview from "./preview/AvatarPreview";
-import { Image } from "phosphor-react";
+import { MdOutlineImage } from "react-icons/md";
 
 // ----------------------------------------------------------------------
 
@@ -41,15 +41,6 @@ const StyledPlaceholder = styled("div")(({ theme }) => ({
   }),
 }));
 
-// ----------------------------------------------------------------------
-
-UploadAvatar.propTypes = {
-  sx: PropTypes.object,
-  error: PropTypes.bool,
-  disabled: PropTypes.bool,
-  helperText: PropTypes.node,
-  file: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-};
 
 export default function UploadAvatar({
   error,
@@ -124,7 +115,7 @@ export default function UploadAvatar({
             }),
           }}
         >
-          <Image />
+          <MdOutlineImage />
 
           <Typography variant="caption">
             {file ? "Update photo" : "Upload photo"}

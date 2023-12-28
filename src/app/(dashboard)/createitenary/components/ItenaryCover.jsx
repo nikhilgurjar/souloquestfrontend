@@ -2,20 +2,24 @@
 import React from 'react'
 import Image from 'next/image'
 import Box from '@mui/material/Box'
-import { Card, InputBase, Stack } from '@mui/material'
+import { Card, InputBase, Stack, debounce } from '@mui/material'
 import { MdOutlineAvTimer } from "react-icons/md";
+import { useDispatch, useSelector } from '@/redux/store';
+import { setDays, setTitle } from '@/redux/slices/itenary';
 
 const ItenaryCover = () => {
-    const [title, setTitle] = React.useState('Trip to pune');
-  const [days, setDays] = React.useState(3);
- 
+  
+  const dispatch = useDispatch();
+  const title = useSelector(state=>state.itenary.title);
+  const days = useSelector(state=>state.itenary.days);
+
   const handleChange = (e) =>{
-    setTitle(e.target.value)
+    dispatch(setTitle({title: e.target.value}));
   }
 
 
   const handleDayChange = (e) =>{
-    setDays(e.target.value)
+    dispatch(setDays({days: e.target.value}));
   }
 
   return (

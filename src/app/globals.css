@@ -41,3 +41,7 @@ body {
 .delete-hover:hover{
   color: red
 }
+
+.slick-slide > div {
+  margin: 0 30px;
+}

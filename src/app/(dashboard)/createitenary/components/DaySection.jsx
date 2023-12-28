@@ -5,25 +5,37 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import CustomAutocomplete from '@/components/custom-input/CustomAutocomplete';
 import { places } from '@/data';
 import DestinationCard from './DestinationCard';
-import SuggestionCard from './SuggestionCard';
-import RecommendedSection from './RecommendedSection';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from '@/redux/store';
+import { addDestination, removeDestination } from '@/redux/slices/itenary';
 
-const DaySection = () => {
-    const [location, setLocation] = React.useState({title: ''});
-    const [destinations, setDestinations] = React.useState([]);
+const DaySection = ({day}) => {
+    const [location, setLocation] = React.useState(null);
     const [recommendations, setRecommendations] = React.useState(places);
-    const handleChangeLocation = (keyword) =>{
-        console.log(keyword?.title)
+    const dispatch = useDispatch();
+    const destinations = useSelector(state=>state.itenary.itenary)[day-1] || [];
+    const handleChangeLocation = async (keyword) =>{
+        try{
+          console.log(keyword)
       setLocation(keyword || {title: ''});
-      keyword?.title && setDestinations(prev => [...prev, keyword])
+      if(!keyword.place_id) return;
+      // const placeDetails = await getPlaceDetails(keyword.place_id);
+      // setDestinations(prev=> [...prev, keyword]);
+      dispatch(addDestination({day: day-1, destination: keyword}))
+      setLocation(null);
+        }
+        catch(error){
+          toast(error.message || error.error)
+        }
     }
 
     const handleRemoveLocation = (id) =>{
         console.log(id)
        
-        const newData = destinations.filter(item=> item.id!==+id);
-        console.log(newData)
-      setDestinations(newData);
+        // const newData = destinations.filter(item=> item.place_id!==id);
+        // console.log(newData)
+      // setDestinations(newData);
+      dispatch(removeDestination({day: day-1, id: id}))
     }
 
     const onAddRecommendation = (event) =>{
@@ -41,7 +53,7 @@ console.log(destinations);
     elevation={0} 
     square  
     sx={{
-        maxWidth: 544, 
+        maxWidth: 'clamp(50%, 650px, 100%)', 
       '&:not(:last-child)': {
         borderBottom: 0,
       },
@@ -72,10 +84,10 @@ console.log(destinations);
         
   <Stack direction={'column'} spacing={.5}>
   <Typography variant='h5' sx={{ color: 'inherit', fontWeight: 700}}>
-        Wednesday, November 15th
+        Day {day}
     </Typography>
     <Typography variant='subtitle2' sx={{ color: 'inherit', fontWeight: 400, marginLeft: '6px!important'}}>
-        5 places
+        {destinations.length} places
     </Typography>
   </Stack>
 
@@ -94,7 +106,7 @@ console.log(destinations);
         
       <CustomAutocomplete placeholder="Add a place" onChange={handleChangeLocation} value={location} options={places} />
 
-      <RecommendedSection recommendations={recommendations}/>
+      {/* <RecommendedSection recommendations={recommendations}/> */}
       </AccordionDetails>
     </Accordion>
   )

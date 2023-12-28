@@ -5,6 +5,7 @@ import { CiLocationOn } from "react-icons/ci";
 import Autocomplete from '@mui/material/Autocomplete';
 import { debounce } from '@mui/material/utils';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const CustomAutocomplete = ({ value, onChange, ...other }) => {
   const [options, setOptions] = React.useState([]);
@@ -15,9 +16,15 @@ const CustomAutocomplete = ({ value, onChange, ...other }) => {
       debounce(async (request, callback) => {
         // autocompleteService.current.getPlacePredictions(request, callback);
         console.log(request, callback);
-        const response = await axios.get(`https://api.geoapify.com/v1/geocode/autocomplete?text=${request?.input}&lang=en&limit=10&filter=countrycode:in&format=json&apiKey=42ae62a239d348d69856ccd884e4d0fc`);
+       try{
+        const response = await axios.get(`https://api.geoapify.com/v1/geocode/autocomplete?text=${request?.input}&lang=en&limit=10&filter=countrycode:in&categories=catering,public_transport,sport,accommodation.hostel,accommodation.hotel,accommodation.motel,accommodation.lodging,activity,commercial,catering,entertainment,leisure,natural,national_park,tourism,religion,camping,beach,adult&format=json&apiKey=42ae62a239d348d69856ccd884e4d0fc`);
         console.log(response)
-        // callback(response.data.predictions);
+        callback(response.data.results);
+       }
+       catch(error){
+        console.log(error)
+        toast.error(error?.message || error?.error)
+       }
       }, 800),
     [],
   );
@@ -55,7 +62,7 @@ const CustomAutocomplete = ({ value, onChange, ...other }) => {
     <Autocomplete
       sx={{ width: 1 }}
       options={options}
-      getOptionLabel={(option) => option.title}
+      getOptionLabel={(option) => option.formatted}
       value={value}
       defaultValue={''}
       filterOptions={(x) => x}

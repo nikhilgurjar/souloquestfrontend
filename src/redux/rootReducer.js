@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import conversationReducer from './slices/conversation';
 import partnerReducer from './slices/partner';
 import userReducer from './slices/user'
+import itenaryReducer from './slices/itenary';
 // ----------------------------------------------------------------------
 
 const rootPersistConfig = {
@@ -18,6 +19,7 @@ const rootPersistConfig = {
 const rootReducer = combineReducers({
   conversation: conversationReducer,
   partnerFinder: partnerReducer,
+  itenary: itenaryReducer,
   user: userReducer
 });
 

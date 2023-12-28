@@ -7,7 +7,7 @@ import { IoTimeOutline } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 const DestinationCard = ({destination, onRemove}) => {
-
+  console.log(destination)
   const handleOnRemove = (event) => {
     event.preventDefault()
     onRemove(event.currentTarget.id)
@@ -34,17 +34,18 @@ const DestinationCard = ({destination, onRemove}) => {
           <Typography variant="overline" sx={{ color: 'rgb(250, 84, 28)', lineHeight: 1.5, fontWeight: 700 }}>
             {destination.category}
           </Typography>
-
+{/* 
           <Typography variant="h6" fontWeight={300}>
           <FaStar color='rgb(255, 171, 0)' size={'20px'}/> {destination.rating}
-          </Typography>
+          </Typography> */}
         </Stack>
 
         <Stack spacing={1}>
           {/* <Link component={RouterLink} to={paths.eLearning.course} color="inherit"> */}
             <Typography variant="h6" line={1} sx={{fontWeight: 600, lineHeight: 1.55556}}>
               {/* {slug} */}
-              {destination.title}
+              {/* {destination.title} */}
+              {destination.address_line1}
             </Typography>
              <Stack
           direction="row"
@@ -67,7 +68,8 @@ const DestinationCard = ({destination, onRemove}) => {
            }}
           >
             {/* {description} */}
-           {destination.description}
+           {/* {destination.description} */}
+           {destination.formatted}
           </Typography>
         </Stack>
       </Stack>
@@ -85,7 +87,7 @@ const DestinationCard = ({destination, onRemove}) => {
         textTransform: 'capitalize',
       }}
     >
-      <Grid xs={6}>
+      {/* <Grid xs={6}>
         <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
           <IoTimeOutline style={{marginRight: 4}}/>
           {destination.openTime}
@@ -99,11 +101,11 @@ const DestinationCard = ({destination, onRemove}) => {
           <GiSandsOfTime style={{marginRight: 4}}/>
           {destination.avgSpendTime}
         </Stack>
-      </Grid>
+      </Grid> */}
 
        <Grid xs={3}>
         <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
-        <RiDeleteBinLine size={20} cursor={'pointer'} id={destination.id} onClick={handleOnRemove} className='delete-hover'/>
+        <RiDeleteBinLine size={20} cursor={'pointer'} id={destination.place_id} onClick={handleOnRemove} className='delete-hover'/>
         </Stack>
       </Grid>
     

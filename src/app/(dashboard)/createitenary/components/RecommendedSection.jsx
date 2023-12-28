@@ -1,9 +1,11 @@
 'use client';
 import React from 'react'
-import { Stack, Typography, useTheme } from '@mui/material'
+import { IconButton, Stack, Typography, useTheme } from '@mui/material'
 import SuggestionCard from './SuggestionCard';
 import Carousel from '@/components/carousel';
 import CarouselArrows from '@/components/carousel';
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+
 const RecommendedSection = ({recommendations, onAddRecommendation}) => {
     const carouselRef = React.useRef(null);
     const theme = useTheme();
@@ -18,10 +20,13 @@ const RecommendedSection = ({recommendations, onAddRecommendation}) => {
 
     const carouselSettings = {
         arrows: false,
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 1,
         centerMode: true,
         rtl: false,
+        lazyLoad: true,
+        variableWidth: true,
+        infinite: true,
         responsive: [
           {
             breakpoint: theme.breakpoints.values.md,
@@ -40,10 +45,20 @@ const RecommendedSection = ({recommendations, onAddRecommendation}) => {
         <Typography variant="subtitle2" sx={{color: (theme)=> theme.palette.grey[400]}}>
         Recommended Places
         </Typography>
-        <CarouselArrows spacing={2} onNext={handleNext} onPrev={handlePrev} />
+        <Stack direction='row' justifyContent={'center'}>
+          <IconButton onClick={handlePrev}>
+            <FaAngleLeft size={10} />
+          </IconButton>
+          <IconButton onClick={handleNext}>
+            <FaAngleRight size={10} />
+          </IconButton>
+        </Stack>
       </Stack>
 
-    <Carousel ref={carouselRef} {...carouselSettings}>
+    <Carousel ref={carouselRef} {...carouselSettings} 
+    whileHover="hover"
+    sx={{ px: 1 }}
+    >
     {
         recommendations?.map(item => <SuggestionCard key={item.id} recommendation={item} onAddRecommendation={onAddRecommendation} />)
       }

@@ -5,6 +5,7 @@ export default function Input(theme) {
         MuiInputBase: {
             styleOverrides: {
                 root: {
+                    ...theme.typography.body2,
                     '&.Mui-disabled': {
                         '& svg': {
                             color: theme.palette.text.disabled,
@@ -32,6 +33,9 @@ export default function Input(theme) {
             },
         },
         MuiTextField: {
+            defaultProps: {
+                variant: 'filled',
+              },
             styleOverrides: {
                 root: {
                     '& .MuiInputLabel-root.Mui-focused': {
@@ -42,6 +46,9 @@ export default function Input(theme) {
             },
         },
         MuiFilledInput: {
+            defaultProps: {
+                disableUnderline: true,
+              },
             styleOverrides: {
                 root: {
                     borderRadius: theme.shape.borderRadius,

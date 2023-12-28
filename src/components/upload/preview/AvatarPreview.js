@@ -1,12 +1,6 @@
-import PropTypes from 'prop-types';
 //
 import Image from '../../Image';
 
-// ----------------------------------------------------------------------
-
-AvatarPreview.propTypes = {
-  file: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-};
 
 export default function AvatarPreview({ file }) {
   if (!file) {
