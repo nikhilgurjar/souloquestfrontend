@@ -5,6 +5,7 @@ import { Typography, Box, IconButton, SxProps } from '@mui/material';
 
 //
 import { LeftIcon, RightIcon } from './Icon';
+import { bgBlur } from '@/utils/cssStyles';
 
 // ----------------------------------------------------------------------
 
