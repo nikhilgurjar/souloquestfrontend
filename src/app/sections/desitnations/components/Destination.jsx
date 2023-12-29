@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import React, { useRef } from "react";
+import { Box, Container, IconButton, Stack, Typography } from "@mui/material";
 import Carousel, {
   CarouselArrowIndex,
   CarouselArrows,
@@ -9,10 +9,15 @@ import Card from "./DestinationCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import NextArrowBtn from "./NextArrowBtn";
-import PrevArrowBtn from "./PrevArrowBtn";
+// import NextArrowBtn from "./NextArrowBtn";
+// import PrevArrowBtn from "./PrevArrowBtn";
+
 const Destination = () => {
- 
+  const slideRef = useRef(null);
+  console.log(slideRef.current);
+  const NextArrowBtn = () => {
+    // return <IconButton onClick={slideRef.current.slickNext()}>Next</IconButton>;
+  };
   const dummyData = [
     {
       url: "/public/images/destinationImg1.png",
@@ -62,8 +67,7 @@ const Destination = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-    nextArrow:<NextArrowBtn/>,
-    prevArrow:<PrevArrowBtn/>,
+    centerModeL:true,
     responsive: [
       {
         breakpoint: 1024,
@@ -85,7 +89,7 @@ const Destination = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -108,21 +112,22 @@ const Destination = () => {
       >
         Popular Destinations
       </Typography>
-        <Box mt={5}>
-          <Slider {...settings}>
-            {dummyData.map((item) => (
-              <Card
-                key={item.title}
-                url={item.url}
-                location={item.location}
-                title={item.title}
-                duration={item.duration}
-                amount={item.amount}
-                buyLink={item.buyLink}
-              />
-            ))}
-          </Slider>
-        </Box>
+        {/* <NextArrowBtn/> */}
+      <Box mt={5}>
+        <Slider {...settings} ref={slideRef}>
+          {dummyData.map((item) => (
+            <Card
+              key={item.title}
+              url={item.url}
+              location={item.location}
+              title={item.title}
+              duration={item.duration}
+              amount={item.amount}
+              buyLink={item.buyLink}
+            />
+          ))}
+        </Slider>
+      </Box>
     </Container>
   );
 };

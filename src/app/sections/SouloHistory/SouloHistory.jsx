@@ -6,35 +6,39 @@ const SouloHistory = () => {
 
   return (
     <Container
-      //   sx={{
-      //     // position: "relative",
-      //     overflow: "hidden",
-      //     backgroundImage: `url(${historyImg})`, // Replace with your image path
-      //     backgroundSize: "cover",
-      //     backgroundPosition: "center",
-      //     backgroundRepeat: "no-repeat",
-      //     width: "100%",
-      //     height: "100vh",
-      //   }}
-      style={{
-        // backgroundImage: `url(${historyImg})`,
-        backgroundImage: "url(https://source.unsplash.com/random?wallpapers)",
+      sx={{
+        // position: "relative",
+        overflow: "hidden",
+        backgroundImage: `url(${historyImg})`, // Replace with your image path
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         width: "100%",
         height: "100vh",
-        display: "flex",
-        justifyContent: "space-around",
-        gap: 10,
-        alignItems: "center",
-        flexWrap: "wrap",
+          display: "flex",
+          justifyContent: "space-around",
+          gap: 10,
+          alignItems: "center",
+          flexWrap: "wrap",
       }}
+      // style={{
+      //   // backgroundImage: `url(${historyImg})`,
+      //   backgroundImage: "url(https://source.unsplash.com/random?wallpapers)",
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   backgroundRepeat: "no-repeat",
+      //   width: "100%",
+      //   height: "100vh",
+      //   display: "flex",
+      //   justifyContent: "space-around",
+      //   gap: 10,
+      //   alignItems: "center",
+      //   flexWrap: "wrap",
+      // }}
     >
-      
-        <HistoryCard />
-        <HistoryCard />
-        <HistoryCard />
+      <HistoryCard />
+      <HistoryCard />
+      <HistoryCard />
     </Container>
   );
 }

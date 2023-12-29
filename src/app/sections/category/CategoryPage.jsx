@@ -52,8 +52,8 @@ const CategoryPage = () => {
           py: 5,
           display: "flex",
           justifyContent: "center",
-        //   flexDirection: "column",
-        //   alignItems: "center",
+          //   flexDirection: "column",
+          //   alignItems: "center",
         }}
       >
         <Tabs
@@ -64,10 +64,13 @@ const CategoryPage = () => {
             <Button
               key={tab.value}
               variant={currentTab === tab.value ? "contained" : "outlined"}
-              style={{
-                bgcolor: currentTab === tab.value ? "#008080" : "transparent",
+              // style={{
+              //   bgcolor: currentTab === tab.value ? "#008080" : "transparent",
+              // }}
+              sx={{
+                mx: 1,
+                bgcolor: currentTab === tab.value ? "primary.main" : "transparent",
               }}
-              sx={{ mx: 1 }}
               onClick={() => setCurrentTab(tab.value)}
             >
               {tab.label}
