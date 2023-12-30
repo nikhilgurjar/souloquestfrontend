@@ -1,10 +1,9 @@
 import React from "react";
 import { Card, CardHeader, IconButton, Stack, Typography } from "@mui/material";
-import { FaLocationPin } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
-import { IoSchool } from "react-icons/io5";
-import { HiOutlineGlobeAlt } from "react-icons/hi";
-import { FaBuildingUser } from "react-icons/fa6";
+import FaLocationPin from "@@react-icons/all-files/all-files/fa6/FaLocationPin";
+import MdEmail from "@react-icons/all-files/md/MdEmail"
+import IoSchool from "@react-icons/all-files/io5/IoSchool";
+import FaBuildingUser from "@react-icons/all-files/fa6/FaBuildingUser";
 const ProfileAbout = ({
   about,
   country,
@@ -22,23 +21,25 @@ const ProfileAbout = ({
     Education: <IoSchool/>,
   };
 
-  const data = [
+  let data = [
     { key: "About", value: about },
-    { key: "Country", value: "Live at ", dynamic: country+", "+city+", "+state },
+    { key: "Country", value: "Live at ", dynamic: city!==undefined ? city+", "+state: undefined },
     { key: "Email", value: email },
     { key: "Company", value: "Working at ", dynamic: company },
     { key: "Education", value: education },
   ];
+
+  data = data.filter(({ value, dynamic }) => (value !== undefined && dynamic!== undefined));
 
   return (
     <section className="relative w-full">
       <Card>
         <CardHeader title="About" />
         <Stack spacing={2} sx={{ p: 3 }}>
-          {data &&
-            data
-              .filter(({ value }) => value !== undefined)
-              .map(({ key, value, dynamic }) => (
+          
+          {data.length!==0 ?
+            (data
+              ?.map(({ key, value, dynamic }) => (
                 <Stack spacing={1} direction={"row"} alignItems={"center"}>
                   <IconButton
                     style={{
@@ -57,7 +58,17 @@ const ProfileAbout = ({
                     )}
                   </Typography>
                 </Stack>
-              ))}
+              ))
+            )
+            :
+            <Stack spacing={1} direction={"row"} alignItems={"center"}>
+              <Typography variant="h6" sx={{
+                color: 'grey.700'
+              }}>
+                No Information Provided
+              </Typography>
+              </Stack>
+            }
         </Stack>
       </Card>
     </section>

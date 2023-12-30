@@ -8,10 +8,8 @@ import {
 import Card from "./DestinationCard";
 import Slider from "react-slick";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import MdChevronLeft from "@react-icons/all-files/md/MdChevronLeft";
+import MdChevronRight from "@react-icons/all-files/md/MdChevronRight";
 const Destination = () => {
   const slideRef = useRef(null);
   const handleNext = () => {

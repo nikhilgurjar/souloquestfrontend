@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Grid,
   IconButton,
   Link,
@@ -8,10 +7,11 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import FaFacebookF from "@react-icons/all-files/fa/FaFacebookF";
+import FaTwitter from "@react-icons/all-files/fa/FaTwitter";
+import FaLinkedinIn from "@react-icons/all-files/fa/FaLinkedinIn";
+import FaInstagram from "@react-icons/all-files/fa/FaInstagram";
+
 import NextLink from "next/link";
 const Footer = () => {
   const pages = [

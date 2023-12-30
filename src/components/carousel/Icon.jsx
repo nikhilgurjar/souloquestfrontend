@@ -1,4 +1,4 @@
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import { FaAngleRight, FaAngleLeft } from "@react-icons/all-files/fa6";
 
 export function LeftIcon() {
   return (

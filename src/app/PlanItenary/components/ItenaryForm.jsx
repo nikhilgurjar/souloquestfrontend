@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { MobileDatePicker } from "@mui/x-date-pickers";
 import React from "react";
-import { HiOutlineCalendarDays } from "react-icons/hi2";
+import HiOutlineCalendarDays from "@react-icons/all-files/hi2/HiOutlineCalendarDays";
 import NextLink from "next/link";
 const ItenaryForm = () => {
   const [destination, setDestination] = React.useState("");

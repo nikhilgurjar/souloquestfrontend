@@ -1,15 +1,13 @@
-'use client';
+'use client'
 import { Grid, Stack } from '@mui/material';
 import React from 'react'
 import ProfileSocialInfo from './ProfileSocialInfo';
 import ProfileAbout from './ProfileAbout';
-import { useSelector } from '@/redux/store';
 
-const UserProfile = () => {
-  const user = useSelector(state=>state.user.user);
+const UserProfile = ({user}) => {
 
   return (
-    <Grid container spacing={3} >
+    <Grid container spacing={3} sx={{mt: 4}}>
       <Grid item xs={12} md={7}>
         <Stack spacing={3}>
           <ProfileAbout

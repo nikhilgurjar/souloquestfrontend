@@ -12,7 +12,7 @@ import { List, Drawer, IconButton, Button, Stack } from '@mui/material';
 //
 // import { NavProps } from '../types';
 import NavList from './NavList';
-import { RxHamburgerMenu } from "react-icons/rx";
+import RxHamburgerMenu from "@react-icons/all-files/rx/RxHamburgerMenu";
 import { usePathname } from 'next/navigation';
 
 // ----------------------------------------------------------------------

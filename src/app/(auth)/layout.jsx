@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 // import imgAccn from "../../public/images/imageAccn.png";
 import Image from "next/image";
 
-// import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const AuthLayout = ({ children }) => {
 

@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Box from '@mui/material/Box'
 import { Card, InputBase, Stack, debounce } from '@mui/material'
-import { MdOutlineAvTimer } from "react-icons/md";
+import MdOutlineAvTimer from "@react-icons/all-files/md/MdOutlineAvTimer";
 import { useDispatch, useSelector } from '@/redux/store';
 import { setDays, setTitle } from '@/redux/slices/itenary';
 

@@ -1,5 +1,5 @@
 // @mui
-"use client";
+'use client'
 import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
 // @types
@@ -8,8 +8,7 @@ import { bgBlur } from "@/utils/cssStyles";
 // components
 import Image from "@/components/Image";
 import { CustomAvatar } from "@/components/custom-avatar";
-import { useSelector } from "@/redux/store";
-// ----------------------------------------------------------------------
+
 const StyledRoot = styled("div")(({ theme }) => ({
   position: "relative",
   width: "100%", // may be need to change later
@@ -43,8 +42,8 @@ const StyledInfo = styled("div")(({ theme }) => ({
   },
 }));
 // ----------------------------------------------------------------------
-export default function ProfileCover() {
-  const user = useSelector(state=>state.user.user);
+export default function ProfileCover({user}) {
+  
   const defaultValues = {
     profilePic:
       "https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw",

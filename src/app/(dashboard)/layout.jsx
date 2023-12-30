@@ -1,11 +1,11 @@
 'use client';
 import { AppBar, Box, Divider, Drawer,DrawerHeader, IconButton, ListItemButton, Toolbar, Typography, ClickAwayListner, Stack, ListItemIcon, ListItemText, List } from '@mui/material';
 import React from 'react'
-import { CgMenuRightAlt } from "react-icons/cg";
-import { IoArrowBackCircle } from "react-icons/io5";
-import { IoIosPeople } from "react-icons/io";
-import { MdMessage } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
+import { CgMenuRightAlt } from "@react-icons/all-files/cg";
+import { IoArrowBackCircle } from "@react-icons/all-files/io5";
+import { IoIosPeople } from "@react-icons/all-files/io";
+import { MdMessage } from "@react-icons/all-files/md";
+import { CgProfile } from "@react-icons/all-files/cg";
 import Link from 'next/link';
 import Sidebar from './components/Sidebar';
 

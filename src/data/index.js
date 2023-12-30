@@ -346,9 +346,153 @@ const places = [
                       }
 ]
 
+const states = [
+  {
+    name: 'Madhya Pradesh',
+    code: 'MP',
+  },
+  {
+    name: 'Uttar Pradesh',
+    code: 'UP',
+  },
+  {
+    name: 'Rajasthan',
+    code: 'RJ',
+  },
+  {
+    name: 'Himachal Pradesh',
+    code: 'HP',
+  },
+  {
+    name: 'Karnataka',
+    code: 'KA',
+  },
+  {
+    name: 'Tamil Nadu',
+    code: 'TN',
+  },
+  {
+    name: 'Maharashtra',
+    code: 'MH',
+  },
+  {
+    name: 'Gujarat',
+    code: 'GJ',
+  },
+  {
+    name: 'Punjab',
+    code: 'PB',
+  },
+  {
+    name: 'Jharkhand',
+    code: 'JH',
+  },
+  {
+    name: 'West Bengal',
+    code: 'WB',
+  },
+  {
+    name: 'Odisha',
+    code: 'OR',
+  },
+  {
+    name: 'Chhattisgarh',
+    code: 'CT',
+  },
+  {
+    name: 'Bihar',
+    code: 'BR',
+  },
+  {
+    name: 'Assam',
+    code: 'AS',
+  },
+  {
+    name: 'Jammu and Kashmir',
+    code: 'JK',
+  },
+  {
+    name: 'Haryana',
+    code: 'HR',
+  },
+  {
+    name: 'Delhi',
+    code: 'DL',
+  },
+  {
+    name: 'Kerala',
+    code: 'KL',
+  },
+  {
+    name: 'Telangana',
+    code: 'TG',
+  },
+  {
+    name: 'Andhra Pradesh',
+    code: 'AP',
+  },
+  {
+    name: 'Goa',
+    code: 'GA',
+  },
+  {
+    name: 'Tripura',
+    code: 'TR',
+  },
+  {
+    name: 'Sikkim',
+    code: 'SK',
+  },
+  {
+    name: 'Manipur',
+    code: 'MN',
+  },
+  {
+    name: 'Meghalaya',
+    code: 'ML',
+  },
+  {
+    name: 'Nagaland',
+    code: 'NL',
+  },
+  {
+    name: 'Arunachal Pradesh',
+    code: 'AR',
+  },
+  {
+    name: 'Mizoram',
+    code: 'MZ',
+  },
+  {
+    name: 'Daman and Diu',
+    code: 'DD',
+  },
+  {
+    name: 'Dadra and Nagar Haveli',
+    code: 'DN',
+  },
+  {
+    name: 'Lakshadweep',
+    code: 'LD',
+  },
+  {
+    name: 'Andaman and Nicobar Islands',
+    code: 'AN',
+  },
+  {
+    name: 'Chandigarh',
+    code: 'CH',
+  },
+  {
+    name: 'Puducherry',
+    code: 'PY',
+  }
+]
+
 export {
   ChatList,
   Chat_History,
   conversation,
-  places
+  places,
+  states
 };

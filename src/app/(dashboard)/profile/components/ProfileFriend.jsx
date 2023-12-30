@@ -15,10 +15,10 @@ import {
 // @types
 // components
 // import Iconify from "../../../../components/iconify";
-import { MdDelete } from "react-icons/md";
-import { RiEditFill } from "react-icons/ri";
-import { IoSearch } from "react-icons/io5";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import MdDelete from "@react-icons/all-files/md/MdDelete";
+import RiEditFill from "@react-icons/all-files/ri/RiEditFill";
+import IoSearch from "react-icons/io5/IoSearch";
+import BsThreeDotsVertical from "react-icons/bs/BsThreeDotsVertical";
 // import MenuPopover from "../../../../components/menu-popover";
 import { CustomTextField } from "../../../../components/custom-input";
 // import { useGetFriendsQuery } from "@/redux/services/friendApi";

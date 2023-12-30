@@ -1,7 +1,7 @@
 import React from 'react'
 import { Stack, Typography, Card, Box } from '@mui/material'
 import Image from 'next/image';
-import { CiCirclePlus } from "react-icons/ci";
+import CiCirclePlus from "@react-icons/all-files/ci/CiCirclePlus";
 
 
 const SuggestionCard = ({recommendation, onAddRecommendation}) => {

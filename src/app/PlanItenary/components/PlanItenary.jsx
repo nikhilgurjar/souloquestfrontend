@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import itenaryImg from "../../../../public/images/itenary/Rectangle 19389.png";
 import ItenaryForm from "./ItenaryForm";
-import ChatInput from "@/app/(dashboard)/chat/components/ChatInput";
 
 const PlanItenary = () => {
   return (

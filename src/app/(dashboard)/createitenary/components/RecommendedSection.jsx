@@ -3,8 +3,8 @@ import React from 'react'
 import { IconButton, Stack, Typography, useTheme } from '@mui/material'
 import SuggestionCard from './SuggestionCard';
 import Carousel from '@/components/carousel';
-import CarouselArrows from '@/components/carousel';
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import FaAngleRight from "@react-icons/all-files/fa6/FaAngleRight";
+import FaAngleLeft from "@react-icons/all-files/fa6/FaAngleLeft";
 
 const RecommendedSection = ({recommendations, onAddRecommendation}) => {
     const carouselRef = React.useRef(null);

@@ -1,34 +1,23 @@
-// @mui
-"use client";
-import { Box, Card, Container, Grid, Stack, Tab, Tabs } from "@mui/material";
+import Container from "@mui/material/Container";
 // @types
 import UserProfile from "./UserProfile";
 import ProfileCover from "./ProfileCover";
+import { auth } from "@/utils/authConfig";
 
-export default function Profile() {
 
-//   const [currentTab, setCurrentTab] = useState("profile");
-//   const TABS = [
-//     {
-//       value: "profile",
-//       label: "Profile",
-//       icon: <FaAddressCard />,
-//       component: <UserProfile info={userInfo} />,
-//     }
-//   ];
+export default async function Profile() {
+  const session = await auth();
+  const profile = session?.user;
+  console.log(profile, session)
   return (
-    <Container>
-      <Card
-        sx={{
-          mb: 3,
-          height: 280,
-          position: "relative",
-        }}
-      >
-        <ProfileCover />
-        <UserProfile />
-      </Card>
-   
+    <Container sx={{
+      height: '100%'
+    }}
+    maxWidth={'lg'}
+    >
+        <ProfileCover user={profile} />
+        <UserProfile user={profile} />
+     
     </Container>
   );
 }

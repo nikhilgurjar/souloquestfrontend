@@ -9,10 +9,10 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
-import { MdPeopleAlt } from "react-icons/md";
-import { HiOutlineEmojiHappy } from "react-icons/hi";
-import { MdOutlineAddPhotoAlternate, MdOutlineAttachFile  } from "react-icons/md";
+import { HiOutlineMagnifyingGlass } from "@react-icons/all-files/hi2";
+import { MdPeopleAlt } from "@react-icons/all-files/md";
+import { HiOutlineEmojiHappy } from "@react-icons/all-files/hi";
+import { MdOutlineAddPhotoAlternate, MdOutlineAttachFile  } from "@react-icons/all-files/md";
 
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
