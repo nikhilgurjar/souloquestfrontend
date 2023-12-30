@@ -12,20 +12,18 @@ import {
 import { LoadingButton } from "@mui/lab";
 import FormProvider, { RHFTextField } from "@/components/hook-form";
 // import Input from "@mui/joy/Input";
-import { FaEyeSlash } from "react-icons/fa";
-import { FaEye } from "react-icons/fa";
-// import Iconify from "@/components/iconify";
-// import { useRegisterMutation } from "@/redux/services/userApi";
-// import { submitErrorHandler } from "@/redux/helpers";
+import FaEyeSlash from "@react-icons/all-files/fa/FaEyeSlash";
+import FaEye from "@react-icons/all-files/fa/FaEye";
+import { toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
 // import { PATH_AUTH } from "@/utils/path";
 // import { RegisterSchema } from "@/utils/formSchemas";
 
 import { register } from "@/actions/auth";
 import { RegisterSchema } from "@/utils/formSchemas";
-import toast from "react-toastify";
 import { useDispatch } from "@/redux/store";
 import { logInUser } from "@/redux/slices/user";
+import axios from "axios";
 // import Iconify from "@/components/iconify";
 // auth
 // components
@@ -53,11 +51,18 @@ export default function AuthRegisterForm() {
   const onSubmit = async (data) => {
     try {
       const { email, password, name } = data;
-      const response = await register({ email, password, name });
-      dispatch(logInUser({user: response.user}))
-      router.push('/dashboard/profile');
+      // const response = await register({ email, password, name });
+      // dispatch(logInUser({user: response.user}))
+      // router.push('/dashboard/profile');
+      const response = await axios.post('/api/register', JSON.stringify({ email, password, name }), {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      console.log(response)
       toast.success("Successfully Registered")
     } catch (error) {
+      console.log(error);
       toast.error("Invalid Credentials");
       reset();
      

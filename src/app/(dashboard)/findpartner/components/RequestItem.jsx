@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Box, Button, Card, Container, Divider, Stack, Typography } from '@mui/material'
-import { HiOutlineCalendarDays } from "react-icons/hi2";
+import { HiOutlineCalendarDays } from "@react-icons/all-files/hi2";
 import dayjs from 'dayjs';
 import { joinaRoom } from '@/actions/partnerFinder';
 import { useRouter } from 'next/navigation';

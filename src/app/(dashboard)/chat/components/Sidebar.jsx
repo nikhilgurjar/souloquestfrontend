@@ -4,13 +4,13 @@ import { Drawer, IconButton, useTheme } from '@mui/material';
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Box, Typography, Stack, Divider } from '@mui/material';
-import { IoArrowBackCircle } from "react-icons/io5";
-
 import ChatNavSearch from './ChatNavSearch';
-import { MdPeopleAlt } from "react-icons/md";
 import ContactList from './ContactList';
 import { useDispatch } from '@/redux/store';
 import { SetCurrentConversation } from '@/redux/slices/conversation';
+
+import IoArrowBackCircle from "@react-icons/all-files/io5/IoArrowBackCircle";
+import MdPeopleAlt from "@react-icons/all-files/md/MdPeopleAlt";
 
 const NAV_WIDTH = 320;
 

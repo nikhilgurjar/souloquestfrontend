@@ -3,7 +3,7 @@ import React from 'react'
 import TravelFilterLocation from './TravelFilterLocation';
 import { Button, Divider, Stack } from '@mui/material';
 import TravelFilterTime from './TravelFilterTime';
-import { FiSearch } from "react-icons/fi";
+import FiSearch from "@react-icons/all-files/fi/FiSearch";
 import { useDispatch, useSelector } from '@/redux/store';
 import { setDepartureDate, setFetchedPartnerRequest, setLocation } from '@/redux/slices/partner';
 import { fetchPartnerRequests } from '@/actions/partnerFinder';

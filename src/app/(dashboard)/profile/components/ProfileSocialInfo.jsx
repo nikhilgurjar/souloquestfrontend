@@ -1,14 +1,12 @@
 // @mui
 import React from "react";
-import { Link, Card, CardHeader, Stack, IconButton } from "@mui/material";
-// _mock
-// @types
-// components
-// import Iconify from "../../../../../../components/iconify";
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaTwitterSquare } from "react-icons/fa";
+import { Link, Card, CardHeader, Stack, IconButton, Typography } from "@mui/material";
+
+import FaFacebook from "@react-icons/all-files/fa/FaFacebook";
+import FaInstagram from "@react-icons/all-files/fa/FaInstagram";
+import FaLinkedin from "@react-icons/all-files/fa/FaLinkedin";
+import FaTwitterSquare from "@react-icons/all-files/fa/FaTwitterSquare";
+
 const socialMediaIcons = {
   facebook: <FaFacebook />,
   instagram: <FaInstagram />,
@@ -22,15 +20,16 @@ const socialMediaColors = {
   twitter: "#00AAEC",
 };
 export default function ProfileSocialInfo({ socialLinks }) {
+  const filteredSocialLinks = Object.entries(socialLinks).filter((value) => value != undefined);
+
   return (
     <Card>
       <CardHeader title="Social" />
 
       <Stack spacing={2} sx={{ p: 3 }}>
-        {socialLinks &&
-          Object.entries(socialLinks)
-            .filter((value) => value != undefined)
-            .map(([key, value]) => (
+        {filteredSocialLinks.length!==0 ?
+         
+         (filteredSocialLinks?.map(([key, value]) => (
               <Stack
                 key={key}
                 direction="row"
@@ -51,7 +50,17 @@ export default function ProfileSocialInfo({ socialLinks }) {
                   {value}
                 </Link>
               </Stack>
-            ))}
+            ))):
+          (
+            <Stack spacing={1} direction={"row"} alignItems={"center"}>
+            <Typography variant="h6" sx={{
+              color: 'grey.700'
+            }}>
+              No Information Provided
+            </Typography>
+            </Stack>
+          )
+          }
       </Stack>
     </Card>
   );

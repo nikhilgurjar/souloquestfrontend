@@ -3,19 +3,23 @@ import * as Yup from 'yup';
 import React from 'react'
 import { useCallback, useEffect } from 'react';
 // form
-import { useForm } from 'react-hook-form';
+import useForm from 'react-hook-form/dist/useForm';
 import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
-import { Box, Grid, Card, Stack, Typography } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
-import { useSelector } from '@/redux/store';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+
+import LoadingButton from '@mui/lab/LoadingButton';
 import FormProvider from '@/components/hook-form/FormProvider';
 import { RHFUploadAvatar } from '@/components/hook-form/RHFUpload';
 import { RHFTextField, RHFSelect } from '@/components/hook-form';
+import { states } from '@/data';
 
-export default function AccountGeneral() {
-    const user = useSelector(state=>state.user.user);
-    console.log(user);
+export default function AccountGeneral({user}) {
+    
     const [profilePicFile, setProfilePicFile] = React.useState(null);
     const defaultValues = {
         name: user?.name || '',
@@ -112,12 +116,14 @@ export default function AccountGeneral() {
 
               <RHFTextField name="address" label="Address"/>
 
-              {/* <RHFSelect native name="country" label="Country" placeholder="Country">
+              <RHFSelect native name="state" label="State" placeholder="State" defaultValue={'Maharashtra'}>
                 <option value=""/>
-                {countries.map((country) => (<option key={country.code} value={country.label}>
-                    {country.label}
-                  </option>))}
-              </RHFSelect> */}
+                {states.map((country) => (
+                <option key={country.code} value={country.name} style={{ cursor: 'pointer' }}>
+                    {country.name}
+                  </option>
+                  ))}
+              </RHFSelect>
 
               <RHFTextField name="state" label="State/Region"/>
 

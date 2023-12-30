@@ -1,7 +1,7 @@
 'use client';
 import React from 'react'
 import { Accordion, AccordionSummary, AccordionDetails, Stack, Typography, Card, Box } from '@mui/material'
-import { MdOutlineNavigateNext } from "react-icons/md";
+import MdOutlineNavigateNext from "@react-icons/all-files/md/MdOutlineNavigateNext";
 import CustomAutocomplete from '@/components/custom-input/CustomAutocomplete';
 import { places } from '@/data';
 import DestinationCard from './DestinationCard';

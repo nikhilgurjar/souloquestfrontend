@@ -1,8 +1,8 @@
 import React from 'react'
-import { IoArrowBackCircle } from "react-icons/io5";
-import { IoIosPeople } from "react-icons/io";
-import { MdMessage } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
+import IoArrowBackCircle from "@react-icons/all-files/io5/IoArrowBackCircle";
+import IoIosPeople from "@react-icons/all-files/io/IoIosPeople";
+import MdMessage from "@react-icons/all-files/md/MdMessage";
+import CgProfile from "@react-icons/all-files/cg/CgProfile";
 import Link from 'next/link';
 import {  Divider, Drawer, ListItemButton, Toolbar, Typography, ClickAwayListner, Stack, ListItemIcon, ListItemText, List } from '@mui/material';
 

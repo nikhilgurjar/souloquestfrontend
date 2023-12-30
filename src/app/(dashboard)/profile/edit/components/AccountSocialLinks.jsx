@@ -1,10 +1,14 @@
 'use client';
-import { useForm } from 'react-hook-form';
-import { Stack, Card, InputAdornment } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import useForm from 'react-hook-form/dist/useForm';
+import InputAdornment from '@mui/material/InputAdornment';
+import Stack from '@mui/material/Stack';
+import Card from '@mui/material/Card';
+import LoadingButton from '@mui/lab/LoadingButton';
 import FormProvider, { RHFTextField } from '@/components/hook-form';
-import { FaInstagramSquare, FaLinkedin, FaTwitterSquare , FaFacebookSquare   } from "react-icons/fa";
-import { useSelector } from '@/redux/store';
+import FaInstagramSquare from '@react-icons/all-files/fa/FaInstagramSquare';
+import FaLinkedin from '@react-icons/all-files/fa/FaLinkedin';
+import FaTwitterSquare from '@react-icons/all-files/fa/FaTwitterSquare';
+import FaFacebookSquare from '@react-icons/all-files/fa/FaFacebookSquare';
 
 const SOCIAL_LINKS = [
     {
@@ -29,8 +33,7 @@ const SOCIAL_LINKS = [
     },
 ];
 
-export default function AccountSocialLinks() {
-    const socialLinks = useSelector(state=> state.user.user)?.socialLinks;
+export default function AccountSocialLinks({socialLinks}) {
 
     const defaultValues = {
         facebook: socialLinks?.facebook || '',

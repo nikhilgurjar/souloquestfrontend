@@ -1,11 +1,12 @@
 'use client';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { Stack, Card } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import useForm from 'react-hook-form/dist/useForm';
+import Stack from '@mui/material/Stack'
+import Card from '@mui/material/Card'
+import LoadingButton from '@mui/lab/LoadingButton';
 import FormProvider, { RHFTextField } from '@/components/hook-form';
 import { UpdatePasswordSchema } from '@/utils/formSchemas';
-import { FaCircleInfo } from "react-icons/fa6";
+import FaCircleInfo from "@react-icons/all-files/fa6/FaCircleInfo";
 
 export default function AccountChangePassword() {
    

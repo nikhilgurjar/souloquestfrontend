@@ -1,7 +1,7 @@
 'use client';
 import { InputAdornment, TextField } from '@mui/material';
 import React from 'react'
-import { CiLocationOn } from "react-icons/ci";
+import { CiLocationOn } from "@react-icons/all-files/ci";
 import Autocomplete from '@mui/material/Autocomplete';
 import { debounce } from '@mui/material/utils';
 import axios from 'axios';

@@ -4,32 +4,29 @@ import NextLink from "next/link";
 import { Stack, Typography, Link, Box, Paper } from "@mui/material";
 // layouts
 // routes
-//
-import leftArrow from "../../../public/images/arrow-left.png";
+import FaArrowLeftLong from "@react-icons/all-files/fa6/FaArrowLeftLong";
 import AuthRegisterForm from "./components/AuthRegisterForm";
 import AuthWithSocial from "./components/AuthWithSocial";
 import Image from "next/image";
-// import AuthWithSocial from "./AuthWithSocial";
-// import { PATH_AUTH } from "@/utils/path";
+
 // ----------------------------------------------------------------------
 export default function Register() {
   return (
     <>
-      <div
-        className="flex justify-between items-center px-4 sm:flex-row flex-col gap-y-5"
+      <Stack justifyContent={'space-between'} alignItems={'flex-start'} px={4} mb={2} sx={{
+       width: '100%',
+        gap: 1
+      }}
+        // className="flex justify-between items-center px-4 sm:flex-row flex-col gap-y-5"
       >
         <Link sx={{ cursor: "pointer" }} href="/">
-          <Image
-            src={leftArrow}
-            w={20}
-            h={20}
-            alt="arrow"
-            className="sm:block hidden"
-          />
           <h3 className="sm:hidden block font-semibold text-[#008080] text-xl">
             Souloquest
           </h3>
         </Link>
+        
+        <Stack direction='row' justifyContent={'space-between'} sx={{width: '100%'}}>
+        <FaArrowLeftLong className="sm:block hidden" size={20}/>
         <Typography variant="body1" fontWeight={400} >
           Already have an account?&nbsp;
           <Link
@@ -43,7 +40,9 @@ export default function Register() {
             Sign in
           </Link>
         </Typography>
-      </div>
+        </Stack>
+        
+      </Stack>
       <Box sx={{ maxWidth: "420px", margin: "auto auto" }}>
         <Stack direction="column">
           <Typography
