@@ -2,7 +2,7 @@
 import React from 'react'
 import { MobileDatePicker } from '@mui/x-date-pickers';
 import { InputAdornment, InputBase } from '@mui/material';
-import HiOutlineCalendarDays from "@react-icons/all-files/hi2/HiOutlineCalendarDays";
+import {HiOutlineCalendarDays} from "@react-icons/hi2";
 import { useDispatch, useSelector } from '@/redux/store';
 import { setDepartureDate } from '@/redux/slices/partner';
 import dayjs from 'dayjs';

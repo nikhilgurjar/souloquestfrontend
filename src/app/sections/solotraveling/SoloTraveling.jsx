@@ -1,9 +1,8 @@
-"use client";
 import { Box, Container, Grid, Typography, IconButton } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import solotravelImg from "@/../public/images/soloTravelImg.png";
-import CgArrowRight from "@react-icons/all-files/cg/CgArrowRight";
+import { CgArrowRight } from "react-icons/cg";
 import SouloHistory from "../SouloHistory/SouloHistory";
 const SoloTraveling = () => {
   return (

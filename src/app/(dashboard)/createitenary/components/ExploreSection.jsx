@@ -1,8 +1,8 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import { Accordion, AccordionDetails, AccordionSummary, Button, Stack,  Typography } from '@mui/material'
-import FiSearch from "@react-icons/all-files/fi/FiSearch";
-import MdOutlineNavigateNext from "@react-icons/all-files/md/MdOutlineNavigateNext";
+import {FiSearch} from "react-icons/fi";
+import {MdOutlineNavigateNext} from "react-icons/md";
 import ExploreItem from './ExploreItem';
 
 const ExploreSection = () => {

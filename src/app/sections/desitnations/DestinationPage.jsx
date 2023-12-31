@@ -1,4 +1,3 @@
-"use client"
 import Destination from "./components/Destination";
 
 const DestinationPage = () => {

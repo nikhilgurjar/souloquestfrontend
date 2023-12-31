@@ -12,8 +12,7 @@ import {
 import { LoadingButton } from "@mui/lab";
 import FormProvider, { RHFTextField } from "@/components/hook-form";
 // import Input from "@mui/joy/Input";
-import FaEyeSlash from "@react-icons/all-files/fa/FaEyeSlash";
-import FaEye from "@react-icons/all-files/fa/FaEye";
+import {FaEyeSlash, FaEye} from "react-icons/fa";
 import { toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
 // import { PATH_AUTH } from "@/utils/path";
