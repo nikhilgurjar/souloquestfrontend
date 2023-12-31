@@ -5,10 +5,7 @@ import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
 import LoadingButton from '@mui/lab/LoadingButton';
 import FormProvider, { RHFTextField } from '@/components/hook-form';
-import FaInstagramSquare from '@react-icons/all-files/fa/FaInstagramSquare';
-import FaLinkedin from '@react-icons/all-files/fa/FaLinkedin';
-import FaTwitterSquare from '@react-icons/all-files/fa/FaTwitterSquare';
-import FaFacebookSquare from '@react-icons/all-files/fa/FaFacebookSquare';
+import {FaInstagramSquare, FaLinkedin, FaTwitterSquare,FaFacebookSquare } from '@react-icons/fa';
 
 const SOCIAL_LINKS = [
     {

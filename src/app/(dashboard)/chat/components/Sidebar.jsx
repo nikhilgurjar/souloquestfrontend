@@ -9,8 +9,8 @@ import ContactList from './ContactList';
 import { useDispatch } from '@/redux/store';
 import { SetCurrentConversation } from '@/redux/slices/conversation';
 
-import IoArrowBackCircle from "@react-icons/all-files/io5/IoArrowBackCircle";
-import MdPeopleAlt from "@react-icons/all-files/md/MdPeopleAlt";
+import {IoArrowBackCircle} from "react-icons/io5";
+import {MdPeopleAlt} from "react-icons/md";
 
 const NAV_WIDTH = 320;
 

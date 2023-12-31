@@ -6,7 +6,7 @@ import Card from '@mui/material/Card'
 import LoadingButton from '@mui/lab/LoadingButton';
 import FormProvider, { RHFTextField } from '@/components/hook-form';
 import { UpdatePasswordSchema } from '@/utils/formSchemas';
-import FaCircleInfo from "@react-icons/all-files/fa6/FaCircleInfo";
+import {FaCircleInfo} from "react-icons/fa6";
 
 export default function AccountChangePassword() {
    

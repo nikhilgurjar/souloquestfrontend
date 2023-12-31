@@ -2,7 +2,7 @@
 import React from 'react'
 import { ClickAwayListener, InputAdornment } from '@mui/material';
 import { CustomTextField } from '@/components/custom-input';
-import HiOutlineMagnifyingGlass from "@react-icons/all-files/hi2/HiOutlineMagnifyingGlass";
+import {HiOutlineMagnifyingGlass} from "react-icons/hi2";
 
 const ChatNavSearch = ({ value, onChange, onClickAway }) => {
   return (

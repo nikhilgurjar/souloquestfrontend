@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 //
 import AvatarPreview from "./preview/AvatarPreview";
-import { MdOutlineImage } from "@react-icons/all-files/md";
+import { MdOutlineImage } from "react-icons/md";
 
 // ----------------------------------------------------------------------
 

@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { alpha } from '@mui/material/styles';
 import { Stack, IconButton } from '@mui/material';
 // components
-import { HiOutlinePlus, HiOutlineMinus } from "@@react-icons/all-files/all-files/hi2";
+import { HiOutlinePlus, HiOutlineMinus } from "react-icons/hi2";
 
 const IncrementerButton = forwardRef(({ quantity, onIncrease, onDecrease, disabledIncrease, disabledDecrease, sx, ...other }, ref) => (<Stack ref={ref} flexShrink={0} direction="row" alignItems="center" justifyContent="space-between" sx={{
         mb: 0.5,

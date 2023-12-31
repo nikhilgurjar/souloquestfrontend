@@ -2,7 +2,7 @@
 import React from 'react'
 import { MobileDatePicker } from '@mui/x-date-pickers';
 import { InputAdornment, InputBase } from '@mui/material';
-import {HiOutlineCalendarDays} from "@react-icons/hi2";
+import {HiOutlineCalendarDays} from "react-icons/hi2";
 import { useDispatch, useSelector } from '@/redux/store';
 import { setDepartureDate } from '@/redux/slices/partner';
 import dayjs from 'dayjs';
@@ -12,7 +12,7 @@ const TravelFilterTime = ({departureDate, handleChangeDepartureDay}) => {
 
   return (
     <MobileDatePicker
-    value={dayjs(departureDate)}
+    value={departureDate!=null ? dayjs(departureDate): null}
     onChange={handleChangeDepartureDay}
     disablePast
     view='day'
@@ -44,7 +44,6 @@ const TravelFilterTime = ({departureDate, handleChangeDepartureDay}) => {
         />
       ),
     }}
-    
   />
   )
 }
