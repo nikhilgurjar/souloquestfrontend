@@ -1,10 +1,12 @@
 "use client";
-import { useMemo, useState,useEffect } from "react";
+import { useMemo, useState, useEffect } from "react";
 // next
+import { useRouter } from "next/navigation";
 import NextLink from "next/link";
 // form
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { LoginSchema } from "@/utils/formSchemas";
 // @mui
 import {
   Link,
@@ -18,32 +20,28 @@ import {
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import FormProvider, { RHFTextField } from "@/components/hook-form";
-import { useSession } from 'next-auth/react'
+import { useSession ,signIn} from "next-auth/react";
 
-import { useRouter } from "next/navigation";
 import FcGoogle from "@react-icons/all-files/fc/FcGoogle";
 import FaEye from "@react-icons/all-files/fa/FaEye";
 import FaEyeSlash from "@react-icons/all-files/fa/FaEyeSlash";
-import { LoginSchema } from "@/utils/formSchemas";
 import { toast } from "react-toastify";
 import { useDispatch } from "@/redux/store";
 import { logInUser } from "@/redux/slices/user";
-import { signIn } from "next-auth/react";
 
 // ----------------------------------------------------------------------
 export default function AuthLoginForm() {
   const router = useRouter();
-  const dispatch = useDispatch()
-  const { data: session, status, update } = useSession()
+  const dispatch = useDispatch();
+  const { data: session, status, update } = useSession();
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-    if(status==='authenticated') {
-      dispatch(logInUser({user: session.user}))
-      router.push('/profile')
+    if (status === "authenticated") {
+      dispatch(logInUser({ user: session.user }));
+      router.push("/profile");
     }
-  }, [])
-  
+  }, []);
 
   const defaultValues = {
     email: "demo@minimals.cc",
@@ -67,15 +65,17 @@ export default function AuthLoginForm() {
       const res = await signIn("credentials", {
         email,
         password,
-        redirect: false
+        redirect: false,
       });
-      console.log(res);
-     //  dispatch(logInUser({user: res.user}))
-      toast.success("Login Successfully")
+      // console.log(res);
+      //  dispatch(logInUser({user: res.user}))
+      toast.success("Login Successfully");
       router.push("/profile");
     } catch (error) {
-      console.log(error)
-      toast.error(error || error.error || error.message || 'Something went wrong')
+      console.log(error);
+      toast.error(
+        error || error.error || error.message || "Something went wrong"
+      );
       reset();
       // const message = submitErrorHandler(error);
       setError("afterSubmit", {
@@ -90,7 +90,7 @@ export default function AuthLoginForm() {
   //   );
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-      <Stack spacing={4} sx={{gap: '15px'}}>
+      <Stack spacing={4} sx={{ gap: "15px" }}>
         {/* {!!submitError?.message && (
           <Alert severity="error">{submitError.message}</Alert>
         )} */}
@@ -114,7 +114,6 @@ export default function AuthLoginForm() {
                 </IconButton>
               </InputAdornment>
             ),
-        
           }}
         />
       </Stack>
@@ -127,7 +126,7 @@ export default function AuthLoginForm() {
         variant="contained"
         loading={isSubmitting || isSubmitSuccessful}
         sx={{
-          backgroundColor:"#008080",
+          backgroundColor: "primary.main",
           // bgcolor: "#008080",
           color: "common.white",
           "&:hover": {
@@ -146,10 +145,10 @@ export default function AuthLoginForm() {
           //   href={PATH_AUTH.resetPassword}
           href={"/register"}
           variant="body2"
-          color="#008080"
+          color="primary.main"
           underline="always"
           fontWeight={500}
-          sx={{ cursor: "pointer", textDecoration: "underline #008080" }}
+          sx={{ cursor: "pointer", textDecoration: "underline primary.main" }}
         >
           Forgot password?
         </Link>

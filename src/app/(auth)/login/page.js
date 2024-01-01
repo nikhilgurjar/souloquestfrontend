@@ -1,10 +1,9 @@
 import React from "react";
 import AuthLoginForm from "./components/AuthLoginForm";
-import { Box, Link, Paper, Stack, Typography } from "@mui/material";
-import Image from "next/image";
+import { Box, Link, Typography } from "@mui/material";
 import NextLink from "next/link";
 // import leftArrow from "../../../public/images/arrow-left.png";
-const page = () => {
+const LoginPage = () => {
   return (
     <>
       <div
@@ -55,4 +54,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginPage;

@@ -1,7 +1,7 @@
-"use client"
-import { useState, useEffect } from 'react';
+"use client";
+import { useState, useEffect } from "react";
 // @mui
-import { List, Drawer, IconButton, Button, Stack } from '@mui/material';
+import { List, Drawer, IconButton, Button, Stack } from "@mui/material";
 
 // config
 // import { NAV } from 'src/config-global';
@@ -11,15 +11,16 @@ import { List, Drawer, IconButton, Button, Stack } from '@mui/material';
 // import Scrollbar from 'src/components/scrollbar';
 //
 // import { NavProps } from '../types';
-import NavList from './NavList';
+import NavList from "./NavList";
 import RxHamburgerMenu from "@react-icons/all-files/rx/RxHamburgerMenu";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 // ----------------------------------------------------------------------
 
 export default function NavMobile({ data }) {
-  const pathname=usePathname()
-
+  const pathname = usePathname();
+  const session = useSession();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export default function NavMobile({ data }) {
     <>
       <IconButton onClick={handleOpen} sx={{ ml: 1, color: "inherit" }}>
         {/* <Iconify icon="carbon:menu" /> */}
-        <RxHamburgerMenu/>
+        <RxHamburgerMenu />
       </IconButton>
 
       <Drawer
@@ -64,9 +65,20 @@ export default function NavMobile({ data }) {
         </List>
 
         <Stack spacing={1.5} sx={{ p: 3 }}>
-          <Button fullWidth variant="contained" color="inherit">
-            Buy Now
-          </Button>
+          {session.status === "authenticated" ? (
+            <>
+              <Button fullWidth variant="contained" color="inherit">
+                Login
+              </Button>
+              <Button fullWidth variant="contained" color="inherit">
+                Register
+              </Button>
+            </>
+          ) : (
+            <Button fullWidth variant="contained" color="inherit">
+              Logout
+            </Button>
+          )}
         </Stack>
         {/* </Scrollbar> */}
       </Drawer>
