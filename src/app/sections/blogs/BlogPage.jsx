@@ -65,6 +65,7 @@ const BlogPage = () => {
             title={item.title}
             imgUrl={item.imgUrl}
             content={getTruncatedContent(item.content, maxLength)}
+            blogUrl={item.blogUrl}
           />
         ))}
       </Box>

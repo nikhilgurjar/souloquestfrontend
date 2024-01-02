@@ -35,7 +35,7 @@ const FooterPage = () => {
       </Typography>
       <Box sx={{ display: "flex", alignItems: "center", mt: 3 }}>
         <IconButton href="/" sx={{ color: "#fff" }}>
-          <FaFacebookF />
+          <FaFacebookF /> 
         </IconButton>
         <IconButton sx={{ color: "#fff" }}>
           <FaTwitter />

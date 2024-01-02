@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import Header from "./nav-section/header/Header";
 import dynamic from 'next/dynamic'
 import DestinationPage from "./sections/desitnations/DestinationPage";
 import FooterPage from "./sections/footer/FooterPage";
@@ -15,7 +14,7 @@ import LandingHero from "./sections/home/LandingHero";
 const page = () => {
   return (
     <>
-      <Header />
+
       <LandingHero />
       <DestinationPage />
       <Suspense fallback={<div>Loading...</div>}>

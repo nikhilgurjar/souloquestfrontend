@@ -1,10 +1,11 @@
-import { Box, Button, Card, Typography } from "@mui/material";
+import { Box, Button, Card, Link, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+import NextLink from "next/link";
 
-const BlogCard = ({ title, imgUrl, content,blogUrl }) => {
+const BlogCard = ({ title, imgUrl, content, blogUrl }) => {
   return (
-    <Card sx={{width:"300px"}}>
+    <Card sx={{ width: "300px"}}>
       <Image width={300} height={250} src={imgUrl} alt={title}></Image>
       <Box px={2}>
         <Typography variant="h5" component={"h5"} py={1}>
@@ -17,13 +18,25 @@ const BlogCard = ({ title, imgUrl, content,blogUrl }) => {
         >
           {content}
         </Typography>
-        <Button
+        <Link
           variant="text"
           href={blogUrl}
-          sx={{ color: "#008080", fontWeight: "500", py: 2 }}
+          component={NextLink}
+          underline="none"
+          sx={{
+            color: "#008080",
+            fontWeight: "600",
+            textAlign: "left",
+            textDecoration: "none",
+            display:"block",
+            py:2,
+            "&:hover": {
+              opacity: 0.8, // Change opacity on hover
+            },
+          }}
         >
           Read More
-        </Button>
+        </Link>
       </Box>
     </Card>
   );

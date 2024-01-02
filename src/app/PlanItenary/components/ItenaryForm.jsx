@@ -1,5 +1,6 @@
 "use client";
 import { DatePicker } from "@mui/lab";
+import { Autocomplete } from "@mui/material";
 import {
   Box,
   Button,
@@ -10,14 +11,25 @@ import {
   InputBase,
   InputLabel,
   Stack,
+  TextField,
   Typography,
 } from "@mui/material";
 import { MobileDatePicker } from "@mui/x-date-pickers";
-import React from "react";
-import {HiOutlineCalendarDays} from "react-icons/hi2";
+import React, { useState } from "react";
+import { HiOutlineCalendarDays } from "react-icons/hi2";
 import NextLink from "next/link";
+import AutoComplete from "./AutoComplete";
 const ItenaryForm = () => {
-  const [destination, setDestination] = React.useState("");
+  const [destination, setDestination] = React.useState([
+    { name: "Moreshwer Ganesh Mandir Temple" },
+    { name: "Joshi's Museum of Miniature Railways" },
+  ]);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = async (query) => {
+    const suggestions = await AutoComplete(query);
+    setDestination(suggestions);
+  };
 
   return (
     <Box
@@ -27,12 +39,12 @@ const ItenaryForm = () => {
         mt: "100px",
         borderRadius: "none",
         boxShadow: "0px 4px 4px 0px #00000040",
-        py:10,
-        px:10,
-        minWidth:"400px"
+        py: 10,
+        px: 10,
+        minWidth: "400px",
       }}
     >
-      <Typography variant="h4" component={"h4"} fontWeight={500}  pb={6}>
+      <Typography variant="h4" component={"h4"} fontWeight={500} pb={6}>
         Plan Your Itenary
       </Typography>
       <Box>
@@ -41,7 +53,7 @@ const ItenaryForm = () => {
         >
           Where to?
         </InputLabel>
-        <InputBase
+        {/* <InputBase
           value={destination}
           onChange={(event) => setDestination(event.target.value)}
           placeholder="Your dream destination e.g. Paris, Indonesia,Japan "
@@ -55,6 +67,16 @@ const ItenaryForm = () => {
             border: "1px solid #A5A0A0",
             borderRadius: "8px",
           }}
+        /> */}
+        <Autocomplete
+          options={destination}
+          value={inputValue}
+          // onChange={(e) => setInputValue(e.target.value)}
+          getOptionLabel={(destination) => destination.name} // Adjust this based on your API response structure
+          renderInput={(params) => (
+            <TextField {...params} label="Search" variant="outlined" />
+          )}
+          // onInputChange={(e) => handleInputChange(e.target.value)}
         />
         <InputLabel
           sx={{ fontWeight: "500", py: 2, color: "initial", fontWeight: "600" }}
@@ -144,7 +166,11 @@ const ItenaryForm = () => {
         >
           Need tripmates?
         </Typography>
-        <Button variant="contained" size="large" sx={{mt:5,px:5,textTransform:"lowercase"}}>
+        <Button
+          variant="contained"
+          size="large"
+          sx={{ mt: 5, px: 5, textTransform: "lowercase" }}
+        >
           Let’s go
         </Button>
       </Box>

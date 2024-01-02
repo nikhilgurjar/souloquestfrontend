@@ -1,13 +1,13 @@
 // @mui
-import { Link, ListItemText, ListItemIcon } from '@mui/material';
+import { Link, ListItemText, ListItemIcon } from "@mui/material";
 // components
 // import Iconify from 'src/components/iconify';
 //
-import { StyledNavItem } from './styles';
+import { StyledNavItem } from "./styles";
 import NextLink from "next/link";
 // ----------------------------------------------------------------------
 
-export default function NavItem({ item, open, active, isExternalLink, ...other }) {
+export default function NavItem({ item, open, active, ...other }) {
   const { title, path, icon, children } = item;
 
   const renderContent = (
@@ -15,31 +15,14 @@ export default function NavItem({ item, open, active, isExternalLink, ...other }
       <ListItemIcon> {icon} </ListItemIcon>
 
       <ListItemText disableTypography primary={title} />
-
-      {/* {!!children && (
-        <Iconify
-          width={16}
-          icon={open ? 'carbon:chevron-down' : 'carbon:chevron-right'}
-          sx={{ ml: 1 }}
-        />
-      )} */}
     </StyledNavItem>
   );
-
-  // ExternalLink
-  // if (isExternalLink) {
-  //   return (
-  //     <Link href={path} target="_blank" rel="noopener" underline="none">
-  //       {renderContent}
-  //     </Link>
-  //   );
-  // }
 
   // Has child
   if (children) {
     return renderContent;
   }
-
+console.log(path);
   // Default
   return (
     <Link component={NextLink} href={path} underline="none">

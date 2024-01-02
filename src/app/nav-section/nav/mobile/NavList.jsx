@@ -14,29 +14,12 @@ import { usePathname } from "next/navigation";
 // ----------------------------------------------------------------------
 
 export default function NavList({ item }) {
- const pathname = usePathname();
-
-  const { path, children } = item;
-
-  // const { isExternalLink } = useActiveLink(path);
-
-  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const { path } = item;
 
   return (
     <>
-      <NavItem
-        item={item}
-        open={open}
-        onClick={() => setOpen(!open)}
-        active={pathname === path}
-        // isExternalLink={isExternalLink}
-      />
-
-      {!!children && (
-        <Collapse in={open} unmountOnExit>
-          {/* <NavSectionVertical data={children} /> */}
-        </Collapse>
-      )}
+      <NavItem item={item} open={open} active={pathname === path} />
     </>
   );
 }

@@ -7,6 +7,6 @@ export const navConfig = [
     title: "Destinations",
     path: "/destinations",
   },
-  { title: "Tours", path: "tours" },
+  { title: "Tours", path: "/tours" },
   { title: "Blogs", path: "/blogs" },
 ];

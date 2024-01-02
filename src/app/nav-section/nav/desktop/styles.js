@@ -6,9 +6,8 @@ import { Paper, ListSubheader, ListItemButton } from "@mui/material";
 // ----------------------------------------------------------------------
 
 export const StyledNavItem = styled(ListItemButton, {
-  shouldForwardProp: (prop) =>
-    prop !== "active" && prop !== "open" && prop !== "subItem",
-})(({ active, open, subItem, theme }) => {
+  shouldForwardProp: (prop) => prop !== "active",
+})(({ active, theme }) => {
   const dotActiveStyle = {
     content: '""',
     borderRadius: "50%",
@@ -23,40 +22,21 @@ export const StyledNavItem = styled(ListItemButton, {
     ...theme.typography.body2,
     padding: 0,
     height: "100%",
-    fontWeight:500,
+    fontWeight: 500,
     transition: theme.transitions.create("opacity", {
       duration: theme.transitions.duration.shorter,
     }),
     "&:hover": {
       // opacity: 0.8,
-      color:"#008080",
+      color: "#008080",
       backgroundColor: "transparent",
       "&::before": dotActiveStyle,
     },
-    // Sub item
-    ...(subItem && {
-      ...theme.typography.body2,
-      color: theme.palette.text.secondary,
-    }),
+
     // Active
     ...(active && {
-      color: theme.palette.text.primary,
+      color: theme.palette.primary.main,
       fontWeight: theme.typography.fontWeightSemiBold,
-      "&::before": dotActiveStyle,
-    }),
-    // Active sub item
-    ...(active &&
-      subItem && {
-        color: theme.palette.text.primary,
-        fontWeight: theme.typography.fontWeightSemiBold,
-        "&::before": {
-          ...dotActiveStyle,
-          color: theme.palette.primary.main,
-        },
-      }),
-    // Open
-    ...(open && {
-      opacity: 0.48,
       "&::before": dotActiveStyle,
     }),
   };
