@@ -12,7 +12,7 @@ import { List, Drawer, IconButton, Button, Stack } from "@mui/material";
 //
 // import { NavProps } from '../types';
 import NavList from "./NavList";
-import RxHamburgerMenu from "@react-icons/all-files/rx/RxHamburgerMenu";
+// import RxHamburgerMenu from "@react-icons/all-files/rx/RxHamburgerMenu";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 
@@ -42,7 +42,7 @@ export default function NavMobile({ data }) {
     <>
       <IconButton onClick={handleOpen} sx={{ ml: 1, color: "inherit" }}>
         {/* <Iconify icon="carbon:menu" /> */}
-        <RxHamburgerMenu />
+       {/*  <RxHamburgerMenu /> */}
       </IconButton>
 
       <Drawer
