@@ -1,10 +1,11 @@
 import React from 'react'
-import IoArrowBackCircle from "@react-icons/all-files/io5/IoArrowBackCircle";
-import IoIosPeople from "@react-icons/all-files/io/IoIosPeople";
-import MdMessage from "@react-icons/all-files/md/MdMessage";
-import CgProfile from "@react-icons/all-files/cg/CgProfile";
+import {IoArrowBackCircle} from "react-icons/io5";
+import {IoIosPeople} from "react-icons/io";
+import {MdMessage} from "react-icons/md";
+import {CgProfile} from "react-icons/cg";
 import Link from 'next/link';
 import {  Divider, Drawer, ListItemButton, Toolbar, Typography, ClickAwayListner, Stack, ListItemIcon, ListItemText, List } from '@mui/material';
+import SignOutButton from './SignOutButton';
 
 
 const NavListItems =  [
@@ -66,7 +67,6 @@ const SideNavList = () =>{
   )
 }
 
-
 const Sidebar = ({open, handleDrawerClose}) => {
   
   return (
@@ -97,6 +97,7 @@ const Sidebar = ({open, handleDrawerClose}) => {
     <Divider/>
     <List>
    <SideNavList/>
+   <SignOutButton />
     </List>
     
     </Drawer>

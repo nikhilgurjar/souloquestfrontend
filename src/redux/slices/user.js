@@ -35,7 +35,8 @@ export const logInUser = ({ user }) =>{
 }
 
 export const {
-    logOut
+    logOut,
+    setUser
 } = slice.actions;
 
 export default slice.reducer;

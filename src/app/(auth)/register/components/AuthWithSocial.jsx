@@ -1,7 +1,7 @@
 // @mui
 "use client";
 // import { useGlobalContext } from "@/app/Context/store";
-import FcGoogle from "@react-icons/all-files/fc/FcGoogle";
+import {FcGoogle} from "react-icons/fc";
 import { Button, Divider, Stack, Typography } from "@mui/material";
 
 // auth

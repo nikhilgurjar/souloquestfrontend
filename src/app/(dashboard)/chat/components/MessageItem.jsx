@@ -1,7 +1,7 @@
 'use client';
 import React from 'react'
 import { useTheme, Stack, Typography, Avatar,  } from '@mui/material';
-import Image from '@/components/Image';
+import Image from '@/components/image';
 const MessageItem = ({ message, participants, onOpenLightbox }) => {
     const sender = participants.find((participant) => participant.id === message.senderId);
     const senderDetails = message.senderId === 'user2'

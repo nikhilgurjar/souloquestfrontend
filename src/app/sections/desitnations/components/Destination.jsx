@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef } from "react";
 import {
   Box,
@@ -8,8 +9,7 @@ import {
 import Card from "./DestinationCard";
 import Slider from "react-slick";
 
-import MdChevronLeft from "@react-icons/all-files/md/MdChevronLeft";
-import MdChevronRight from "@react-icons/all-files/md/MdChevronRight";
+import {MdChevronLeft, MdChevronRight} from "react-icons/md";
 const Destination = () => {
   const slideRef = useRef(null);
   const handleNext = () => {

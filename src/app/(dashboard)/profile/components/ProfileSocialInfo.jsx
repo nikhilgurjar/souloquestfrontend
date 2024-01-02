@@ -2,10 +2,8 @@
 import React from "react";
 import { Link, Card, CardHeader, Stack, IconButton, Typography } from "@mui/material";
 
-import FaFacebook from "@react-icons/all-files/fa/FaFacebook";
-import FaInstagram from "@react-icons/all-files/fa/FaInstagram";
-import FaLinkedin from "@react-icons/all-files/fa/FaLinkedin";
-import FaTwitterSquare from "@react-icons/all-files/fa/FaTwitterSquare";
+import {FaFacebook, FaInstagram, FaLinkedin, FaTwitterSquare} from "react-icons/fa";
+
 
 const socialMediaIcons = {
   facebook: <FaFacebook />,

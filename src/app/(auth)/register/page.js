@@ -4,7 +4,7 @@ import NextLink from "next/link";
 import { Stack, Typography, Link, Box, Paper } from "@mui/material";
 // layouts
 // routes
-import FaArrowLeftLong from "@react-icons/all-files/fa6/FaArrowLeftLong";
+import {FaArrowLeftLong} from "react-icons/fa6";
 import AuthRegisterForm from "./components/AuthRegisterForm";
 import AuthWithSocial from "./components/AuthWithSocial";
 import Image from "next/image";

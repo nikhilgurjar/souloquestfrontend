@@ -1,14 +1,16 @@
 'use client';
-import useForm from 'react-hook-form/dist/useForm';
+import {useForm} from 'react-hook-form';
 import InputAdornment from '@mui/material/InputAdornment';
 import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
 import LoadingButton from '@mui/lab/LoadingButton';
 import FormProvider, { RHFTextField } from '@/components/hook-form';
-import FaInstagramSquare from '@react-icons/all-files/fa/FaInstagramSquare';
-import FaLinkedin from '@react-icons/all-files/fa/FaLinkedin';
-import FaTwitterSquare from '@react-icons/all-files/fa/FaTwitterSquare';
-import FaFacebookSquare from '@react-icons/all-files/fa/FaFacebookSquare';
+import {FaInstagramSquare, FaLinkedin, FaTwitterSquare,FaFacebookSquare } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import { updateSocialLinks } from '@/actions/auth';
+import { revalidatePath } from 'next/cache';
+import { useDispatch } from '@/redux/store';
+import { setUser } from '@/redux/slices/user';
 
 const SOCIAL_LINKS = [
     {
@@ -34,7 +36,7 @@ const SOCIAL_LINKS = [
 ];
 
 export default function AccountSocialLinks({socialLinks}) {
-
+    const dispatch = useDispatch()
     const defaultValues = {
         facebook: socialLinks?.facebook || '',
         instagram: socialLinks?.instagram || '',
@@ -46,15 +48,26 @@ export default function AccountSocialLinks({socialLinks}) {
         defaultValues,
     });
     
-    const { handleSubmit, formState: { isSubmitting }, } = methods;
+    const { handleSubmit,setError, formState: { isSubmitting }, } = methods;
     
     const onSubmit = async (data) => {
         try {
-            // reset();
-          
-            console.log('DATA', data);
+            const response = await updateSocialLinks({
+                facebook: data.facebook,
+                instagram: data.instagram,
+                linkedin: data.linkedin,
+                twitter: data.twitter
+            });
+            dispatch(setUser({user: response?.user}))
+            toast.success('Social links updated successfully');
+            revalidatePath("/");
         }
         catch (error) {
+            toast.error(error?.error || error?.message || 'Something went wrong');
+            setError('afterSubmit',{
+                ...error,
+                message: error?.error || error?.message || 'Something went wrong',
+            })
             console.error(error);
         }
     };

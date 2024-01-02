@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Stack, Typography, Grid, Divider } from '@mui/material'
-import CiLocationOn from "@react-icons/all-files/ci/CiLocationOn";
-import RiDeleteBinLine from "@react-icons/all-files/ri/RiDeleteBinLine";
+import {CiLocationOn} from "react-icons/ci";
+import {RiDeleteBinLine} from "react-icons/ri";
 
 const DestinationCard = ({destination, onRemove}) => {
   console.log(destination)

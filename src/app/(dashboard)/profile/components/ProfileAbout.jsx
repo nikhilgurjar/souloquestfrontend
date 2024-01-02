@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, CardHeader, IconButton, Stack, Typography } from "@mui/material";
-import FaLocationPin from "@@react-icons/all-files/all-files/fa6/FaLocationPin";
-import MdEmail from "@react-icons/all-files/md/MdEmail"
-import IoSchool from "@react-icons/all-files/io5/IoSchool";
-import FaBuildingUser from "@react-icons/all-files/fa6/FaBuildingUser";
+import {FaLocationPin} from "react-icons/fa6";
+import {MdEmail} from "react-icons/md"
+import {IoSchool} from "react-icons/io5";
+import {FaBuildingUser} from "react-icons/fa6";
 const ProfileAbout = ({
   about,
   country,

@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import React from 'react'
 import { useCallback, useEffect } from 'react';
 // form
-import useForm from 'react-hook-form/dist/useForm';
+import {useForm} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
 import Box from '@mui/material/Box';
@@ -17,6 +17,8 @@ import FormProvider from '@/components/hook-form/FormProvider';
 import { RHFUploadAvatar } from '@/components/hook-form/RHFUpload';
 import { RHFTextField, RHFSelect } from '@/components/hook-form';
 import { states } from '@/data';
+import { updateProfile } from '@/actions/auth';
+import { toast } from 'react-toastify';
 
 export default function AccountGeneral({user}) {
     
@@ -37,8 +39,7 @@ export default function AccountGeneral({user}) {
         name: Yup.string().required('Name is required'),
         email: Yup.string().required('Email is required').email('Email must be a valid email address'),
         profilePic: Yup.string(),
-        phoneNumber: Yup.string().required('Phone number is required'),
-        country: Yup.string().required('Country is required'),
+        phoneNumber: Yup.string(),
         state: Yup.string().required('State is required'),
         city: Yup.string().required('City is required'),
         company: Yup.object(),
@@ -54,14 +55,27 @@ export default function AccountGeneral({user}) {
 
     const onSubmit = async (data) => {
         try {
+          await updateProfile({
+            name: data.name,
+            email: data.email,
+            profilePic: data.profilePic,
+            phoneNumber: data.phoneNumber,
+            country: data.country,
+            state: data.state,
+            city: data.city,
+            about: data.about
+          });
 
+          toast.success('Profile updated successfully');
           console.log('DATA', data);
         }
         catch (error) {
+          console.log(error)
             reset();
+            toast.error(error?.error || error?.message || 'Something went wrong');
             setError('afterSubmit', {
                 ...error,
-                message: message?.message || error.message,
+                message: error?.error || error?.message || 'Something went wrong',
             });
         }
     };
@@ -125,11 +139,7 @@ export default function AccountGeneral({user}) {
                   ))}
               </RHFSelect>
 
-              <RHFTextField name="state" label="State/Region"/>
-
               <RHFTextField name="city" label="City"/>
-
-              <RHFTextField name="zipCode" label="Zip/Code"/>
             </Box>
             <RHFTextField name="about" multiline rows={4} label="About"/>
             <Stack spacing={3} alignItems="flex-end" sx={{ mt: 3 }}>

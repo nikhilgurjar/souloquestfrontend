@@ -11,10 +11,10 @@ import { List, Drawer, IconButton, Button, Stack } from "@mui/material";
 // import Scrollbar from 'src/components/scrollbar';
 //
 // import { NavProps } from '../types';
-import NavList from "./NavList";
-// import RxHamburgerMenu from "@react-icons/all-files/rx/RxHamburgerMenu";
-import { usePathname } from "next/navigation";
-import { useSession } from "next-auth/react";
+
+import NavList from './NavList';
+import {RxHamburgerMenu} from "react-icons/rx";
+import { usePathname } from 'next/navigation';
 
 // ----------------------------------------------------------------------
 

@@ -6,10 +6,9 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from '@/utils/firebaseConfig';
 import { toast } from 'react-toastify';
 // Icons import
-import BsSendFill from "@react-icons/all-files/bs/BsSendFill";
-import MdOutlineAddPhotoAlternate from "@react-icons/all-files/md/MdOutlineAddPhotoAlternate";
-import MdOutlineAddPhotoAlternate from "@react-icons/all-files/md/MdOutlineAddPhotoAlternate";
-import HiOutlineEmojiHappy from "@react-icons/all-files/hi/HiOutlineEmojiHappy";
+import {BsSendFill} from "react-icons/bs";
+import {MdOutlineAddPhotoAlternate} from "react-icons/md";
+import {HiOutlineEmojiHappy} from "react-icons/hi";
 
 
 const ChatInput = ({conversationId}) => {

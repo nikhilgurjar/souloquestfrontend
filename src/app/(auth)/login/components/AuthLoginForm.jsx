@@ -22,9 +22,10 @@ import { LoadingButton } from "@mui/lab";
 import FormProvider, { RHFTextField } from "@/components/hook-form";
 import { useSession ,signIn} from "next-auth/react";
 
-import FcGoogle from "@react-icons/all-files/fc/FcGoogle";
-import FaEye from "@react-icons/all-files/fa/FaEye";
-import FaEyeSlash from "@react-icons/all-files/fa/FaEyeSlash";
+
+import { useRouter } from "next/navigation";
+import {FcGoogle, FaEye, FaEyeSlash} from "react-icons/fc";
+import { LoginSchema } from "@/utils/formSchemas";
 import { toast } from "react-toastify";
 import { useDispatch } from "@/redux/store";
 import { logInUser } from "@/redux/slices/user";

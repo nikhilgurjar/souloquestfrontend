@@ -2,7 +2,7 @@
 import { Autocomplete, InputAdornment, InputBase } from '@mui/material'
 import Image from 'next/image';
 import React from 'react'
-import GrMapLocation from "@react-icons/all-files/gr/GrMapLocation";
+import {GrMapLocation} from "react-icons/gr";
 
 
 const locations = [
