@@ -9,7 +9,7 @@ export default async function UserAccountPage() {
     return (
       <>
       <Container maxWidth={'lg'}>
-       <UserEditPage user={profile} />
+       <UserEditPage />
       </Container>
     </>
     );

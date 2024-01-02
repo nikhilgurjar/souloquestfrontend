@@ -1,7 +1,7 @@
-import axios from '@/utils/axios';
+import axios from 'axios';
 const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
     const axiosConfig = {
-        url: '/api/user/'+url,
+        url: '/api/'+url,
         method,
         headers: {
           'Content-Type': 'application/json',
@@ -24,20 +24,34 @@ const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
 
   export const sendResetPassword =async (email) =>{
     return await apiRequest({
-        url: 'forgot-password',
+        url: 'resetPassword',
         method: 'POST',
         data: { email },
       });
 }
 
-export const updatePassword = async (old_password, new_password) =>{
+export const updatePassword = async ({oldPassword, password}) =>{
   return await apiRequest({
-      url: 'update_password',
+      url: 'changePassword',
       method: 'POST',
-      data: { old_password, new_password },
+      data: { oldPassword, password },
     });
 }
+export const updateProfile = async ({name, email, profilePic, phoneNumber, country, state, city, about}) =>{
+  return await apiRequest({
+    url: 'updateProfile',
+    method: 'POST',
+    data: { name, email, profilePic, phoneNumber, country, state, city, about },
+  })
+}
 
+export const updateSocialLinks = async ({facebook, instagram, linkedin, twitter}) =>{
+  return await apiRequest({
+      url: 'updateSocialLinks',
+      method: 'POST',
+      data: { facebook, instagram, linkedin, twitter },
+    });
+}
 export const getFriends = async (id) =>{
   return await apiRequest({
       url: 'friends',

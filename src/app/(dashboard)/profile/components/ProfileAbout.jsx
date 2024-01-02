@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardHeader, IconButton, Stack, Typography } from "@mui/material";
-import {FaLocationPin} from "@react-icons/fa6";
+import {FaLocationPin} from "react-icons/fa6";
 import {MdEmail} from "react-icons/md"
 import {IoSchool} from "react-icons/io5";
 import {FaBuildingUser} from "react-icons/fa6";

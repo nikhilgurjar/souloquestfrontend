@@ -5,6 +5,7 @@ import {MdMessage} from "react-icons/md";
 import {CgProfile} from "react-icons/cg";
 import Link from 'next/link';
 import {  Divider, Drawer, ListItemButton, Toolbar, Typography, ClickAwayListner, Stack, ListItemIcon, ListItemText, List } from '@mui/material';
+import SignOutButton from './SignOutButton';
 
 
 const NavListItems =  [
@@ -66,7 +67,6 @@ const SideNavList = () =>{
   )
 }
 
-
 const Sidebar = ({open, handleDrawerClose}) => {
   
   return (
@@ -97,6 +97,7 @@ const Sidebar = ({open, handleDrawerClose}) => {
     <Divider/>
     <List>
    <SideNavList/>
+   <SignOutButton />
     </List>
     
     </Drawer>

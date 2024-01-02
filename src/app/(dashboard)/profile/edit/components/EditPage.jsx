@@ -8,11 +8,13 @@ import {MdVpnKey, MdAccountCircle} from 'react-icons/md';
 import {IoShareSocialSharp} from 'react-icons/io5';
 import dynamic from 'next/dynamic';
 import AccountGeneral from './AccountGeneral';
+import { useSelector } from '@/redux/store';
 const AccountSocialLinks = dynamic(() => import('./AccountSocialLinks'));
 const AccountChangePassword = dynamic(() => import('./AccountChangePassword'));
 
-export default function UserEditPage({user}) {
-    
+export default function UserEditPage() {
+  
+  const user = useSelector(state=>state.user.user);
   const [currentTab, setCurrentTab] = useState('general');
   const TABS = [
         {
@@ -33,7 +35,7 @@ export default function UserEditPage({user}) {
             icon: <MdVpnKey />,
             component: <AccountChangePassword />,
         },
-    ];
+  ];
     return (
       <>
       <Container maxWidth={'lg'}>

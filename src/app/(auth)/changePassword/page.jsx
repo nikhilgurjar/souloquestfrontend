@@ -2,7 +2,7 @@
 import React from 'react';
 import { styled } from '@mui/system';
 import { Grid, Card, Typography, Stack } from '@mui/material';
-import ChangePassword from '../auth/components/auth/ChangePassword';
+import ChangePassword from './ChangePassword';
 const RootContainer = styled(Grid)({
     height: '100vh', // Adjust the height as needed
     backgroundImage: 'linear-gradient(to right, #ff4081, #3f51b5)', // Gradient colors

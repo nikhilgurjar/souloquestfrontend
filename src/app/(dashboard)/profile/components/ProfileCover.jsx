@@ -6,7 +6,7 @@ import { Box, Typography } from "@mui/material";
 // utils
 import { bgBlur } from "@/utils/cssStyles";
 // components
-import Image from "@/components/Image";
+import Image from "@/components/image";
 import { CustomAvatar } from "@/components/custom-avatar";
 
 const StyledRoot = styled("div")(({ theme }) => ({

@@ -1,15 +1,18 @@
 'use client';
 import { yupResolver } from '@hookform/resolvers/yup';
-import useForm from 'react-hook-form/dist/useForm';
+import {useForm} from 'react-hook-form';
 import Stack from '@mui/material/Stack'
 import Card from '@mui/material/Card'
 import LoadingButton from '@mui/lab/LoadingButton';
 import FormProvider, { RHFTextField } from '@/components/hook-form';
 import { UpdatePasswordSchema } from '@/utils/formSchemas';
 import {FaCircleInfo} from "react-icons/fa6";
+import { updatePassword } from '@/actions/auth';
+import { toast } from 'react-toastify';
+import { revalidatePath } from 'next/cache';
+import { useDispatch } from '@/redux/store';
 
 export default function AccountChangePassword() {
-   
     const defaultValues = {
         oldPassword: '',
         newPassword: '',
@@ -21,14 +24,24 @@ export default function AccountChangePassword() {
         defaultValues,
     });
    
-    const { reset, handleSubmit, formState: { isSubmitting }, } = methods;
+    const { reset, handleSubmit,setError, formState: { isSubmitting }, } = methods;
     const onSubmit = async (data) => {
         try {
             reset();
-          
-            console.log('DATA', data);
+            const response = await updatePassword({
+                oldPassword: data.oldPassword,
+                password: data.newPassword
+            });
+            
+            toast.success('Password updated successfully');
         }
         catch (error) {
+            console.error(error);
+            toast.error(error?.error || error?.message || 'Something went wrong');
+            setError('afterSubmit',{
+                type: 'manual',
+                message: error?.error || error?.message || 'Something went wrong',
+            });
             console.error(error);
         }
     };
@@ -50,7 +63,7 @@ export default function AccountChangePassword() {
             sx={{ width: '100%' }}
             />
 
-          <RHFTextField name="confirmNewPassword" type="password" label="Confirm New Password" sx={{ width: '100%' }}/>
+          <RHFTextField name="confirmPassword" type="password" label="Confirm New Password" sx={{ width: '100%' }}/>
 
           <Stack spacing={3} alignItems="flex-end" sx={{ mt: 3, width: '90%' }}>
 

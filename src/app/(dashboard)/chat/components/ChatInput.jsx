@@ -6,7 +6,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from '@/utils/firebaseConfig';
 import { toast } from 'react-toastify';
 // Icons import
-import {BsSendFill} from "react-icons/bs/BsSendFill";
+import {BsSendFill} from "react-icons/bs";
 import {MdOutlineAddPhotoAlternate} from "react-icons/md";
 import {HiOutlineEmojiHappy} from "react-icons/hi";
 
