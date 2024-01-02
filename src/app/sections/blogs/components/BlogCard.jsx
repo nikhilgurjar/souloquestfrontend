@@ -5,8 +5,15 @@ import NextLink from "next/link";
 
 const BlogCard = ({ title, imgUrl, content, blogUrl }) => {
   return (
-    <Card sx={{ width: "300px"}}>
-      <Image width={300} height={250} src={imgUrl} alt={title}></Image>
+    <Card sx={{ width: "300px" }}>
+      <Image
+        width={300}
+        height={200}
+        src={imgUrl}
+        alt={title}
+        layout="responsive"
+        objectFit="cover"
+      ></Image>
       <Box px={2}>
         <Typography variant="h5" component={"h5"} py={1}>
           {title}
@@ -14,7 +21,7 @@ const BlogCard = ({ title, imgUrl, content, blogUrl }) => {
         <Typography
           variant="body1"
           component={"p"}
-          sx={{ color: "#6C6C6C", pt: 2 }}
+          sx={{ color: "#6C6C6C", pt: 1 }}
         >
           {content}
         </Typography>
@@ -24,12 +31,12 @@ const BlogCard = ({ title, imgUrl, content, blogUrl }) => {
           component={NextLink}
           underline="none"
           sx={{
-            color: "#008080",
+            color: "primary.main",
             fontWeight: "600",
             textAlign: "left",
             textDecoration: "none",
-            display:"block",
-            py:2,
+            display: "block",
+            py: 2,
             "&:hover": {
               opacity: 0.8, // Change opacity on hover
             },

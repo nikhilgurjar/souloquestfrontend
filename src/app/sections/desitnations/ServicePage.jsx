@@ -29,7 +29,7 @@ const ServicePage = () => {
     <>
       <Typography
         variant="h3"
-        sx={{ color: "#008080", pt: 15, pb: 10, textAlign: "center" }}
+        sx={{ color: "primary.main", py:10, textAlign: "center" ,fontWeight:500}}
       >
         Our Services
       </Typography>

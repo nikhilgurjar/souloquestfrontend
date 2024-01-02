@@ -2,12 +2,15 @@
 import { Box, Container, Typography } from "@mui/material";
 import React from "react";
 import BlogCard from "./components/BlogCard";
+import image1 from "../../../../public/images/blogimg/image1.png";
+import image2 from '../../../../public/images/blogimg/image2.png'
+import image3 from "../../../../public/images/blogimg/image3.png";
 
 const BlogPage = () => {
   const dummyData = [
     {
       title: "Blog 1",
-      imgUrl: "/",
+      imgUrl: image1,
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       blogUrl: "/",
@@ -15,14 +18,14 @@ const BlogPage = () => {
 
     {
       title: "blog 2",
-      imgUrl: "/",
+      imgUrl: image2,
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       blogUrl: "/",
     },
     {
       title: "Blog 3",
-      imgUrl: "/",
+      imgUrl: image3,
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       blogUrl: "/",
@@ -38,13 +41,15 @@ const BlogPage = () => {
   const maxLength = 100;
 
   return (
-    <Container sx={{ height: { md: "100vh" }, py: 10}}>
+    <Container sx={{  py: 10 }}>
       <Typography
         variant="h3"
         sx={{
-          color: "#008080",
+          color: "primary.main",
           fontSize: { xs: "2.5rem", md: "2.8rem" },
           textAlign: "center",
+          fontWeight: 500,
+          py:5
         }}
       >
         Read Latest Blogs
@@ -54,10 +59,10 @@ const BlogPage = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          gap: 2,
-          mt: 10,
+          gap: 4,
+          py: 10,
           flexWrap: "wrap",
-          width:"100%"
+          width: "100%",
         }}
       >
         {dummyData.map((item) => (

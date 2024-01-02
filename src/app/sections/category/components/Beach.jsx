@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Box, Container } from "@mui/material";
 import Image from "next/image";
 import React from "react";
@@ -8,6 +8,37 @@ import card3 from "../../../../../public/images/beach/Card 03.png";
 import card4 from "../../../../../public/images/beach/Card 04.png";
 import card5 from "../../../../../public/images/beach/Card 05.png";
 import card6 from "../../../../../public/images/beach/Card 06.png";
+
+const ImageWithOverlay = ({ src, alt, height }) => (
+  <Box
+    position="relative"
+    // width="100%"
+    // Adjust the height as needed
+    sx={{
+      "&:after": {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "98%",
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
+        borderRadius: "20px",
+      },
+    }}
+  >
+    <Image
+      src={src}
+      alt={alt}
+      width={"100vw"}
+      height={height}
+      style={{ zIndex: 10 }}
+      quality={100}
+    />
+ 
+  </Box>
+);
+
 const Beach = () => {
   return (
     <Container
@@ -38,10 +69,10 @@ const Beach = () => {
             flexDirection: "column",
           }}
         >
-          <Image src={card1} alt="beach" height={200} width={"100vw"} />
-          <Image src={card4} alt="beach" width={"100vw"} height={200} />
+          <ImageWithOverlay src={card1} alt="beach" height={200} />
+          <ImageWithOverlay src={card4} alt="beach" height={200} />
         </Box>
-        <Image src={card2} alt="beach" width={"100vw"} height={430} />
+        <ImageWithOverlay src={card2} alt="beach" height={430} />
       </Box>
 
       {/* right */}
@@ -54,18 +85,17 @@ const Beach = () => {
           flexDirection: "column",
         }}
       >
-        <Image src={card3} alt="beach" width={"100vw"} height={200} />
+        <ImageWithOverlay src={card3} alt="beach" height={200} />
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             gap: 3,
-            // flexWrap: "wrap",
           }}
         >
-          <Image src={card5} alt="beach" width={"100vw"} height={210} />
-          <Image src={card6} alt="beach" width={"100vw"} height={210} />
+          <ImageWithOverlay src={card5} alt="beach" height={210} />
+          <ImageWithOverlay src={card6} alt="beach" height={210} />
         </Box>
       </Box>
     </Container>

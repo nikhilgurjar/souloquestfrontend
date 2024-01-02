@@ -2,16 +2,16 @@ import { Card, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import calenderImg from "../../../../public/images/clanderImg.png";
-const HistoryCard = () => {
+const HistoryCard = ({ number, title, imgUrl }) => {
   return (
-    <Card sx={{ width: "200px",py:6 }}>
+    <Card sx={{ width: "200px", py: 6 }}>
       <Stack spacing={2} justifyContent={"center"} alignItems={"center"}>
-        <Image src={calenderImg} width={50} height={50} alt={""}  />
+        <Image src={imgUrl} width={40} height={40} alt={title} />
         <Typography variant="h5" color="#008080" fontWeight={500}>
-          15+
+          {number}
         </Typography>
         <Typography variant="body1" color="initial">
-          Years of Experience
+          {title}
         </Typography>
       </Stack>
     </Card>

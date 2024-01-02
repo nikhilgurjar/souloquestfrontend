@@ -36,7 +36,7 @@ const CategoryPage = () => {
     <>
       <Typography
         variant="h3"
-        sx={{ color: "#008080", pt: 15, textAlign: "center" }}
+        sx={{ color: "primary.main", pt: 15, textAlign: "center" ,fontWeight:500}}
       >
         Top Categories
       </Typography>
@@ -69,7 +69,8 @@ const CategoryPage = () => {
               // }}
               sx={{
                 mx: 1,
-                bgcolor: currentTab === tab.value ? "primary.main" : "transparent",
+                bgcolor:
+                  currentTab === tab.value ? "primary.main" : "transparent",
               }}
               onClick={() => setCurrentTab(tab.value)}
             >

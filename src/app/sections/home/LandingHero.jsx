@@ -1,19 +1,15 @@
 "use client";
 // @mui
-import {
-  Container,
-  Unstable_Grid2 as Grid,
-  useTheme,
-} from "@mui/material";
+import { Container, Unstable_Grid2 as Grid, useTheme } from "@mui/material";
 
-import { StyledRoot } from './styles'
+import { StyledRoot } from "./styles";
 
 import useResponsive from "@/hooks/useResponsive";
 import LandingHeroChild from "./LandingHero.server";
 
 export default function LandingHero() {
   const theme = useTheme();
-  
+
   const isMdUp = useResponsive("up", "md");
 
   return (
@@ -21,7 +17,7 @@ export default function LandingHero() {
       <StyledRoot>
         <Container
           sx={{
-            mt: 5,
+            mt:5,
             py: 15,
             display: { md: "flex" },
             alignItems: { md: "center" },
@@ -29,7 +25,7 @@ export default function LandingHero() {
             [theme.breakpoints.down("md")]: { mt: 0 },
           }}
         >
-        <LandingHeroChild isMdUp={isMdUp}/>
+          <LandingHeroChild isMdUp={isMdUp} />
         </Container>
       </StyledRoot>
     </>
