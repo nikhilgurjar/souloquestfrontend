@@ -12,15 +12,15 @@ import { List, Drawer, IconButton, Button, Stack } from "@mui/material";
 //
 // import { NavProps } from '../types';
 
-import NavList from './NavList';
-import {RxHamburgerMenu} from "react-icons/rx";
-import { usePathname } from 'next/navigation';
+import NavList from "./NavList";
+import RxHamburgerMenu from "@react-icons/all-files/rx/RxHamburgerMenu";
+import { usePathname } from "next/navigation";
 
 // ----------------------------------------------------------------------
 
 export default function NavMobile({ data }) {
   const pathname = usePathname();
-  const session = useSession();
+
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -42,7 +42,8 @@ export default function NavMobile({ data }) {
     <>
       <IconButton onClick={handleOpen} sx={{ ml: 1, color: "inherit" }}>
         {/* <Iconify icon="carbon:menu" /> */}
-       {/*  <RxHamburgerMenu /> */}
+
+        <RxHamburgerMenu />
       </IconButton>
 
       <Drawer
@@ -65,20 +66,9 @@ export default function NavMobile({ data }) {
         </List>
 
         <Stack spacing={1.5} sx={{ p: 3 }}>
-          {session.status === "authenticated" ? (
-            <>
-              <Button fullWidth variant="contained" color="inherit">
-                Login
-              </Button>
-              <Button fullWidth variant="contained" color="inherit">
-                Register
-              </Button>
-            </>
-          ) : (
-            <Button fullWidth variant="contained" color="inherit">
-              Logout
-            </Button>
-          )}
+          <Button fullWidth variant="contained" color="inherit">
+            Buy Now
+          </Button>
         </Stack>
         {/* </Scrollbar> */}
       </Drawer>

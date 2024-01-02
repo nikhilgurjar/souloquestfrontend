@@ -1,12 +1,10 @@
 "use client";
 import { useMemo, useState, useEffect } from "react";
 // next
-import { useRouter } from "next/navigation";
 import NextLink from "next/link";
 // form
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { LoginSchema } from "@/utils/formSchemas";
 // @mui
 import {
   Link,
@@ -20,15 +18,17 @@ import {
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import FormProvider, { RHFTextField } from "@/components/hook-form";
-import { useSession ,signIn} from "next-auth/react";
-
+import { useSession } from "next-auth/react";
 
 import { useRouter } from "next/navigation";
-import {FcGoogle, FaEye, FaEyeSlash} from "react-icons/fc";
+import FcGoogle from "@react-icons/all-files/fc/FcGoogle";
+import FaEye from "@react-icons/all-files/fa/FaEye";
+import FaEyeSlash from "@react-icons/all-files/fa/FaEyeSlash";
 import { LoginSchema } from "@/utils/formSchemas";
 import { toast } from "react-toastify";
 import { useDispatch } from "@/redux/store";
 import { logInUser } from "@/redux/slices/user";
+import { signIn } from "next-auth/react";
 
 // ----------------------------------------------------------------------
 export default function AuthLoginForm() {
@@ -68,7 +68,7 @@ export default function AuthLoginForm() {
         password,
         redirect: false,
       });
-      // console.log(res);
+      console.log(res);
       //  dispatch(logInUser({user: res.user}))
       toast.success("Login Successfully");
       router.push("/profile");
@@ -127,7 +127,7 @@ export default function AuthLoginForm() {
         variant="contained"
         loading={isSubmitting || isSubmitSuccessful}
         sx={{
-          backgroundColor: "primary.main",
+          backgroundColor: "#008080",
           // bgcolor: "#008080",
           color: "common.white",
           "&:hover": {
@@ -146,10 +146,10 @@ export default function AuthLoginForm() {
           //   href={PATH_AUTH.resetPassword}
           href={"/register"}
           variant="body2"
-          color="primary.main"
+          color="#008080"
           underline="always"
           fontWeight={500}
-          sx={{ cursor: "pointer", textDecoration: "underline primary.main" }}
+          sx={{ cursor: "pointer", textDecoration: "underline #008080" }}
         >
           Forgot password?
         </Link>
