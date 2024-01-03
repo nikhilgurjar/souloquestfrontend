@@ -71,6 +71,7 @@ const CategoryPage = () => {
                 mx: 1,
                 bgcolor:
                   currentTab === tab.value ? "primary.main" : "transparent",
+                fontWeight:400
               }}
               onClick={() => setCurrentTab(tab.value)}
             >

@@ -19,7 +19,7 @@ const FooterPage = () => {
       paddingInline:"20px",
       paddingY:"70px",
       bgcolor: "#008080",
-      // display: "flex",
+      mt:10,
       justifyContent: "center",
       color: "#fff",
       alignItems:"flex-start"

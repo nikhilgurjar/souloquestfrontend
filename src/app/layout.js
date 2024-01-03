@@ -3,6 +3,7 @@ import './globals.css'
 import ThemeRegistry from '@/themeregistery/ThemeRegistry'
 import { AuthProvider } from '@/utils/SessionProvider'
 import Header from './nav-section/header/Header'
+import FooterPage from './sections/footer/FooterPage'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           <AuthProvider>
             <Header/>
           {children}
+          <FooterPage/>
           </AuthProvider>
         </ThemeRegistry>
       </body>

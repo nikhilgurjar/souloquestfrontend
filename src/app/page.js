@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import dynamic from 'next/dynamic'
 import DestinationPage from "./sections/desitnations/DestinationPage";
-import FooterPage from "./sections/footer/FooterPage";
 import BlogPage from "./sections/blogs/BlogPage";
 import ServicePage from "./sections/desitnations/ServicePage";
 import SoloTraveling from "./sections/solotraveling/SoloTraveling";
@@ -24,7 +23,6 @@ const page = () => {
       <SoloTraveling />
       <BookItenaryPage/>
       <BlogPage />
-      <FooterPage />
       </Suspense>
     </>
   );

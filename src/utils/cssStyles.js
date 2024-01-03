@@ -45,7 +45,7 @@ export function bgGradient(props) {
     return {
       background: `linear-gradient(${direction}, ${startColor || color}, ${
         endColor || color
-      }), url(${imgUrl})`,
+      }), url(${imgUrl.src})`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',

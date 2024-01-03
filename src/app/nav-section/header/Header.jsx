@@ -57,6 +57,7 @@ export default function Header() {
             sx={{
               lineHeight: 0,
               position: "relative",
+              pl:4
             }}
           >
             <Logo />
