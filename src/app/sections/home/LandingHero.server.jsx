@@ -71,38 +71,50 @@ const LandingHeroChild = ({ isMdUp }) => {
             height={150}
           />
         </div> */}
-          <Box sx={{ mx: isMdUp ? "auto" : "" }}>
-            <CustomLandingInput />
-          </Box>
+          <CustomLandingInput />
         </Stack>
       </Grid>
 
       {isMdUp && (
-        <Grid xs={12} md={6} lg={6} sx={{ position: "relative" }}>
+        <Grid xs={12} md={6} lg={6} sx={{ position: "relative", mt: 10 }}>
           <Box
             sx={{
               width: "100%",
-              textAlign: "right",
               position: "relative",
+              left: "30%",
             }}
           >
-            <Image width={400} height={400} src={illusionBg} alt="souloquest" />
+            <Image
+              width={400}
+              height={400}
+              src={illusionBg}
+              alt="souloquest"
+              quality={100}
+              priority={true}
+            />
           </Box>
 
-          <Box sx={{ position: "absolute", top: 0, left: "30%" }}>
-            <Image src={ladyImg} width={400} height={400} alt="souloquest" />
-            <Box sx={{ position: "absolute", top: 102, right: "0%" }}>
+          <Box sx={{ position: "absolute", bottom: 9, left: "30%" }}>
+            <Image
+              src={ladyImg}
+              width={400}
+              height={470}
+              alt="souloquest"
+              quality={100}
+              priority={true}
+            />
+            <Box sx={{ position: "absolute", top: "26%", right: "-2%" }}>
               <Image src={planeImg} width={150} height={60} alt="souloquest" />
             </Box>
           </Box>
-          <Box sx={{ position: "absolute", bottom: -10, left: "15%" }}>
+          <Box sx={{ position: "absolute", bottom: -15, left: "17%" }}>
             <Image src={cardImg} width={200} height={200} alt="souloquest" />
           </Box>
           <Box sx={{ position: "absolute", bottom: 100, right: -20 }}>
             <Image
               src={smallCardImg}
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               alt="souloquest"
             />
           </Box>
