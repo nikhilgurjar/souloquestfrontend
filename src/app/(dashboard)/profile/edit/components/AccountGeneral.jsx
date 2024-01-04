@@ -55,7 +55,7 @@ export default function AccountGeneral({user}) {
 
     const onSubmit = async (data) => {
         try {
-          await updateProfile({
+          const response = await updateProfile({
             name: data.name,
             email: data.email,
             profilePic: data.profilePic,
@@ -67,7 +67,7 @@ export default function AccountGeneral({user}) {
           });
 
           toast.success('Profile updated successfully');
-          console.log('DATA', data);
+          console.log('DATA', response);
         }
         catch (error) {
           console.log(error)

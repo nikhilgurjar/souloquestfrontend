@@ -60,7 +60,6 @@ export default function AccountSocialLinks({socialLinks}) {
             });
             dispatch(setUser({user: response?.user}))
             toast.success('Social links updated successfully');
-            revalidatePath("/");
         }
         catch (error) {
             toast.error(error?.error || error?.message || 'Something went wrong');

@@ -3,17 +3,25 @@ import AuthLoginForm from "./components/AuthLoginForm";
 import { Box, Link, Paper, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import NextLink from "next/link";
+import {FaArrowLeftLong} from "react-icons/fa6";
+
 // import leftArrow from "../../../public/images/arrow-left.png";
 const page = () => {
   return (
     <>
-      <div
-        className="flex justify-between items-center px-4 py-1 flex-col sm:flex-row  gap-y-5"
+       <Stack justifyContent={'space-between'} alignItems={'flex-start'} px={4} mb={2} sx={{
+       width: '100%',
+        gap: 1
+      }}
+        // className="flex justify-between items-center px-4 sm:flex-row flex-col gap-y-5"
       >
+        
         <Link sx={{ cursor: "pointer" }} href="/">
           {/* <Image src={leftArrow} w={20} h={20} alt="arrow" className="sm:block hidden" /> */}
           <h3 className="sm:hidden block font-semibold text-[#008080] text-xl">Souloquest</h3>
         </Link>
+        <Stack direction='row' justifyContent={'space-between'} sx={{width: '100%'}}>
+        <FaArrowLeftLong className="sm:block hidden" size={20}/>
         <Typography variant="body1" fontWeight={400}>
           Not registered?&nbsp;
           <Link
@@ -27,7 +35,9 @@ const page = () => {
             create an account
           </Link>
         </Typography>
-      </div>
+        </Stack>
+       
+      </Stack>
       <Box sx={{ maxWidth: "450px", margin: "auto auto" }}>
         <Typography mt={3} component="p" color={"#757575"}>
           Welcome back! 👋

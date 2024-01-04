@@ -1,6 +1,5 @@
 //
-import Image from '../../Image';
-
+import Image from '../../image';
 
 export default function AvatarPreview({ file }) {
   if (!file) {

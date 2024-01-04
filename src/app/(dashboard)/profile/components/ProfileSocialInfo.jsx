@@ -18,6 +18,7 @@ const socialMediaColors = {
   twitter: "#00AAEC",
 };
 export default function ProfileSocialInfo({ socialLinks }) {
+
   const filteredSocialLinks = Object.entries(socialLinks).filter((value) => value != undefined);
 
   return (
@@ -44,7 +45,7 @@ export default function ProfileSocialInfo({ socialLinks }) {
                 >
                   {socialMediaIcons[key]}
                 </IconButton>
-                <Link component="span" variant="body2" color="text.primary">
+                <Link component="span" variant="body2" color="text.primary" href={value}>
                   {value}
                 </Link>
               </Stack>

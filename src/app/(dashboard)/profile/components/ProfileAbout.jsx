@@ -1,18 +1,15 @@
+'use client';
 import React from "react";
 import { Card, CardHeader, IconButton, Stack, Typography } from "@mui/material";
 import {FaLocationPin} from "react-icons/fa6";
 import {MdEmail} from "react-icons/md"
 import {IoSchool} from "react-icons/io5";
 import {FaBuildingUser} from "react-icons/fa6";
-const ProfileAbout = ({
-  about,
-  country,
-  email,
-  city,
-  state,
-  company,
-  education,
-}) => {
+import { useSelector } from "@/redux/store";
+
+const ProfileAbout = () => {
+
+  const user = useSelector((state) => state.user.user);
   const icons = {
     About: "",
     Country: <FaLocationPin />,
@@ -20,16 +17,26 @@ const ProfileAbout = ({
     Company: <FaBuildingUser/>,
     Education: <IoSchool/>,
   };
+  
 
-  let data = [
-    { key: "About", value: about },
-    { key: "Country", value: "Live at ", dynamic: city!==undefined ? city+", "+state: undefined },
-    { key: "Email", value: email },
-    { key: "Company", value: "Working at ", dynamic: company },
-    { key: "Education", value: education },
-  ];
+  const [data, setData]  = React.useState([]);
 
-  data = data.filter(({ value, dynamic }) => (value !== undefined && dynamic!== undefined));
+  React.useEffect(() => {
+     let {email, about, city, state, company, education} = user;
+     console.log(user, user.email, "email value")
+    let newdata = [
+      { key: "About", value: user?.about, dynamic: '' },
+      { key: "Country", value: "Live at ", dynamic: user?.city!==undefined ? user?.city+", "+user?.state: undefined },
+      { key: "Email", value: user?.email, dynamic: '' },
+      { key: "Company", value: "Working at ", dynamic: user?.company },
+      { key: "Education", value: user?.education, dynamic: '' },
+    ];
+    newdata = newdata.filter(({ value, dynamic }) => (value !== undefined && dynamic!== undefined));
+    console.log(newdata, 'new data')
+    setData(newdata);
+  }, [user]);
+  
+  
 
   return (
     <section className="relative w-full">
@@ -40,7 +47,7 @@ const ProfileAbout = ({
           {data.length!==0 ?
             (data
               ?.map(({ key, value, dynamic }) => (
-                <Stack spacing={1} direction={"row"} alignItems={"center"}>
+                <Stack spacing={1} direction={"row"} key={key} alignItems={"center"}>
                   <IconButton
                     style={{
                       marginRight: 2,

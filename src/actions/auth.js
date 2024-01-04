@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "@/utils/axios";
 const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
     const axiosConfig = {
-        url: '/api/'+url,
+        url: '/api/user/'+url,
         method,
         headers: {
           'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
 
   export const sendResetPassword =async (email) =>{
     return await apiRequest({
-        url: 'resetPassword',
+        url: 'resetpassword',
         method: 'POST',
         data: { email },
       });
@@ -32,14 +32,14 @@ const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
 
 export const updatePassword = async ({oldPassword, password}) =>{
   return await apiRequest({
-      url: 'changePassword',
+      url: 'updatepassword',
       method: 'POST',
-      data: { oldPassword, password },
+      data: { old_password: oldPassword, new_password: password },
     });
 }
 export const updateProfile = async ({name, email, profilePic, phoneNumber, country, state, city, about}) =>{
   return await apiRequest({
-    url: 'updateProfile',
+    url: 'updateprofile',
     method: 'POST',
     data: { name, email, profilePic, phoneNumber, country, state, city, about },
   })
@@ -47,9 +47,9 @@ export const updateProfile = async ({name, email, profilePic, phoneNumber, count
 
 export const updateSocialLinks = async ({facebook, instagram, linkedin, twitter}) =>{
   return await apiRequest({
-      url: 'updateSocialLinks',
+      url: 'updatesocialmedia',
       method: 'POST',
-      data: { facebook, instagram, linkedin, twitter },
+      data: { socialMedia: {facebook, instagram, linkedin, twitter}},
     });
 }
 export const getFriends = async (id) =>{
@@ -99,10 +99,17 @@ export const register = async (data) =>{
     });
 }
 
-export const update_password = async (data) =>{
+
+export const get_profile = async () =>{
   return await apiRequest({
-      url: 'update_password',
-      method: 'POST',
-      data,
-    });
+    url: 'getprofile',
+    method: 'GET'
+  })
 }
+
+export const clearAllCookies = async () =>{
+  return await apiRequest({
+    url: 'logout',
+    method: 'GET'
+  })
+};

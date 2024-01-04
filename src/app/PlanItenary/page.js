@@ -3,7 +3,7 @@ import PlanItenary from './components/PlanItenary'
 
 const page = () => {
   return (
-    <div><PlanItenary/></div>
+    <><PlanItenary/></>
   )
 }
 

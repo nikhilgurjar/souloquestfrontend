@@ -13,16 +13,15 @@ import NavList from "./NavList";
 // import RxHamburgerMenu from "@react-icons/all-files/rx/RxHamburgerMenu";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { usePathname } from "next/navigation";
-import { useSession } from "next-auth/react";
 import Scrollbar from "@/components/scrollbar/Scrollbar";
 import Logo from "@/components/Logo/Logo";
+import { useSelector } from "@/redux/store";
 
 // ----------------------------------------------------------------------
 
 export default function NavMobile({ data }) {
   const pathname = usePathname();
-  const session = useSession();
-
+  const user = useSelector((state) => state.user.user);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -66,7 +65,12 @@ export default function NavMobile({ data }) {
             ))}
           </List>
 
-          {session ? (
+          {user ? (
+            <Button fullWidth variant="contained" color="inherit">
+              Log Out
+            </Button>
+          ):
+          (
             <Stack spacing={1.5} sx={{ p: 3 }}>
               <Button fullWidth variant="contained" color="inherit">
                 Log In
@@ -75,10 +79,6 @@ export default function NavMobile({ data }) {
                 Sign Up
               </Button>
             </Stack>
-          ) : (
-            <Button fullWidth variant="contained" color="inherit">
-              Log Out
-            </Button>
           )}
         </Scrollbar>
       </Drawer>

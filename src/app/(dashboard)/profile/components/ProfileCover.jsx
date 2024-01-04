@@ -1,13 +1,16 @@
 // @mui
 'use client'
 import { styled } from "@mui/material/styles";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, IconButton } from "@mui/material";
 // @types
 // utils
 import { bgBlur } from "@/utils/cssStyles";
 // components
 import Image from "@/components/image";
 import { CustomAvatar } from "@/components/custom-avatar";
+import { useSelector } from "@/redux/store";
+import { FiEdit } from "react-icons/fi";
+import Link from "next/link";
 
 const StyledRoot = styled("div")(({ theme }) => ({
   position: "relative",
@@ -42,8 +45,8 @@ const StyledInfo = styled("div")(({ theme }) => ({
   },
 }));
 // ----------------------------------------------------------------------
-export default function ProfileCover({user}) {
-  
+export default function ProfileCover() {
+  const user = useSelector((state) => state.user.user);
   const defaultValues = {
     profilePic:
       "https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw",
@@ -88,6 +91,24 @@ export default function ProfileCover({user}) {
           objectFit: "cover", // Ensure the image covers the entire container
         }}
       />
+      <IconButton sx={{
+        position: 'absolute',
+        bottom: 10,
+        right: 20,
+        zIndex: 10,
+        padding: '10px',
+        bgcolor: 'common.white',
+        '&: hover': {
+          bgcolor: 'common.white',
+          scale: 1.3
+        }
+      }} 
+        component={Link}
+        href="/profile/edit"
+        >
+      <FiEdit size={20} />
+      </IconButton>
+      
     </StyledRoot>
   );
 }

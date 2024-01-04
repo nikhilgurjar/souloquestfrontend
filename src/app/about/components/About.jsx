@@ -1,5 +1,5 @@
 // @mui
-
+'use client';
 import {
   Container,
   Typography,

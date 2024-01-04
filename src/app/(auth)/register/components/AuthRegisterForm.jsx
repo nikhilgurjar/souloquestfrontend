@@ -22,7 +22,6 @@ import { register } from "@/actions/auth";
 import { RegisterSchema } from "@/utils/formSchemas";
 import { useDispatch } from "@/redux/store";
 import { logInUser } from "@/redux/slices/user";
-import axios from "axios";
 // import Iconify from "@/components/iconify";
 // auth
 // components
@@ -49,17 +48,12 @@ export default function AuthRegisterForm() {
   } = methods;
   const onSubmit = async (data) => {
     try {
-      const { email, password, name } = data;
-      // const response = await register({ email, password, name });
-      // dispatch(logInUser({user: response.user}))
-      // router.push('/dashboard/profile');
-      const response = await axios.post('/api/register', JSON.stringify({ email, password, name }), {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      const { email, password, name } = data;      
+      const response = register({ email, password, name });
       console.log(response)
       toast.success("Successfully Registered")
+      dispatch(logInUser({user: response.user}))
+      router.push('/profile');
     } catch (error) {
       console.log(error);
       toast.error("Invalid Credentials");

@@ -18,31 +18,22 @@ import {
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import FormProvider, { RHFTextField } from "@/components/hook-form";
-import { useSession } from "next-auth/react";
 
 import { useRouter } from "next/navigation";
-import FcGoogle from "@react-icons/all-files/fc/FcGoogle";
-import FaEye from "@react-icons/all-files/fa/FaEye";
-import FaEyeSlash from "@react-icons/all-files/fa/FaEyeSlash";
+import { FcGoogle } from "react-icons/fc";
+import {FaEye, FaEyeSlash} from 'react-icons/fa'
 import { LoginSchema } from "@/utils/formSchemas";
 import { toast } from "react-toastify";
 import { useDispatch } from "@/redux/store";
 import { logInUser } from "@/redux/slices/user";
-import { signIn } from "next-auth/react";
+import { login } from "@/actions/auth";
 
 // ----------------------------------------------------------------------
 export default function AuthLoginForm() {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const { data: session, status, update } = useSession();
+  const dispatch = useDispatch()
   const [showPassword, setShowPassword] = useState(false);
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      dispatch(logInUser({ user: session.user }));
-      router.push("/profile");
-    }
-  }, []);
+  
 
   const defaultValues = {
     email: "demo@minimals.cc",
@@ -63,14 +54,10 @@ export default function AuthLoginForm() {
     try {
       const { email, password } = data;
       // await login({ email, password })
-      const res = await signIn("credentials", {
-        email,
-        password,
-        redirect: false,
-      });
+      const res = await login({ email, password });
       console.log(res);
-      //  dispatch(logInUser({user: res.user}))
-      toast.success("Login Successfully");
+      dispatch(logInUser({user: res.user}))
+      toast.success("Login Successfully")
       router.push("/profile");
     } catch (error) {
       console.log(error);

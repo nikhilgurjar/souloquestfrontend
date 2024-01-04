@@ -37,7 +37,7 @@ export default function AccountChangePassword() {
         }
         catch (error) {
             console.error(error);
-            toast.error(error?.error || error?.message || 'Something went wrong');
+            toast.error(error || error?.error || error?.message || 'Something went wrong');
             setError('afterSubmit',{
                 type: 'manual',
                 message: error?.error || error?.message || 'Something went wrong',
