@@ -53,7 +53,7 @@ export default function TravelAbout() {
           About Us
         </Typography>
 
-        <Typography sx={{ color: "text.secondary" }}>
+        <Typography sx={{ color: "text.secondary",px:1 }}>
           Master Digital Marketing Strategy, Social Media Marketing, SEO,
           YouTube, Email, Facebook Marketing, Analytics & More!
         </Typography>

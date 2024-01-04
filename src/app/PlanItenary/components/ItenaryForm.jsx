@@ -34,7 +34,7 @@ const ItenaryForm = () => {
   return (
     <Box
       sx={{
-        width: "70vw",
+        width: "80%",
         mx: "auto",
         mt: "100px",
         borderRadius: "none",
@@ -42,6 +42,7 @@ const ItenaryForm = () => {
         py: 10,
         px: 10,
         minWidth: "400px",
+        bgcolor:"#fff"
       }}
     >
       <Typography variant="h4" component={"h4"} fontWeight={500} pb={6}>

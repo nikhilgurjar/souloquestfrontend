@@ -1,28 +1,24 @@
 import React, { Suspense } from "react";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import DestinationPage from "./sections/desitnations/DestinationPage";
 import BlogPage from "./sections/blogs/BlogPage";
 import ServicePage from "./sections/desitnations/ServicePage";
-import SoloTraveling from "./sections/solotraveling/SoloTraveling";
 import CategoryPage from "./sections/category/CategoryPage";
 import LandingHero from "./sections/home/LandingHero";
 import BookItenaryPage from "./sections/bookitenary/BookItenaryPage";
-
-
-
+import SoloTravelingPage from "./sections/solotraveling/SoloTravelingPage";
 
 const page = () => {
   return (
     <>
-
       <LandingHero />
       <DestinationPage />
       <Suspense fallback={<div>Loading...</div>}>
-      <ServicePage />
-      <CategoryPage />
-      <SoloTraveling />
-      <BookItenaryPage/>
-      <BlogPage />
+        <ServicePage />
+        <CategoryPage />
+        <SoloTravelingPage />
+        <BookItenaryPage />
+        <BlogPage />
       </Suspense>
     </>
   );
@@ -30,11 +26,9 @@ const page = () => {
 
 export default page;
 
-
-      
-      // <DestinationPage />
-      // <ServicePage />
-      // <CategoryPage />
-      // <SoloTraveling />
-      // <BlogPage />
-      // <FooterPage />
+// <DestinationPage />
+// <ServicePage />
+// <CategoryPage />
+// <SoloTraveling />
+// <BlogPage />
+// <FooterPage />
