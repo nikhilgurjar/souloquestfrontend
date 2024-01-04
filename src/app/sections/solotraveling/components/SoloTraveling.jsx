@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import solotravelImg from "@/../public/images/soloTravelImg.png";
 import { CgArrowRight } from "react-icons/cg";
-import SouloHistory from "../SouloHistory/SouloHistory";
+import SouloHistory from "../../SouloHistory/SouloHistory";
 const SoloTraveling = () => {
   return (
     <>
@@ -20,10 +20,16 @@ const SoloTraveling = () => {
               background:
                 "linear-gradient(180deg, #BFFFFF 55.73%, #80FFFF 91.67%)",
               px: { xs: 8, md: 15 },
-              py:3
+              py: 3,
             }}
           >
-            <Typography variant="h3" color="initial" py={4} fontWeight={500} sx={{fontSize:{xs:"2rem"}}}>
+            <Typography
+              variant="h3"
+              color="initial"
+              py={4}
+              fontWeight={500}
+              sx={{ fontSize: { xs: "2rem" } }}
+            >
               Solo Travelling 🤔
             </Typography>
             <Typography variant="body1" color="initial" py={1}>

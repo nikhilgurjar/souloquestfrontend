@@ -6,7 +6,7 @@ import ItenaryForm from "./ItenaryForm";
 
 const PlanItenary = () => {
   return (
-    <Box sx={{ pb: 5 }}>
+    <>
       <Box
         sx={{
           width: "100%",
@@ -14,10 +14,13 @@ const PlanItenary = () => {
           justifyContent: "center",
           alignItems: "center",
           position: "relative",
-          bgcolor: "transparent",
-          // boxShadow: "0px 4px 4px 0px #00000040",
+          bgcolor: "red",
+          height: "65vh",
+          zIndex:-1,
+          bgcolor:"transparent"
+          // p: 0,
         }}
-      >
+        >
         <Image
           src={itenaryImg}
           alt="itenary"
@@ -27,21 +30,22 @@ const PlanItenary = () => {
           // fill
           style={{
             width: "100%",
-            height: "60vh",
             zIndex: 5,
             boxShadow: "0px 4px 4px 0px #00000040",
             objectFit: { xs: "contain" },
             "@media(max-width:420px)": {
               objectFit: "contain",
             },
+            height:"100%"
+            // objectFit: "cover",
+            // p: 0,
           }}
-          // objectFit="cover"
         />
       </Box>
-      <Box sx={{ mt: -21, zIndex: 10, position: "relative" }}>
+      <Box sx={{ mt: -22, zIndex: 10, position: "relative", mb: 15 }}>
         <ItenaryForm />
       </Box>
-    </Box>
+    </>
   );
 };
 

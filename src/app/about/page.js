@@ -8,7 +8,7 @@ const page = () => {
   return (
     <>
       <TravelAbout />
-      <Box sx={{ mt: 10 }}>
+      <Box sx={{my:15}}>
         <NewsletterTravel />
       </Box>
     </>

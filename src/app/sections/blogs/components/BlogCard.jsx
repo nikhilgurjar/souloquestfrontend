@@ -35,7 +35,7 @@ const BlogCard = ({ title, imgUrl, content, blogUrl }) => {
             fontWeight: "600",
             textAlign: "left",
             textDecoration: "none",
-            display: "block",
+            display: "inline-block",
             py: 2,
             "&:hover": {
               opacity: 0.8, // Change opacity on hover
