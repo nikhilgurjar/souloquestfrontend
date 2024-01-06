@@ -1,15 +1,13 @@
+import dynamic from "next/dynamic";
 import React from "react";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-// import imgAccn from "../../public/images/imageAccn.png";
-import Image from "next/image";
-
-
+import imgAccn from "../../../public/images/loginimg.png";
+const DynamicImage = dynamic(() => import("next/image"), { ssr: false });
 const AuthLayout = ({ children }) => {
-
   return (
-    <Grid container component="main" sx={{ height: "100vh" }}>
+    <Grid container component="main" sx={{ minHeight: "100vh" }}>
       {/* <CssBaseline /> */}
       <Grid
         item
@@ -17,7 +15,6 @@ const AuthLayout = ({ children }) => {
         sm={false}
         md={5}
         sx={{
-          backgroundColor: "#FFFFFF",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -25,6 +22,7 @@ const AuthLayout = ({ children }) => {
           "@media (max-width: 900px)": {
             display: "none", // Hide on screens smaller than 900px
           },
+          overflowX: "hidden",
         }}
       >
         <Typography
@@ -33,22 +31,20 @@ const AuthLayout = ({ children }) => {
           variant="h5"
           sx={{
             position: "absolute",
-            top: "6%",
+            top: "5.2%",
             left: "16%",
-            color: "#008080",
-            fontWeight: "500",
+            color: "primary.main",
+            fontWeight: "600",
           }}
         >
           Souloquest
         </Typography>
-        {/* <Image
-          item
-          src={imgAccn}
-          alt="create Account"
-          width={500}
-          height={500}
-          // loading="lazy"
-        /> */}
+        <DynamicImage
+          src={imgAccn} // Adjust the path to your image
+          alt="join with us"
+          width={400}
+          loading="lazy"
+        />
       </Grid>
       <Grid
         item
@@ -57,7 +53,12 @@ const AuthLayout = ({ children }) => {
         md={7}
         component={Paper}
         square
-        sx={{ backgroundColor: "#F9F8F8", padding: "35px",overflow:"hidden" }}
+        sx={{
+          backgroundColor: "#F9F8F8",
+          py: "35px",
+          px: "4vw",
+          overflow: "hidden",
+        }}
       >
         {children}
       </Grid>

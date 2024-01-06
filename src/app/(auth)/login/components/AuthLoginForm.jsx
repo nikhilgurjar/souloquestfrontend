@@ -21,19 +21,18 @@ import FormProvider, { RHFTextField } from "@/components/hook-form";
 
 import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
-import {FaEye, FaEyeSlash} from 'react-icons/fa'
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { LoginSchema } from "@/utils/formSchemas";
 import { toast } from "react-toastify";
 import { useDispatch } from "@/redux/store";
 import { logInUser } from "@/redux/slices/user";
 import { login } from "@/actions/auth";
-
+import { signIn } from "next-auth/react";
 // ----------------------------------------------------------------------
 export default function AuthLoginForm() {
   const router = useRouter();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
-  
 
   const defaultValues = {
     email: "demo@minimals.cc",
@@ -56,8 +55,8 @@ export default function AuthLoginForm() {
       // await login({ email, password })
       const res = await login({ email, password });
       console.log(res);
-      dispatch(logInUser({user: res.user}))
-      toast.success("Login Successfully")
+      dispatch(logInUser({ user: res.user }));
+      toast.success("Login Successfully");
       router.push("/profile");
     } catch (error) {
       console.log(error);
@@ -94,7 +93,7 @@ export default function AuthLoginForm() {
             endAdornment: (
               <InputAdornment>
                 <IconButton
-                  sx={{ color: "#008080" }}
+                  sx={{ color: "primary.main" }}
                   onClick={() => setShowPassword(!showPassword)}
                   size="small"
                 >
@@ -158,7 +157,7 @@ export default function AuthLoginForm() {
         fullWidth
         size="large"
         sx={{
-          borderColor: "#00000",
+          borderColor: "inertial",
           border: "1px",
           borderStyle: "solid",
           textTransform: "capitalize",
@@ -166,6 +165,7 @@ export default function AuthLoginForm() {
           gap: 2,
           alignItems: "center",
         }}
+        onClick={() => signIn("google")}
       >
         <FcGoogle fontSize={24} />
         <Typography color={"#23222D"} fontWeight={500}>

@@ -5,6 +5,7 @@ import BlogCard from "./components/BlogCard";
 import image1 from "../../../../public/images/blogimg/image1.png";
 import image2 from '../../../../public/images/blogimg/image2.png'
 import image3 from "../../../../public/images/blogimg/image3.png";
+import ComingSoonView from "@/common/ComingSoonView";
 
 const BlogPage = () => {
   const dummyData = [
@@ -41,7 +42,7 @@ const BlogPage = () => {
   const maxLength = 100;
 
   return (
-    <Container sx={{  py: 10 }}>
+    <Container sx={{  py: 5 }}>
       <Typography
         variant="h3"
         sx={{
@@ -54,7 +55,7 @@ const BlogPage = () => {
       >
         Read Latest Blogs
       </Typography>
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -73,7 +74,8 @@ const BlogPage = () => {
             blogUrl={item.blogUrl}
           />
         ))}
-      </Box>
+      </Box> */}
+      <ComingSoonView/>
     </Container>
   );
 };

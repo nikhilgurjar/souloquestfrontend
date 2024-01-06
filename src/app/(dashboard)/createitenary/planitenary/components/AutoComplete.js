@@ -1,8 +1,6 @@
 "use server";
-
 import { connectMongoDB } from "@/lib/mongodb";
 import DestinationModel from "@/models/Destination.model";
-import React from "react";
 
 const AutoComplete = async (query) => {
   try {
