@@ -1,5 +1,5 @@
 "use client";
-import travelImg from "../../../../public/images/newsletter/travel_newsletter.jpg";
+import travelImg from "../../../../../public/images/newsletter/travel_newsletter.jpg";
 import { styled, alpha } from "@mui/material";
 import { bgGradient } from "@/utils/cssStyles";
 

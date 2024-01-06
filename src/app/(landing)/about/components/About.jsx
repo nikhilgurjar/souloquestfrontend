@@ -10,10 +10,10 @@ import {
 // utils
 // hooks
 
-import aboutImg1 from "../../../../public/images/aboutImage/travel_3.jpg";
-import aboutImg2 from "../../../../public/images/aboutImage/travel_4.jpg";
-import aboutImg3 from "../../../../public/images/aboutImage/travel_5.jpg";
-import aboutImg4 from "../../../../public/images/aboutImage/travel_6.jpg";
+import aboutImg1 from "../../../../../public/images/aboutImage/travel_3.jpg";
+import aboutImg2 from "../../../../../public/images/aboutImage/travel_4.jpg";
+import aboutImg3 from "../../../../../public/images/aboutImage/travel_5.jpg";
+import aboutImg4 from "../../../../../public/images/aboutImage/travel_6.jpg";
 import shortenNumber from "./ShortenNumber";
 import CountUp from "./CountUp";
 import Image from "./Image";

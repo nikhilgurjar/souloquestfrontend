@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Destination from "./components/Destination";
-import Filters from "../(dashboard)/findpartner/components/filter/Filters";
+import Filters from "../../(dashboard)/findpartner/components/filter/Filters";
 import { Box } from "@mui/material";
 
 const page = () => {
