@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import illusionBg from "../../../../public/images/illusionBg.png";
 import ladyImg from "../../../../public/images/HeroLadyImg.png";

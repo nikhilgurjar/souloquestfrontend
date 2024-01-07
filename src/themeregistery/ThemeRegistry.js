@@ -10,11 +10,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ReduxProvider } from '@/redux/Provider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 export default function ThemeRegistry({ children }) {
   return (
-    <NextAppDirEmotionCacheProvider options={{ key: 'mui' }}>
+    <NextAppDirEmotionCacheProvider options={{ key: 'mui' }} >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>

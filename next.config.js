@@ -2,6 +2,11 @@
 const nextConfig = {
     reactStrictMode: true,
   swcMinify: true,
+  modularizeImports: {
+    '@mui/material': {
+      transform: '@mui/material/{{member}}',
+    },
+  },
   images:{
     remotePatterns: [{
       protocol: 'https',

@@ -1,3 +1,4 @@
+'use client';
 import { forwardRef } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Badge, Avatar } from '@mui/material';
