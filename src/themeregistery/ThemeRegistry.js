@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ReduxProvider } from '@/redux/Provider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+// import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 export default function ThemeRegistry({ children }) {
   return (

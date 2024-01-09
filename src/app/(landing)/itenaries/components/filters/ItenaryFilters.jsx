@@ -39,7 +39,6 @@ const CATEGORY_OPTIONS = [
   "park",
 ];
 
-const SHIPPING_OPTIONS = ["Fast", "Saving", "Free"];
 const yourData = [
   { id: 1, avgSpendingTime: 45, activityName: "Reading" },
   { id: 2, avgSpendingTime: 120, activityName: "Watching TV" },
@@ -54,6 +53,7 @@ const defaultValues = {
   filterCategories: "",
   filterRating: null,
   filterStock: false,
+  filterAvgSpendTime: "",
   filterShipping: [],
   filterTag: [],
   filterPrice: {
@@ -64,7 +64,6 @@ const defaultValues = {
 
 export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
   const isMdUp = useResponsive("up", "md");
-  const [filteredData, setFilteredData] = useState([]);
   const [filters, setFilters] = useState(defaultValues);
 
   const getSelected = (selectedItems, item) =>
@@ -78,22 +77,13 @@ export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
       filterCategories: name,
     });
   };
-  const handleFilterChange = ({ minTime, maxTime }) => {
-    // Implement your filter logic here based on average spending time
-    const filteredResult = yourData.filter((item) => {
-      const avgSpendingTime = item.avgSpendingTime; // Replace with your actual property name
-      return avgSpendingTime >= minTime && avgSpendingTime <= maxTime;
+
+  const handleAvgSpendtime = (event) => {
+    setFilters({
+      ...filters,
+      filterAvgSpendTime: event.target.value,
     });
-
-    setFilteredData(filteredResult);
   };
-
-  //   const handleChangeAvgSpendingTime = (name) => {
-  //     setFilters({
-  //       ...filters,
-  //       filterBrand: getSelected(filters.filterBrand, name),
-  //     });
-  //   };
 
   const handleChangeRating = (event) => {
     setFilters({
@@ -124,14 +114,10 @@ export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
         />
       </Block>
 
-      <Block title="Average Spend Time">
-        <FilterByAvgSpendTime
-          filterTime={filters.filterShipping}
-          onFilterChange={handleFilterChange}
-          options={SHIPPING_OPTIONS}
-          sx={{ mt: 1 }}
-        />
-      </Block>
+      <FilterByAvgSpendTime
+        filterAvgSpendTime={filters.filterAvgSpendTime}
+        onFilterChange={handleAvgSpendtime}
+      />
 
       <Block title="Ratings">
         <FilterByRating
@@ -175,7 +161,7 @@ export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
             },
           }}
         >
-          <Scrollbar sx={{ py: 3, px: 3}}>{renderContent}</Scrollbar>
+          <Scrollbar sx={{ py: 3, px: 3 }}>{renderContent}</Scrollbar>
         </Drawer>
       )}
     </>
