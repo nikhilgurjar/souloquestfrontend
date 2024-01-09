@@ -21,6 +21,7 @@ import useCountdown from "@/hooks/useCountDown";
 // import Image from "@/components/image";
 import Link from "next/link";
 import illustration from "../../public/images/illustrations/illustration_comingsoon.svg";
+// import illustration2 from "../../public/images/illustrations/comingsoon.jpeg";
 import Image from "next/image";
 
 // ----------------------------------------------------------------------
@@ -50,7 +51,6 @@ export default function ComingSoonView() {
   const { days, hours, minutes, seconds } = useCountdown(
     new Date("05/07/2024 21:30")
   );
-  console.log(days);
 
   return (
     <Box
@@ -62,9 +62,10 @@ export default function ComingSoonView() {
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
+        gap:3
       }}
     >
-      <Typography variant="h4" paragraph fontWeight={500}>
+      <Typography variant="h3" paragraph fontWeight={500}>
         Coming Soon!
       </Typography>
 
@@ -77,8 +78,9 @@ export default function ComingSoonView() {
         src={illustration}
         layout="responsive"
         style={{
-          maxWidth: "400px",
+          maxWidth: "350px",
         }}
+
       />
 
       <Stack

@@ -28,19 +28,19 @@ const DashboardLayout = ({ children }) => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const router= useRouter();
-  useEffect(() => {
-    console.log(user);
-    if (!user) {
-      get_profile()
-        .then((response) => {
-          dispatch(logInUser({ user: response.user }));
-        })
-        .catch((error) => {
-          console.log(error);
-          router.push("/login");
-        });
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   console.log(user);
+  //   if (!user) {
+  //     get_profile()
+  //       .then((response) => {
+  //         dispatch(logInUser({ user: response.user }));
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //         router.push("/login");
+  //       });
+  //   }
+  // }, [user]);
   const handleDrawerOpen = () => {
     setOpen(true);
   };

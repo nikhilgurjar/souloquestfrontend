@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import BlogPage from "@/app/sections/blogs/BlogPage";
 import BookItenaryPage from "@/app/sections/bookitenary/BookItenaryPage";
 import CategoryPage from "@/app/sections/category/CategoryPage";
 import DestinationPage from "@/app/sections/desitnations/DestinationPage";
@@ -18,7 +17,6 @@ const page = () => {
         <CategoryPage />
         <SoloTravelingPage />
         <BookItenaryPage />
-        <BlogPage />
       </Suspense>
     </>
   );

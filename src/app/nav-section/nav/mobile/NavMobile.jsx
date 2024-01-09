@@ -56,8 +56,7 @@ export default function NavMobile({ data }) {
         }}
       >
         <Scrollbar>
-          {/* <Logo sx={{ mx: 2.5, my: 3 }} /> */}
-          <Logo sx={{ mx: 6, my: 3, display: "block" }} />
+          <Logo sx={{ mx: 6, pt: 3, pb: 2, display: "block" }} />
           <Divider />
           <List component="nav" disablePadding>
             {data.map((link) => (
@@ -69,8 +68,7 @@ export default function NavMobile({ data }) {
             <Button fullWidth variant="contained" color="inherit">
               Log Out
             </Button>
-          ):
-          (
+          ) : (
             <Stack spacing={1.5} sx={{ p: 3 }}>
               <Button fullWidth variant="contained" color="inherit">
                 Log In
