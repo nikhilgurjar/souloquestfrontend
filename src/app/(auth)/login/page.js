@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import AuthLoginForm from "./components/AuthLoginForm";
 import { Box, Typography } from "@mui/material";

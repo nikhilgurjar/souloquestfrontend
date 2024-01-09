@@ -27,7 +27,6 @@ import { toast } from "react-toastify";
 import { useDispatch } from "@/redux/store";
 import { logInUser } from "@/redux/slices/user";
 import { login } from "@/actions/auth";
-import { signIn } from "next-auth/react";
 // ----------------------------------------------------------------------
 export default function AuthLoginForm() {
   const router = useRouter();
@@ -153,7 +152,7 @@ export default function AuthLoginForm() {
         or
       </Divider>
 
-      <Button
+      {/* <Button
         fullWidth
         size="large"
         sx={{
@@ -171,7 +170,7 @@ export default function AuthLoginForm() {
         <Typography color={"#23222D"} fontWeight={500}>
           Login with Google
         </Typography>
-      </Button>
+      </Button> */}
     </FormProvider>
   );
 }

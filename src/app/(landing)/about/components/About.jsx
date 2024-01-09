@@ -1,5 +1,5 @@
 // @mui
-'use client';
+'use client'
 import {
   Container,
   Typography,
@@ -14,7 +14,6 @@ import aboutImg1 from "../../../../../public/images/aboutImage/travel_3.jpg";
 import aboutImg2 from "../../../../../public/images/aboutImage/travel_4.jpg";
 import aboutImg3 from "../../../../../public/images/aboutImage/travel_5.jpg";
 import aboutImg4 from "../../../../../public/images/aboutImage/travel_6.jpg";
-import shortenNumber from "./ShortenNumber";
 import CountUp from "./CountUp";
 import Image from "./Image";
 
@@ -95,12 +94,7 @@ export default function TravelAbout() {
         {SUMMARY.map((value) => (
           <div key={value.name}>
             <Typography variant="h2" gutterBottom>
-              <CountUp
-                start={value.number / 5}
-                end={value.number}
-                sx={{ fontWeight: 700 }}
-                formattingFn={(newValue) => shortenNumber(newValue)}
-              />
+              <CountUp value={value}/>
 
               <Typography
                 variant="h4"
