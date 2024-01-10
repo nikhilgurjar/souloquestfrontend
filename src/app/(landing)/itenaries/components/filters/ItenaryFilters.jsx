@@ -28,7 +28,6 @@ import Scrollbar from "@/components/scrollbar";
 
 // ----------------------------------------------------------------------
 
-const BRAND_OPTIONS = ["Apple", "Samsung", "Xiaomi", "Honor"];
 
 const CATEGORY_OPTIONS = [
   "religious",
@@ -39,14 +38,6 @@ const CATEGORY_OPTIONS = [
   "park",
 ];
 
-const yourData = [
-  { id: 1, avgSpendingTime: 45, activityName: "Reading" },
-  { id: 2, avgSpendingTime: 120, activityName: "Watching TV" },
-  { id: 3, avgSpendingTime: 60, activityName: "Cooking" },
-  { id: 4, avgSpendingTime: 30, activityName: "Walking" },
-  { id: 5, avgSpendingTime: 180, activityName: "Gaming" },
-  // Add more items as needed
-];
 // ----------------------------------------------------------------------
 
 const defaultValues = {
@@ -77,6 +68,7 @@ export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
       filterCategories: name,
     });
   };
+  
 
   const handleAvgSpendtime = (event) => {
     setFilters({
@@ -114,6 +106,7 @@ export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
         />
       </Block>
 
+      <Typography variant="h6">Avg Spend Time</Typography>
       <FilterByAvgSpendTime
         filterAvgSpendTime={filters.filterAvgSpendTime}
         onFilterChange={handleAvgSpendtime}

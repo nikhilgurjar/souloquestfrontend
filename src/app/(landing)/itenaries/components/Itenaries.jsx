@@ -11,7 +11,7 @@ const dummyData = [
     location: "Dummy Location",
     title: "Itenary",
     rating: 4.5,
-    slug: "/dummy-destination", // Replace with your destination URL
+    slug: "/itenaries/1", // Replace with your destination URL
     duration: "3 days",
   },
   {
@@ -20,7 +20,7 @@ const dummyData = [
     location: "Dummy Location",
     title: "Itenary",
     rating: 4.5,
-    slug: "/dummy-destination", // Replace with your destination URL
+    slug: "/itenary/1", // Replace with your destination URL
     duration: "3 days",
   },
   {

@@ -3,7 +3,7 @@ import { Box, Slider } from "@mui/material";
 const FilterByAvgSpendingTime = ({ filterAvgSpendTime, onFilterChange }) => {
   function valueText(value) {
     console.log(value);
-    return `${value} min`;
+    return value;
   }
   return (
     <>

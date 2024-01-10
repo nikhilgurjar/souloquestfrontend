@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Card, CardMedia, Typography, Box, Divider } from "@mui/material";
+import { Card, CardMedia, Typography, Box, Divider, Link } from "@mui/material";
 import { GoClock } from "react-icons/go";
 import { FaStar } from "react-icons/fa6";
-
+import NextLink from 'next/link'
 const DestinationCard = ({
   imgUrl,
   location,
@@ -50,7 +50,7 @@ const DestinationCard = ({
   const imageBox = {
     overflow: "hidden",
     position: "relative",
-    height: "220px",
+    height: "200px",
   };
 
   const destinationTextStyles = {
@@ -103,6 +103,23 @@ const DestinationCard = ({
             {title}
           </Typography>
         </Box>
+      </Box>
+      <Box px={5} pb={4} pt={2}>
+        <Typography
+          variant="body1"
+          component={"p"}
+          sx={{ color: "grey.500", pt: 2 }}
+        >
+          {location}
+        </Typography>
+        <Link
+          component={NextLink}
+          href={slug}
+          sx={{ textDecoration: "none", color: "initial" }}
+          variant="h6"
+        >
+          {title}
+        </Link>
       </Box>
       <Divider />
       <Box

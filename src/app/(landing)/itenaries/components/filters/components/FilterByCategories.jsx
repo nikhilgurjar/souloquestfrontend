@@ -11,6 +11,15 @@ export default function FilterByCategory({
   onChangeCategories,
   ...other
 }) {
+  const handleCategoryChange = (selectedCategory) => {
+    // Toggle the selected category
+    const updatedCategories = filterCategories.includes(selectedCategory)
+      ? filterCategories.filter((category) => category !== selectedCategory)
+      : [...filterCategories, selectedCategory];
+
+    // Call the onChangeCategories with the updated categories array
+    onChangeCategories(updatedCategories);
+  };
   return (
     <Stack spacing={1} alignItems="flex-start" {...other}>
       {options.map((option) => (
@@ -18,11 +27,11 @@ export default function FilterByCategory({
           key={option}
           direction="row"
           alignItems="center"
-          onClick={() => onChangeCategories(option)}
+          onClick={() => handleCategoryChange(option)}
           sx={{
             typography: "body2",
             cursor: "pointer",
-            ...(filterCategories === option && {
+            ...(filterCategories.includes(option) && {
               fontWeight: "fontWeightBold",
             }),
           }}
