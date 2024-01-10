@@ -3,7 +3,6 @@ import React from "react";
 
 import { Box } from "@mui/material";
 import DestinationCard from "../../destinations/components/card/DestinationCard";
-
 const dummyData = [
   {
     imgUrl:
@@ -51,7 +50,7 @@ const Itenaries = () => {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        padding:"20px"
+        padding: "20px",
       }}
     >
       {dummyData.map((item) => (
@@ -65,6 +64,7 @@ const Itenaries = () => {
           title={item.title}
         />
       ))}
+   
     </Box>
   );
 };

@@ -2,7 +2,6 @@ import { Box, Slider } from "@mui/material";
 
 const FilterByAvgSpendingTime = ({ filterAvgSpendTime, onFilterChange }) => {
   function valueText(value) {
-    console.log(value);
     return value;
   }
   return (
@@ -18,6 +17,7 @@ const FilterByAvgSpendingTime = ({ filterAvgSpendTime, onFilterChange }) => {
         marks
         min={30}
         max={180}
+        sx={{position:"relative",left:"6%",width:"80%"}}
       />
     </>
   );

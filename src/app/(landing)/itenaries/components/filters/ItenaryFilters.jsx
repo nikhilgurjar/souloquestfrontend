@@ -10,6 +10,7 @@ import {
   StackProps,
   IconButton,
   Divider,
+  Box,
 } from "@mui/material";
 // hooks
 
@@ -27,7 +28,6 @@ import Scrollbar from "@/components/scrollbar";
 //
 
 // ----------------------------------------------------------------------
-
 
 const CATEGORY_OPTIONS = [
   "religious",
@@ -68,7 +68,6 @@ export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
       filterCategories: name,
     });
   };
-  
 
   const handleAvgSpendtime = (event) => {
     setFilters({
@@ -105,13 +104,11 @@ export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
           sx={{ mt: 2 }}
         />
       </Block>
-
       <Typography variant="h6">Avg Spend Time</Typography>
       <FilterByAvgSpendTime
         filterAvgSpendTime={filters.filterAvgSpendTime}
         onFilterChange={handleAvgSpendtime}
       />
-
       <Block title="Ratings">
         <FilterByRating
           filterRating={filters.filterRating}
@@ -119,9 +116,7 @@ export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
           sx={{ mt: 2 }}
         />
       </Block>
-
       {/* <EcommerceFilterStock filterStock={filters.filterStock} onChangeStock={handleChangeStock} /> */}
-
       <Button
         fullWidth
         size="large"
@@ -141,7 +136,9 @@ export default function ItenaryFilters({ mobileOpen, onMobileClose }) {
   return (
     <>
       {isMdUp ? (
-        renderContent
+        <Box sx={{ overflowY: "auto", height: "110vh", py: 3 }}>
+          <Scrollbar>{renderContent}</Scrollbar>
+        </Box>
       ) : (
         <Drawer
           anchor="left"

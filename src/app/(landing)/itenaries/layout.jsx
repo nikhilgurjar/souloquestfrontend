@@ -16,7 +16,6 @@ import { Pagination } from "@mui/material";
 import Scrollbar from "@/components/scrollbar/Scrollbar";
 import ItenaryFilters from "./components/filters/ItenaryFilters";
 
-
 const SORT_OPTIONS = [
   { value: "latest", label: "Latest" },
   { value: "oldest", label: "Oldest" },
@@ -46,7 +45,9 @@ const ItenariesLayout = ({ children }) => {
           py: 5,
         }}
       >
-        <Typography variant="h3" color={"primary.main"} fontWeight={500}>Itenaries</Typography>
+        <Typography variant="h3" color={"primary.main"} fontWeight={500}>
+          Itenaries
+        </Typography>
         <Divider />
         <Button
           color="inherit"
@@ -112,38 +113,37 @@ const ItenariesLayout = ({ children }) => {
               </Select>
             </FormControl>
           </Stack>
-          <Box
+          <Stack
+            spacing={3}
             sx={{
               height: "90vh",
             }}
           >
             <Scrollbar>
-              <Box
+              <Stack
                 sx={{
-                  display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  width: "100%",
                 }}
+                flexDirection={"row"}
               >
                 {children}
-              </Box>
+              </Stack>
             </Scrollbar>
-          </Box>
+            <Pagination
+              count={10}
+              color="primary"
+              size="large"
+              sx={{
+                my: 10,
+                "& .MuiPagination-ul": {
+                  justifyContent: "center",
+                },
+              }}
+            />
+          </Stack>
         </Box>
       </Stack>
-
-      <Pagination
-        count={10}
-        color="primary"
-        size="large"
-        sx={{
-          my: 10,
-          "& .MuiPagination-ul": {
-            justifyContent: "center",
-          },
-        }}
-      />
     </Container>
   );
 };
