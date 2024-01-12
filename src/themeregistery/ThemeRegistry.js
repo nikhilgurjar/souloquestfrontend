@@ -14,11 +14,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 export default function ThemeRegistry({ children }) {
   return (
-    <NextAppDirEmotionCacheProvider options={{ key: 'mui' }} >
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
         <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <ReduxProvider>
+       
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <ToastContainer 
@@ -33,11 +31,16 @@ export default function ThemeRegistry({ children }) {
         pauseOnHover
         theme="light"
         />
+         <ReduxProvider>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+       
         {children}
+       
+        </LocalizationProvider>
         </ReduxProvider>
       </ThemeProvider>
       </StyledEngineProvider>
-      </LocalizationProvider>
-    </NextAppDirEmotionCacheProvider>
+     
+    
   );
 }

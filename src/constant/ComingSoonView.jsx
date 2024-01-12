@@ -48,9 +48,7 @@ const _socials = [
   },
 ];
 export default function ComingSoonView() {
-  const { days, hours, minutes, seconds } = useCountdown(
-    new Date("05/07/2024 21:30")
-  );
+
 
   return (
     <Box
@@ -83,20 +81,6 @@ export default function ComingSoonView() {
 
       />
 
-      <Stack
-        direction="row"
-        justifyContent="center"
-        divider={<Box sx={{ mx: { xs: 1, sm: 2.5 } }}>:</Box>}
-        sx={{ typography: "h5" }}
-      >
-        <TimeBlock label="Days" value={days} />
-
-        <TimeBlock label="Hours" value={hours} />
-
-        <TimeBlock label="Minutes" value={minutes} />
-
-        <TimeBlock label="Seconds" value={seconds} />
-      </Stack>
 
       <TextField
         fullWidth

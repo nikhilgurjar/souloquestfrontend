@@ -21,6 +21,7 @@
     "@reduxjs/toolkit": "^2.0.1",
     "axios": "^1.6.3",
     "bcryptjs": "^2.4.3",
+    "classnames": "^2.5.1",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.10",
     "firebase": "^10.7.1",

@@ -3,6 +3,7 @@ import "./globals.css";
 import ThemeRegistry from "@/themeregistery/ThemeRegistry";
 import { AuthProvider } from "@/utils/SessionProvider";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -13,11 +14,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
         <ThemeRegistry>
+        <body id='root'>
           {children}
+          </body>
         </ThemeRegistry>
-      </body>
     </html>
   );
 }
