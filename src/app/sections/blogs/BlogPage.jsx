@@ -1,12 +1,11 @@
 "use client";
 import { Box, Container, Typography } from "@mui/material";
 import React from "react";
-import ComingSoonView from "@/common/ComingSoonView";
+import BlogCard from "./components/BlogCard";
 
 const BlogPage = () => {
-
   return (
-    <Container sx={{  py: 5 }}>
+    <Container sx={{ py: 5 }}>
       <Typography
         variant="h3"
         sx={{
@@ -14,12 +13,12 @@ const BlogPage = () => {
           fontSize: { xs: "2.5rem", md: "2.8rem" },
           textAlign: "center",
           fontWeight: 500,
-          py:5
+          py: 5,
         }}
       >
         Read Latest Blogs
       </Typography>
-      {/* <Box
+      <Box
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -38,8 +37,7 @@ const BlogPage = () => {
             blogUrl={item.blogUrl}
           />
         ))}
-      </Box> */}
-      <ComingSoonView/>
+      </Box>
     </Container>
   );
 };

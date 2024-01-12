@@ -1,16 +1,12 @@
 import React from "react";
-import MainLayout from "../layouts/MainLayout";
-import { Grid } from "@mui/material";
-import FooterPage from "../sections/footer/FooterPage";
+// import MainLayout from "../layouts/MainLayout";
+import { Box } from "@mui/material";
 
 const LandingLayout = ({ children }) => {
-  // return <MainLayout>{children}</MainLayout>;
   return (
-    <>
-    {children}
-    <FooterPage/>
-    </>
-  )
+    // <MainLayout>
+      <Box sx={{ my: 10 }}>{children}</Box>
+    // </MainLayout> 
+  );
 };
-
 export default LandingLayout;
