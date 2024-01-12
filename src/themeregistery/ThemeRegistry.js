@@ -10,13 +10,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ReduxProvider } from '@/redux/Provider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 export default function ThemeRegistry({ children }) {
   return (
+    <NextAppDirEmotionCacheProvider options={{ key: 'mui' }} >
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
         <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-       
+        <ReduxProvider>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <ToastContainer 
@@ -31,16 +33,11 @@ export default function ThemeRegistry({ children }) {
         pauseOnHover
         theme="light"
         />
-         <ReduxProvider>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-       
         {children}
-       
-        </LocalizationProvider>
         </ReduxProvider>
       </ThemeProvider>
       </StyledEngineProvider>
-     
-    
+      </LocalizationProvider>
+    </NextAppDirEmotionCacheProvider>
   );
 }

@@ -55,7 +55,7 @@ const AuthLayout = ({ children }) => {
         square
         sx={{
           backgroundColor: "#F9F8F8",
-          py: "30px",
+          py: "35px",
           px: "4vw",
           overflow: "hidden",
         }}

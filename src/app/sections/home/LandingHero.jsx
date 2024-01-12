@@ -17,7 +17,7 @@ export default function LandingHero() {
       <StyledRoot>
         <Container
           sx={{
-            pb: 15,
+            py: 15,
             display: { md: "flex" },
             alignItems: { md: "center" },
             height: { md: `100vh` },

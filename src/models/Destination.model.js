@@ -1,39 +1,13 @@
 const mongoose = require("mongoose");
 
 const destinationSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  category: {
-    type: String,
-    required: true,
-  },
-  subcategories: {
-    type: [String],
-    default: [],
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  locationString: {
-    type: String,
-    required: true,
-  },
-  description: String,
-  image: {
-    type: String,
-  },
-  rating: {
-    type: Number,
-    // required: true,
-  },
+  id: { type: String, required: true, unique: true },
+  category: { type: String, required: true },
+  subcategories: { type: [String], default: [] },
+  name: { type: String, required: true },
+  rating: Number,
   phone: String,
-  address: {
-    type: String,
-  },
+  address: String,
   addressObj: {
     street1: String,
     street2: String,
@@ -42,34 +16,16 @@ const destinationSchema = new mongoose.Schema({
     country: String,
     postalcode: String,
   },
-  email: {
-    type: String
-  },
-  latitude: {
-    type: Number,
-  },
-  longitude: {
-    type: Number,
-  },
-  website: String,
-  ratingHistogram: {
-    count1: Number,
-    count2: Number,
-    count3: Number,
-    count4: Number,
-    count5: Number,
-  },
-  numberOfReviews: {
-    type: Number,
-    default: 0
-  },
-}, {
-  timestamps: true,
-  versionKey: false
+  localName: String,
+  latitude: Number,
+  longitude: Number,
+
+  created_at: { type: Date, default: Date.now },
+  updated_at: { type: Date, default: Date.now },
 });
 
 const Destinations =
-  mongoose.models['destinations'] ||
-  mongoose.model("destinations", destinationSchema);
+  mongoose.models.Destinations ||
+  mongoose.model("Destinations", destinationSchema);
 
 export default Destinations;

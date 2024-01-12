@@ -14,10 +14,7 @@ const LoginPage = () => {
       />
       <Box sx={{ maxWidth: "450px", margin: "auto auto" }}>
         <Typography mt={3} component="p" color={"#757575"}>
-          Welcome back!
-          <Typography variant="h5" color="initial" component={"span"}>
-            👋
-          </Typography>
+          Welcome back! 👋
         </Typography>
         <Typography
           fontSize={44}

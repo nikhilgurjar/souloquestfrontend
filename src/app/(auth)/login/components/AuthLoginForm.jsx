@@ -112,7 +112,8 @@ export default function AuthLoginForm() {
         variant="contained"
         loading={isSubmitting || isSubmitSuccessful}
         sx={{
-          backgroundColor: "primary.main",
+          backgroundColor: "#008080",
+          // bgcolor: "#008080",
           color: "common.white",
           "&:hover": {
             bgcolor: "#000",
@@ -151,7 +152,7 @@ export default function AuthLoginForm() {
         or
       </Divider>
 
-      <Button
+      {/* <Button
         fullWidth
         size="large"
         sx={{
@@ -163,13 +164,13 @@ export default function AuthLoginForm() {
           gap: 2,
           alignItems: "center",
         }}
-        // onClick={() => signIn("google")}
+        onClick={() => signIn("google")}
       >
         <FcGoogle fontSize={24} />
         <Typography color={"#23222D"} fontWeight={500}>
           Login with Google
         </Typography>
-      </Button>
+      </Button> */}
     </FormProvider>
   );
 }

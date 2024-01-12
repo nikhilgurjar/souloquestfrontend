@@ -13,7 +13,24 @@ const AuthHeader = ({ urlTitle, url, pageQuestion }) => {
         gap: 1,
       }}
     >
-      <Link sx={{ cursor: "pointer" }} href="/"></Link>
+      <Link sx={{ cursor: "pointer" }} href="/">
+        <Typography
+          variant="h6"
+          noWrap
+          component="h1"
+          sx={{
+            display: { sm: "none", md: "block" },
+            fontWeight: "600",
+            color: "primary.main",
+            fontSize: "1.5rem",
+            "@media (max-width: 600px)": {
+              display: "none",
+            },
+          }}
+        >
+          Souloquest
+        </Typography>
+      </Link>
       <Stack
         direction={{ xs: "column", md: "row" }}
         justifyContent={"space-between"}
@@ -39,10 +56,9 @@ const AuthHeader = ({ urlTitle, url, pageQuestion }) => {
             noWrap
             component="h1"
             sx={{
-              fontWeight: "500",
+              fontWeight: "600",
               color: "primary.main",
-              fontSize: "2.5rem",
-              mt:-5
+              fontSize: "1.5rem",
             }}
           >
             Souloquest

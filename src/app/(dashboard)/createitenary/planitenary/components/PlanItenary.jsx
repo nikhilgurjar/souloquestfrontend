@@ -1,8 +1,8 @@
-"use client";
+'use client';
 import { Box } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import itenaryImg from "@images/images/itenary/Rectangle 19389.png";
+import itenaryImg from "../../../../../../public/images/itenary/Rectangle 19389.png";
 import ItenaryForm from "./ItenaryForm";
 
 const PlanItenary = () => {
@@ -11,37 +11,39 @@ const PlanItenary = () => {
       <Box
         sx={{
           width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           position: "relative",
           bgcolor: "red",
-          zIndex: -1,
-          minHeight: "100vh",
-          bgcolor: "transparent",
+          height: "65vh",
+          zIndex:-1,
+          bgcolor:"transparent"
+          // p: 0,
         }}
-      >
+        >
         <Image
           src={itenaryImg}
           alt="itenary"
           quality={100} // Optional: Set quality for better appearance
           priority={true}
+          // width={500}
+          // fill
           style={{
             width: "100%",
-            height: "60vh",
+            zIndex: 5,
+            boxShadow: "0px 4px 4px 0px #00000040",
             objectFit: { xs: "contain" },
             "@media(max-width:420px)": {
               objectFit: "contain",
             },
+            height:"max-content"
+            // objectFit: "cover",
+            // p: 0,
           }}
         />
       </Box>
-      <Box
-        sx={{
-          position: "absolute",
-          top: "80%",
-          left: "50%",
-          transform: "translate(-50%, -20%)",
-          mb: 15,
-        }}
-      >
+      <Box sx={{ mt: -22, zIndex: 10, position: "relative", mb: 15 }}>
         <ItenaryForm />
       </Box>
     </>
