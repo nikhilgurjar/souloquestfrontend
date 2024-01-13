@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, CardMedia, Typography, Box, Divider, Link } from "@mui/material";
 import { GoClock } from "react-icons/go";
 import { FaStar } from "react-icons/fa6";
-import NextLink from 'next/link'
+import NextLink from "next/link";
 const DestinationCard = ({
   imgUrl,
   location,
@@ -77,12 +77,13 @@ const DestinationCard = ({
   };
 
   return (
-    <Card
-      sx={cardStyles}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <Box className="imageBox" sx={imageBox}>
+    <Card sx={cardStyles}>
+      <Box
+        className="imageBox"
+        sx={imageBox}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <Box className="overlay" sx={overlayStyles}></Box>
         <CardMedia
           component="img"
@@ -90,8 +91,6 @@ const DestinationCard = ({
           sx={imageStyles}
           alt={"Destination image"}
           src={imgUrl}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
         />
         <Box className="destinationText" sx={destinationTextStyles}>
           <Typography variant="body1" color="white">

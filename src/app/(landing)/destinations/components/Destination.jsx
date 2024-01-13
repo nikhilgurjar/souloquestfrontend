@@ -3,6 +3,7 @@ import React from "react";
 // import DestinationCard from "./DestinationCard";
 import { Pagination } from "@mui/material";
 import DestinationCard from "./card/DestinationCard";
+import ExploreCard from "./card/ExploreCard";
 
 const dummyData = [
   {
@@ -39,6 +40,18 @@ const dummyData = [
     duration: "3 days",
   },
 ];
+const exploreData = [
+  {
+    imgUrl:
+      "https://st2.depositphotos.com/1001951/5478/i/450/depositphotos_54788291-stock-photo-woman-hiker-on-a-top.jpg", // Replace with your image URL
+    location: "Paris",
+    userName: "Kishore",
+    usePicture: "",
+    userRole: "Travel Genie",
+    rating: 4.5,
+    slug: "/dummy-explore", // Replace with your destination URL
+  },
+];
 
 const Destination = () => {
   return (
@@ -61,6 +74,17 @@ const Destination = () => {
             slug={item.slug}
             duration={item.duration}
             title={item.title}
+          />
+        ))}
+        {exploreData.map((item) => (
+          <ExploreCard
+            imgUrl={item.imgUrl}
+            location={item.location}
+            rating={item.rating}
+            slug={item.slug}
+            userName={item.userName}
+            userPicture={item.usePicture}
+            userRole={item.userRole}
           />
         ))}
       </Box>
