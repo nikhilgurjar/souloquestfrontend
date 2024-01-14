@@ -1,10 +1,13 @@
 import React from 'react'
 import { Stack, Typography, Card, Box } from '@mui/material'
 import Image from 'next/image';
-import {CiCirclePlus} from "@react-icons/ci";
+import {CiCirclePlus} from "react-icons/ci";
 
 
 const SuggestionCard = ({recommendation, onAddRecommendation}) => {
+  const handleAddRecommendation = () => {
+    onAddRecommendation(recommendation);
+  }
   return (
     <Card 
     elevation={0} 
@@ -24,7 +27,7 @@ const SuggestionCard = ({recommendation, onAddRecommendation}) => {
       <Image
         alt={'cover image'}
         fill
-        src={'https://lh5.googleusercontent.com/p/AF1QipMYZbJVmc5nM3kc6ErCUDV4cQS54cCniIxTy4MY=w427-h240-k-no'}
+        src={recommendation.image}
         sx={{
           height: 1,
           objectFit: 'cover',
@@ -48,7 +51,7 @@ const SuggestionCard = ({recommendation, onAddRecommendation}) => {
           {recommendation.category}
         </Typography>
         <Typography>
-          {recommendation.title}
+          {recommendation.name}
         </Typography>
         </Stack>
 
@@ -57,7 +60,7 @@ const SuggestionCard = ({recommendation, onAddRecommendation}) => {
           alignItems="center"
           sx={{ typography: 'body2', color: 'text.secondary', marginLeft: '40px', marginTop: '10px' }}
         >
-          <CiCirclePlus size={26} onClick={onAddRecommendation} id={recommendation.id} cursor={'pointer'} />
+          <CiCirclePlus size={26} onClick={handleAddRecommendation} id={recommendation.id} cursor={'pointer'} />
         </Stack>
       </Stack>
       </Stack>

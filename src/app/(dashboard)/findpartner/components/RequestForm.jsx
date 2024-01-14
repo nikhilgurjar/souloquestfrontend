@@ -33,10 +33,8 @@ const RequestForm = ({handleClose}) => {
     const onSubmit = async (data) =>{
       try {
         const response = await postPartnerRequest({departureDate: dayjs(departureDate).format('YYYY-MM-DD'), location: location.label, description: data.description, title: data.title});
-      console.log(response)
       handleClose();
       } catch (error) {
-        console.log(error)
         setError('afterSubmit', {
           ...error,
           message: error || 'Something went wrong',

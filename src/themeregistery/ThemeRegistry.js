@@ -14,30 +14,32 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 export default function ThemeRegistry({ children }) {
   return (
-    <NextAppDirEmotionCacheProvider options={{ key: 'mui' }} >
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
+   
+     
         <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <ReduxProvider>
+       
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <ToastContainer 
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
         />
+         <ReduxProvider>
+         <LocalizationProvider dateAdapter={AdapterDayjs}>
         {children}
+        </LocalizationProvider>
         </ReduxProvider>
       </ThemeProvider>
       </StyledEngineProvider>
-      </LocalizationProvider>
-    </NextAppDirEmotionCacheProvider>
+
   );
 }

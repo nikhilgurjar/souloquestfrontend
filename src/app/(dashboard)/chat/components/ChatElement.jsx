@@ -8,7 +8,6 @@ import dayjs from 'dayjs';
 const ChatElement = ({ conversation }) => {
   const dispatch = useDispatch();
   const room_id = useSelector((state) => state.conversation.selectedRoomId)?._id;
-  console.log(room_id)
   const selectedChatId = room_id?.toString();
 
   let isSelected = +selectedChatId === conversation._id;
@@ -18,10 +17,8 @@ const ChatElement = ({ conversation }) => {
   }
   const handleSelectChat = (event) =>{
     event.preventDefault();
-    console.log(event.currentTarget.id);
     dispatch(SetCurrentConversation({current_conversation: conversation}));
   };
-console.log(conversation)
   return (
     <ListItemButton disableGutters 
     sx={{

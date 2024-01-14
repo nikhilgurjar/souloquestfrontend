@@ -27,13 +27,21 @@ export default function UserEditPage() {
             value: 'social_links',
             label: 'Social links',
             icon: <IoShareSocialSharp />,
-            component: <AccountSocialLinks socialLinks = {user?.socialMedia}/>,
+            component: (
+              <Suspense fallback={<div>Loading Social Links...</div>}>
+                <AccountSocialLinks socialLinks={user?.socialMedia} />
+              </Suspense>
+            ),
         },
         {
             value: 'change_password',
             label: 'Change password',
             icon: <MdVpnKey />,
-            component: <AccountChangePassword />,
+            component: (
+              <Suspense fallback={<div>Loading Change Password...</div>}>
+                <AccountChangePassword />
+              </Suspense>
+            ),
         },
   ];
     return (

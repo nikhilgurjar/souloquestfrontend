@@ -1,5 +1,3 @@
-// @mui
-'use client';
 import { Stack, Typography, Box } from "@mui/material";
 // layouts
 // routes

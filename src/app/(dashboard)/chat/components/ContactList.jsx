@@ -13,7 +13,6 @@ const ContactList = () => {
         const response = await getRooms();
         setChatList(response.rooms);
       } catch (error) {
-        console.log(error);
         toast.error(error);
       }
     };

@@ -16,6 +16,7 @@ import { usePathname } from "next/navigation";
 import Scrollbar from "@/components/scrollbar/Scrollbar";
 import Logo from "@/components/Logo/Logo";
 import { useSelector } from "@/redux/store";
+import { clearAllCookies } from "@/actions/auth";
 
 // ----------------------------------------------------------------------
 
@@ -24,6 +25,10 @@ export default function NavMobile({ data }) {
   const user = useSelector((state) => state.user.user);
   const [open, setOpen] = useState(false);
 
+  const handleLogout = async () =>{
+    localStorage.removeItem("token");
+    await clearAllCookies();
+  }
   useEffect(() => {
     if (open) {
       handleClose();

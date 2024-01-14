@@ -61,7 +61,6 @@ const GinieProfile = () => {
         try {
             reset();
             //   enqueueSnackbar('Update success!');
-            console.log('DATA', data);
         }
         catch (error) {
             console.error(error);

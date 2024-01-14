@@ -23,21 +23,17 @@ const Filters = () => {
     };
 
     const handleLocationChange = (value) => {
-      console.log(value)
         dispatch(setLocation({location: value.label}))
     };
 
     const handleSubmission = async () =>{
-      console.log(departureDate, location);
         try {
             const response = await fetchPartnerRequests({departureDate: dayjs(departureDate).format('YYYY-MM-DD'), location: location.label });
             dispatch(setFetchedPartnerRequest({ requests: response.requests }));
-            console.log(response.requests)
             if((response?.requests || []).length === 0){
               toast.info('No requests Found')
             }
         } catch (error) {
-            console.log(error)
             toast.error(error)
         }
         

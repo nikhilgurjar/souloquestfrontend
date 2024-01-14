@@ -6,7 +6,6 @@ import bcrypt from "bcryptjs";
 export async function POST(req) {
   try {
     const { name, email, password } = await req.json();
-    console.log(name, email, password)
     if (!name || !email || !password) {
       return NextResponse.json(
         { message: "Missing required fields." },
@@ -30,7 +29,6 @@ export async function POST(req) {
     user.password = undefined;
     return NextResponse.json({ message: "User registered.", user: user }, { status: 201 });
   } catch (error) {
-    console.log(error)
     return NextResponse.json(
       { message: "An error occurred while registering the user." },
       { status: 500 }

@@ -3,6 +3,7 @@ import axios from 'axios';
 // import { HOST_API_KEY } from '../config-global';
 const HOST_API_KEY = '';
 // ----------------------------------------------------------------------
+// 
 const axiosInstance = axios.create({ baseURL: 'https://souloquest-backend.onrender.com', withCredentials: true });
 axiosInstance.interceptors.response.use((response) => response, (error) => {
     console.log(error);

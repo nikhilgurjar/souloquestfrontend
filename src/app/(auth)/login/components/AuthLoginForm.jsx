@@ -53,12 +53,14 @@ export default function AuthLoginForm() {
       const { email, password } = data;
       // await login({ email, password })
       const res = await login({ email, password });
-      console.log(res);
       dispatch(logInUser({ user: res.user }));
       toast.success("Login Successfully");
+      if(router?.query?.returnUrl){
+        router.push(router.query.returnUrl);
+        return;
+      }
       router.push("/profile");
     } catch (error) {
-      console.log(error);
       toast.error(
         error || error.error || error.message || "Something went wrong"
       );

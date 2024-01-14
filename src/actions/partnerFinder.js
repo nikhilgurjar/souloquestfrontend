@@ -17,7 +17,6 @@ const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
                 resolve(response.data);
             })
             .catch(error => {
-                console.log(error);
                 reject(error?.error || error?.message || 'Something went wrong');
             });
     });
@@ -37,7 +36,6 @@ export const fetchPartnerRequests = async ({departureDate, location}) =>{
   }
 
 export const postPartnerRequest = async ({departureDate, location, description, title}) =>{
-  console.log(departureDate, location, description, title);
   try {
     const data = await apiRequest({
         url: '',
