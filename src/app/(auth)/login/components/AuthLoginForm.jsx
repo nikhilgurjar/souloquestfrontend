@@ -53,12 +53,14 @@ export default function AuthLoginForm() {
       const { email, password } = data;
       // await login({ email, password })
       const res = await login({ email, password });
-      console.log(res);
       dispatch(logInUser({ user: res.user }));
       toast.success("Login Successfully");
+      if(router?.query?.returnUrl){
+        router.push(router.query.returnUrl);
+        return;
+      }
       router.push("/profile");
     } catch (error) {
-      console.log(error);
       toast.error(
         error || error.error || error.message || "Something went wrong"
       );
@@ -112,7 +114,8 @@ export default function AuthLoginForm() {
         variant="contained"
         loading={isSubmitting || isSubmitSuccessful}
         sx={{
-          backgroundColor: "primary.main",
+          backgroundColor: "#008080",
+          // bgcolor: "#008080",
           color: "common.white",
           "&:hover": {
             bgcolor: "#000",
@@ -151,7 +154,7 @@ export default function AuthLoginForm() {
         or
       </Divider>
 
-      <Button
+      {/* <Button
         fullWidth
         size="large"
         sx={{
@@ -163,13 +166,13 @@ export default function AuthLoginForm() {
           gap: 2,
           alignItems: "center",
         }}
-        // onClick={() => signIn("google")}
+        onClick={() => signIn("google")}
       >
         <FcGoogle fontSize={24} />
         <Typography color={"#23222D"} fontWeight={500}>
           Login with Google
         </Typography>
-      </Button>
+      </Button> */}
     </FormProvider>
   );
 }

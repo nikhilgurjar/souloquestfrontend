@@ -13,10 +13,9 @@ const SignOutButton = () => {
         localStorage.clear();
         sessionStorage.clear();
         clearAllCookies().then(resp=>{
-          console.log(resp);
           router.push('/login');
         }).catch(error=>{
-          console.log(error);
+
         });
 
     }

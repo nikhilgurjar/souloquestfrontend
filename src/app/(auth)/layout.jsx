@@ -7,7 +7,7 @@ import imgAccn from "../../../public/images/loginimg.png";
 const DynamicImage = dynamic(() => import("next/image"), { ssr: false });
 const AuthLayout = ({ children }) => {
   return (
-    <Grid container component="main" sx={{ minHeight: "100vh" }}>
+    <Grid container component="main" sx={{ minHeight: "100vh", pt: 7 }}>
       {/* <CssBaseline /> */}
       <Grid
         item
@@ -55,7 +55,7 @@ const AuthLayout = ({ children }) => {
         square
         sx={{
           backgroundColor: "#F9F8F8",
-          py: "30px",
+          py: "35px",
           px: "4vw",
           overflow: "hidden",
         }}

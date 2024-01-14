@@ -14,7 +14,6 @@ export async function POST(req) {
       );
     }
    const {name, email, profilePic, phoneNumber, state, city, about} = await req.json();
-   console.log(email)
     if (!email || !name || !profilePic || !state || !city || !about) {
       return NextResponse.json(
         { message: "Missing required fields." },
@@ -34,7 +33,6 @@ export async function POST(req) {
 
     return NextResponse.json({ message: "Profile has been updated", user: existingUser }, { status: 200 });
   } catch (error) {
-    console.log(error)
     return NextResponse.json(
       { message: "An error occurred while registering the user." },
       { status: 500 }

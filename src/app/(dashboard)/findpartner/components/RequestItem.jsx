@@ -17,7 +17,6 @@ const RequestItem = ({request}) => {
       router.push('/chat');
     }
     catch(error){
-      console.log(error)
     }
     
   }

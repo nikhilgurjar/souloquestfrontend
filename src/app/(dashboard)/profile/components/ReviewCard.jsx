@@ -1,11 +1,10 @@
 // @mui
-import Image from "@/components/Image";
+import Image from "@/components/image";
 import { Box, Card, Typography } from "@mui/material";
 
 // @types
 // import Image from "../../../../../components/image";
 export default function ReviewCard({ review }) {
-  console.log(review);
   return (
     <Card>
       <Box sx={{ p: 1 }}>

@@ -7,7 +7,7 @@ import stepimg2 from "../../../../../public/images/itenary/Group 12.png";
 import stepimg3 from "../../../../../public/images/itenary/Group 11.png";
 const BookItenary = () => {
   return (
-    <Container sx={{ pb: 5 }}>
+    <Container>
       <Typography
         variant="h3"
         sx={{
@@ -30,8 +30,12 @@ const BookItenary = () => {
       >
         Easy and Fast
       </Typography>
-      <Grid container justifyContent={"space-between"} alignItems={"center"}>
-        <Grid item xs={12} md={6} lg={5} sx={{ mt: 10 }}>
+      <Grid
+        container
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <Grid item xs={12} md={6} lg={5} sx={{mt:10}}>
           <Stack spacing={8}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 5 }}>
               <Image src={stepimg1} width={50} height={50} alt="step1" />

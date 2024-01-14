@@ -154,7 +154,6 @@ const Destination = () => {
           ))}
         </Slider>
       </Box>
-    
     </Container>
   );
 };

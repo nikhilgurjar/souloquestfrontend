@@ -28,19 +28,7 @@ const DashboardLayout = ({ children }) => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const router= useRouter();
-  // useEffect(() => {
-  //   console.log(user);
-  //   if (!user) {
-  //     get_profile()
-  //       .then((response) => {
-  //         dispatch(logInUser({ user: response.user }));
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //         router.push("/login");
-  //       });
-  //   }
-  // }, [user]);
+  
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -49,34 +37,10 @@ const DashboardLayout = ({ children }) => {
   };
   return (
     <>
-      <AppBar position="fixed" open={open} sx={{ height: 64 }}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
-          >
-            <CgMenuRightAlt />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Persistent drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
-
-      <Box
-        sx={{
-          minHeight: 1,
-        }}
-      >
-        <Sidebar open={open} handleDrawerClose={handleDrawerClose} />
-        <Box component="main" sx={{ flexGrow: 1, pt: "70px", height: "100vh" }}>
+     <Box component="main" sx={{ flexGrow: 1, pt: "70px" }} className="min-h-[162vh]">
           {children}
         </Box>
-      </Box>
-    </>
+      </>
   );
 };
 

@@ -1,21 +1,24 @@
-"use client";
-import * as React from "react";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import NextAppDirEmotionCacheProvider from "./EmotionCache";
-import theme from "./theme";
-import { StyledEngineProvider } from "@mui/material";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { ReduxProvider } from "@/redux/Provider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+'use client';
+import * as React from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import NextAppDirEmotionCacheProvider from './EmotionCache';
+import theme from './theme';
+import { StyledEngineProvider } from '@mui/material';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ReduxProvider } from '@/redux/Provider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 export default function ThemeRegistry({ children }) {
   return (
-    <StyledEngineProvider injectFirst>
+   
+     
+        <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
+       
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <ToastContainer
@@ -30,12 +33,13 @@ export default function ThemeRegistry({ children }) {
           pauseOnHover
           theme="light"
         />
-        <ReduxProvider>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            {children}
-          </LocalizationProvider>
+         <ReduxProvider>
+         <LocalizationProvider dateAdapter={AdapterDayjs}>
+        {children}
+        </LocalizationProvider>
         </ReduxProvider>
       </ThemeProvider>
-    </StyledEngineProvider>
+      </StyledEngineProvider>
+
   );
 }

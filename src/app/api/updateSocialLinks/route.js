@@ -34,7 +34,6 @@ export async function POST(req) {
 
     return NextResponse.json({ message: "Profile has been updated", user: existingUser }, { status: 200 });
   } catch (error) {
-    console.log(error)
     return NextResponse.json(
       { message: "An error occurred while registering the user." },
       { status: 500 }
