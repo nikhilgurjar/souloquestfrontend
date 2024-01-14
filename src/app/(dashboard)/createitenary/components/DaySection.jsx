@@ -98,9 +98,21 @@ const DaySection = ({day, date_trip, dayName}) => {
         )}
         {destinations?.map(item=><DestinationCard key={item.id} destination={item} onRemove={handleRemoveLocation}/>)}
         </Stack>
-        
+        <Stack
+    spacing={1}
+    alignItems={{ md: 'center' }}
+    direction={{ xs: 'column', md: 'row' }}
+    sx={{ 
+        p: 1, borderRadius: 1, bgcolor: 'background.neutral', 
+    mt: 2,
+    mb: { xs: 2, md: 5 }, 
+    maxWidth: '750px',
+    mx: 'auto'
+}}
+   
+  >
       <DestinationAutocomplete placeholder="Add a place" onChange={handleChangeLocation} value={location} />
-
+      </Stack>
       <RecommendedSection recommendations={recommendations} onAddRecommendation={handleAddSuggestion}/>
      </Collapse>
     </Stack>

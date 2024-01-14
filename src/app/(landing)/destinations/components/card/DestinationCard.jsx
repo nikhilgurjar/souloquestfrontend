@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from "react";
 import { Card, CardMedia, Typography, Box, Divider, Link } from "@mui/material";
 import { GoClock } from "react-icons/go";

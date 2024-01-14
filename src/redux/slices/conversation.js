@@ -18,7 +18,6 @@ const slice = createSlice({
       state.conversationList = [...state.conversationList, action.payload.conversation];
     },
     setCurrentConversation(state, action) {
-      console.log(action.payload)
       state.selectedRoomId = action.payload.current_conversation;
     }
   }

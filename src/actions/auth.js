@@ -16,7 +16,6 @@ const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
               resolve(response.data);
           })
           .catch(error => {
-              console.log(error);
               reject(error?.error || error?.message || 'Something went wrong');
           });
   });

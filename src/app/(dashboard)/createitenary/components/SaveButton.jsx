@@ -20,7 +20,8 @@ const SaveButton = ({itenaryId}) => {
       setLoading(true);
     setDisabled(true);
     if(!userId){
-      router.push('/login',{ state: { returnUrl: pathname } })
+      router.push('/login',{ state: { returnUrl: pathname } });
+      return;
     }
 
     const body = JSON.stringify({
@@ -29,7 +30,7 @@ const SaveButton = ({itenaryId}) => {
       startDate: startDate,
       endDate: endDate,
       title: title,
-      userId: '123',
+      userId: userId,
     });
 
     const response = await fetch('/api/itenary', {
@@ -40,7 +41,6 @@ const SaveButton = ({itenaryId}) => {
       body,
     });
     const data = await response.json();
-    console.log(data);
     } catch (error) {
       console.error(error);
     }

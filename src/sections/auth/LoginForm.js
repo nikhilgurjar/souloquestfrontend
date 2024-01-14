@@ -47,7 +47,6 @@ export default function AuthLoginForm() {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
       // submit data to backend
       dispatch(LoginUser(data));
     } catch (error) {

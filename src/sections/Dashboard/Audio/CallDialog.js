@@ -144,7 +144,6 @@ const CallDialog = ({ open, handleClose }) => {
           },
         }
       );
-      console.log(response, "TOKEN RESPONSE");
       this_token = response.data.token;
       // ...
     }
@@ -165,7 +164,6 @@ const CallDialog = ({ open, handleClose }) => {
         //   screenSharing: true,
         //   errInfo: {}
         // }
-        console.log(result);
 
         const { webRTC, microphone } = result;
 
@@ -177,7 +175,6 @@ const CallDialog = ({ open, handleClose }) => {
             { userUpdate: true }
           )
             .then(async (result) => {
-              console.log(result);
 
               // After calling the CreateStream method, you need to wait for the ZEGOCLOUD server to return the local stream object before any further operation.
              const localStream = await zg.createStream({
@@ -197,7 +194,6 @@ const CallDialog = ({ open, handleClose }) => {
               zg.on("publisherStateUpdate", (result) => {
                 // Callback for updates on stream publishing status.
                 // ...
-                console.log(result);
                 // * we can use this info to show connection status
               });
 
@@ -209,7 +205,6 @@ const CallDialog = ({ open, handleClose }) => {
               });
             })
             .catch((error) => {
-              console.log(error);
             });
 
           // Callback for updates on the current user's room connection status.

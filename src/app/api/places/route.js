@@ -12,7 +12,7 @@ export async function GET(req) {
             return NextResponse.json([], { status: 200 });
         }
          // Partial search with case-insensitive regex
-    const regexPattern = new RegExp(`^${searchTerm}`, 'i');
+    const regexPattern = new RegExp(`${searchTerm}`, 'i');
 
     // Sort by relevance using textScore (assuming a text index on "name")
     const destinations = await DestinationModel.find({

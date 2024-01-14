@@ -1,14 +1,13 @@
-'use client';
 import React from "react";
 import Destination from "./components/Destination";
-import Filters from "../../(dashboard)/findpartner/components/filter/Filters";
 import { Box } from "@mui/material";
+import ItenaryButton from "./components/ItenaryButton";
 
 const page = () => {
   return (
     <Box sx={{minHeight:"100vh",mt:15}}>
-        <Filters/>
       <Destination />
+      <ItenaryButton />
     </Box>
   );
 };
