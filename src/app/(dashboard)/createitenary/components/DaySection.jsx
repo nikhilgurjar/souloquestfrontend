@@ -1,27 +1,42 @@
 'use client';
 import React from 'react'
-import { Accordion, AccordionSummary, AccordionDetails, Stack, Typography, Card, Box } from '@mui/material'
-import { MdOutlineNavigateNext } from "react-icons/md";
-import CustomAutocomplete from '@/components/custom-input/CustomAutocomplete';
+import { Stack, Typography, Card, Box, Collapse } from '@mui/material'
+import DestinationAutocomplete from '@/components/custom-input/DestinationAutocomplete';
 import { places } from '@/data';
 import DestinationCard from './DestinationCard';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from '@/redux/store';
 import { addDestination, removeDestination } from '@/redux/slices/itenary';
+import RecommendedSection from './RecommendedSection';
 
-const DaySection = ({day}) => {
+const DaySection = ({day, date_trip, dayName}) => {
     const [location, setLocation] = React.useState(null);
-    const [recommendations, setRecommendations] = React.useState(places);
+    const [open, setOpen] = React.useState(false);
+    const [recommendations, setRecommendations] = React.useState([]);
     const dispatch = useDispatch();
     const destinations = useSelector(state=>state.itenary.itenary)[day-1] || [];
+
+    const getNearbyLocations = async ({lat, long}) =>{
+      try {
+        const response = await fetch(
+          `/api/nearbyPlaces?lat=${lat}&long=${long}`
+          // `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.latitude},${location.longitude}&radius=5000&type=restaurant&keyword=restaurant&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
+        );
+        const data = await response.json();
+        setRecommendations(data);
+      } catch (error) {
+        toast.error(error)
+      }
+    }
+
     const handleChangeLocation = async (keyword) =>{
         try{
-          console.log(keyword)
       setLocation(keyword || {title: ''});
-      if(!keyword.place_id) return;
+      if(!keyword.id) return;
       // const placeDetails = await getPlaceDetails(keyword.place_id);
       // setDestinations(prev=> [...prev, keyword]);
       dispatch(addDestination({day: day-1, destination: keyword}))
+      getNearbyLocations({lat: keyword.latitude, long: keyword.longitude})
       setLocation(null);
         }
         catch(error){
@@ -29,70 +44,50 @@ const DaySection = ({day}) => {
         }
     }
 
-    const handleRemoveLocation = (id) =>{
-        console.log(id)
-       
-        // const newData = destinations.filter(item=> item.place_id!==id);
-        // console.log(newData)
-      // setDestinations(newData);
+    const handleAddSuggestion = async (suggestion) => {
+      try{
+        console.log(suggestion)
+    
+    dispatch(addDestination({day: day-1, destination: suggestion}))
+      
+  }
+      catch(error){
+        toast(error.message || error.error)
+      }
+    }
+
+    const handleOpen = (event) => {
+      event.preventDefault();
+        setOpen((prev) =>!prev);
+    };
+
+    const handleRemoveLocation = (id) =>{       
       dispatch(removeDestination({day: day-1, id: id}))
     }
 
-    const onAddRecommendation = (event) =>{
-        event.preventDefault();
-        const id = event.currentTarget.id;
-        const newPlace = places.find(item=> item.id===+id);
-        setDestinations(prev => [...prev, newPlace])
-    }
-console.log(destinations);
   return (
-    <Accordion
-    defaultExpanded
-    disableGutters 
-    TransitionProps={{ unmountOnExit: true }}  
-    elevation={0} 
-    square  
-    sx={{
-        maxWidth: 'clamp(50%, 650px, 100%)', 
-      '&:not(:last-child)': {
-        borderBottom: 0,
-      },
-      '&::before': {
-        display: 'none',
-      },
-      "&.Mui-expanded": {
-          boxShadow: "none", // Remove box shadow
-          borderRadius: 0, // Remove border radius
-          backgroundColor: "transparent", // Set background color
-        },
-      width: '100%'
-    }}
-    style={{ boxShadow: "none" }} >
-      <AccordionSummary 
-      expandIcon={<MdOutlineNavigateNext sx={{ fontSize: '0.9rem', marginRight: '20px' }} />}
-      sx={{
-        bgcolor: 'transparent',
-        flexDirection: 'row-reverse',
-        '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-          transform: 'rotate(90deg)',
-        },
-        '& .MuiAccordionSummary-content': {
-          marginLeft: theme => theme.spacing(1),
-        },
-      }}
-      >
+    <Stack
+    direction="column"
+    alignItems="flex-start"
+    justifyContent="center"
+    
+    sx={{ width: 1, cursor: 'pointer', py: 2 }}
+  >
         
-  <Stack direction={'column'} spacing={.5}>
+  <Stack direction={'column'} spacing={.5} onClick={handleOpen}>
   <Typography variant='h5' sx={{ color: 'inherit', fontWeight: 700}}>
-        Day {day}
+       {date_trip}, {dayName}
     </Typography>
     <Typography variant='subtitle2' sx={{ color: 'inherit', fontWeight: 400, marginLeft: '6px!important'}}>
         {destinations.length} places
     </Typography>
   </Stack>
 
-      </AccordionSummary>
-      <AccordionDetails>
+  <Collapse unmountOnExit in={open} sx={{
+    width:'100%',
+    px: 0.5,
+    py: 1,
+  }}>
         <Stack spacing={2} direction={'column'} sx={{
             my: 2
         }}>
@@ -104,11 +99,11 @@ console.log(destinations);
         {destinations?.map(item=><DestinationCard key={item.id} destination={item} onRemove={handleRemoveLocation}/>)}
         </Stack>
         
-      <CustomAutocomplete placeholder="Add a place" onChange={handleChangeLocation} value={location} options={places} />
+      <DestinationAutocomplete placeholder="Add a place" onChange={handleChangeLocation} value={location} />
 
-      {/* <RecommendedSection recommendations={recommendations}/> */}
-      </AccordionDetails>
-    </Accordion>
+      <RecommendedSection recommendations={recommendations} onAddRecommendation={handleAddSuggestion}/>
+     </Collapse>
+    </Stack>
   )
 }
 

@@ -8,7 +8,6 @@ const LandingLayout = ({ children }) => {
   return (
     <>
     {children}
-    <FooterPage/>
     </>
   )
 };

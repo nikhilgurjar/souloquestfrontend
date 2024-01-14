@@ -7,7 +7,7 @@ import { debounce } from '@mui/material/utils';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const CustomAutocomplete = ({ value, onChange, ...other }) => {
+const CustomAutocomplete = ({ value, onChange,disabled=false, ...other }) => {
   const [options, setOptions] = React.useState([]);
   const [inputValue, setInputValue] = React.useState('');
 
@@ -60,6 +60,7 @@ const CustomAutocomplete = ({ value, onChange, ...other }) => {
 
   return (
     <Autocomplete
+    disabled={disabled}
       sx={{ width: 1 }}
       options={options}
       getOptionLabel={(option) => option.formatted}

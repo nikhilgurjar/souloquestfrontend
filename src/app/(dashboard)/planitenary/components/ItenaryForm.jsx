@@ -17,18 +17,51 @@ import { MobileDatePicker } from "@mui/x-date-pickers";
 import React, { useState } from "react";
 import { HiOutlineCalendarDays } from "react-icons/hi2";
 import NextLink from "next/link";
-import AutoComplete from "./AutoComplete";
-const ItenaryForm = () => {
-  const [destination, setDestination] = React.useState([
-    { name: "Moreshwer Ganesh Mandir Temple" },
-    { name: "Joshi's Museum of Miniature Railways" },
-  ]);
-  const [inputValue, setInputValue] = useState("");
+import CustomAutocomplete from "@/components/custom-input/CustomAutocomplete";
+import { useRouter } from 'next/navigation'
+import { useDispatch, useSelector } from "@/redux/store";
+import { setLocation } from "@/redux/slices/partner";
+import { deleteItenary, setEndDate, setStartDate } from "@/redux/slices/itenary";
+import uuidv4 from "@/utils/uuidv4";
+import { toast } from "react-toastify";
+import dayjs from "dayjs";
 
-  const handleInputChange = async (query) => {
-    const suggestions = await AutoComplete(query);
-    setDestination(suggestions);
-  };
+const ItenaryForm = () => {
+  const dispatch = useDispatch();
+  const router = useRouter()
+  const startDate = useSelector(state=>state.itenary.startDate);
+  const endDate = useSelector(state=>state.itenary.endDate);
+  const location = useSelector(state=>state.itenary.location) || {formatted: 'Pune, Maharashtra, India'};
+
+  const handleChangeLocation = async (keyword) =>{
+    try{
+      toast.info('We support Pune location only!!')
+    }
+    catch(error){
+    }
+}
+
+const handleCreateItenry = async () =>{
+  try{
+    if(!startDate || !endDate || !location){
+      toast.warn('Please fill details');
+    }
+    dispatch(deleteItenary());
+    const itenaryId = uuidv4().toString();
+    router.push('/createitenary/' + itenaryId);
+  }
+  catch(error){
+  }
+}
+
+const handleStartDateChange = (date) => {
+  dispatch(setStartDate({startDate: date}));
+};
+
+const handleEndDateChange = (date) => {
+  dispatch(setEndDate({endDate: date}));
+};
+
 
   return (
     <Box
@@ -53,30 +86,10 @@ const ItenaryForm = () => {
         >
           Where to?
         </InputLabel>
-        {/* <InputBase
-          value={destination}
-          onChange={(event) => setDestination(event.target.value)}
-          placeholder="Your dream destination e.g. Paris, Indonesia,Japan "
-          sx={{
-            // position: "absolute",
-            bottom: 0,
-            pl: 2,
-            width: "100%",
-            height: 56,
-            flexShrink: 0,
-            border: "1px solid #A5A0A0",
-            borderRadius: "8px",
-          }}
-        /> */}
-        <Autocomplete
-          options={destination}
-          value={inputValue}
-          // onChange={(e) => setInputValue(e.target.value)}
-          getOptionLabel={(destination) => destination.name} // Adjust this based on your API response structure
-          renderInput={(params) => (
-            <TextField {...params} label="Search" variant="outlined" />
-          )}
-          // onInputChange={(e) => handleInputChange(e.target.value)}
+        
+        <CustomAutocomplete
+          disabled
+          placeholder="Enter Destination" onChange={handleChangeLocation} value={location}
         />
         <InputLabel
           sx={{ fontWeight: "500", py: 2, color: "initial", fontWeight: "600" }}
@@ -94,8 +107,8 @@ const ItenaryForm = () => {
           }}
         >
           <MobileDatePicker
-            value={destination}
-            onChange={(event) => setDestination(event.target.value)}
+            value={startDate!=null ? dayjs(startDate): null}
+            onChange={(value) => handleStartDateChange(value)}
             disablePast
             view="day"
             slots={{
@@ -127,6 +140,26 @@ const ItenaryForm = () => {
                       </InputAdornment>
                     }
                   />
+                 
+                </Stack>
+              ),
+            }}
+          />
+          <MobileDatePicker
+            value={endDate!=null ? dayjs(endDate): null}
+            onChange={(value) => handleEndDateChange(value)}
+            disablePast
+            view="day"
+            slots={{
+              textField: ({
+                inputProps,
+                InputProps,
+                ownerState,
+                inputRef,
+                error,
+                ...inputOther
+              }) => (
+                <Stack spacing={1} direction={"row"}>
                   <InputBase
                     fullWidth
                     {...InputProps}
@@ -146,6 +179,7 @@ const ItenaryForm = () => {
                       </InputAdornment>
                     }
                   />
+             
                 </Stack>
               ),
             }}
@@ -170,6 +204,7 @@ const ItenaryForm = () => {
           variant="contained"
           size="large"
           sx={{ mt: 5, px: 5, textTransform: "lowercase" }}
+          onClick={handleCreateItenry}
         >
           Let’s go
         </Button>

@@ -22,7 +22,6 @@ export default function NavItem({ item, open, active, ...other }) {
   if (children) {
     return renderContent;
   }
-console.log(path);
   // Default
   return (
     <Link component={NextLink} href={path} underline="none">

@@ -23,7 +23,6 @@ const ProfileAbout = () => {
 
   React.useEffect(() => {
      let {email, about, city, state, company, education} = user;
-     console.log(user, user.email, "email value")
     let newdata = [
       { key: "About", value: user?.about, dynamic: '' },
       { key: "Country", value: "Live at ", dynamic: user?.city!==undefined ? user?.city+", "+user?.state: undefined },
@@ -32,7 +31,6 @@ const ProfileAbout = () => {
       { key: "Education", value: user?.education, dynamic: '' },
     ];
     newdata = newdata.filter(({ value, dynamic }) => (value !== undefined && dynamic!== undefined));
-    console.log(newdata, 'new data')
     setData(newdata);
   }, [user]);
   

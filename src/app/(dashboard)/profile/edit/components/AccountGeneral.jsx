@@ -67,10 +67,8 @@ export default function AccountGeneral({user}) {
           });
 
           toast.success('Profile updated successfully');
-          console.log('DATA', response);
         }
         catch (error) {
-          console.log(error)
             reset();
             toast.error(error?.error || error?.message || 'Something went wrong');
             setError('afterSubmit', {

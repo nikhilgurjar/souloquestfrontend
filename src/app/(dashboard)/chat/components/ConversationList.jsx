@@ -32,7 +32,6 @@ const ConversationList = () => {
     const selectedConversation = useSelector(state=>state.conversation.selectedRoomId)
 
     React.useEffect(()=>{
-      console.log(selectedConversation);
         const queryRooms = query(conversationListRef, where('roomid', '==', selectedConversation), orderBy("createdAt", "asc"));
         onSnapshot(queryRooms, (snapshot)=>{
             let messages = [];

@@ -10,7 +10,7 @@ const MainLayout = ({ children }) => {
       <Box
         component="main"
         sx={{
-          flexGrow: 1,
+          flexGrow: 1
         }}
       >
         {children}

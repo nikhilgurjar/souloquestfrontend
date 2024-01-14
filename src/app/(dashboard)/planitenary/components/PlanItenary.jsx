@@ -1,8 +1,7 @@
-'use client';
 import { Box } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import itenaryImg from "../../../../../../public/images/itenary/Rectangle 19389.png";
+import itenaryImg from "@assets/images/itenary/Rectangle 19389.png";
 import ItenaryForm from "./ItenaryForm";
 
 const PlanItenary = () => {
