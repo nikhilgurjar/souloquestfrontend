@@ -1,3 +1,4 @@
+'use client';
 import { Container } from '@mui/material'
 import React, { Suspense } from 'react'
 import Filters from './components/filter/Filters'

@@ -1,7 +1,6 @@
 import { Card, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import calenderImg from "../../../../public/images/clanderImg.png";
 const HistoryCard = ({ number, title, imgUrl }) => {
   return (
     <Card sx={{ width: "200px", py: 6 }}>

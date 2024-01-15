@@ -13,7 +13,6 @@ const DestinationAutocomplete = ({ optionsHandler, ...other }) => {
   const [options, setOptions] = React.useState([]);
   const [inputValue, setInputValue] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false); // State for loading indicator
-  console.log(optionsHandler)
   const getPlaceOptions = React.useMemo(
     () =>
       debounce(async (request, callback) => {
@@ -37,8 +36,10 @@ const DestinationAutocomplete = ({ optionsHandler, ...other }) => {
   React.useEffect(() => {
     getPlaceOptions({ input: inputValue }, (results) => {
         console.table(results);
-      setOptions(results);
+      if(results && results.length>0){
+        setOptions(results);
       optionsHandler && optionsHandler(results);
+      }
     });
   }, [inputValue]);
 

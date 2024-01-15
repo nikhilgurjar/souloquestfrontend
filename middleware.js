@@ -1,3 +1,5 @@
+
+
 export const config = {
-  matcher: [],
-};
+  matcher: ['/chat', '/profile', '/profile/edit'],
+}

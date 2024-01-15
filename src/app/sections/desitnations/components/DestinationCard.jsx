@@ -1,8 +1,8 @@
 import { Box, Card, IconButton, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import locationImg from "../../../../../public/images/Location.png";
-import destinationImg1 from "../../../../../public/images/destinationImg1.png";
+import locationImg from "@assets/images/Location.png";
+import destinationImg1 from "@assets/images/destinationImg1.png";
 import Link from "next/link";
 
 const DestinationCard = ({

@@ -1,10 +1,10 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import BookItenaryImg from "../../../../../public/images/itenary/bookitenaryimg.png";
-import stepimg1 from "../../../../../public/images/itenary/Group 7.png";
-import stepimg2 from "../../../../../public/images/itenary/Group 12.png";
-import stepimg3 from "../../../../../public/images/itenary/Group 11.png";
+import BookItenaryImg from "@assets/images/itenary/bookitenaryimg.png";
+import stepimg1 from "@assets/images/itenary/Group 7.png";
+import stepimg2 from "@assets/images/itenary/Group 12.png";
+import stepimg3 from "@assets/images/itenary/Group 11.png";
 const BookItenary = () => {
   return (
     <Container>

@@ -1,7 +1,7 @@
 "use client";
 import Container from "@mui/material/Container";
 import React from "react";
-import historyImg from "../../../../public/images/historybg.png";
+import historyImg from "@assets/images/historybg.png";
 
 const HistoryWrapper = ({ children }) => {
   return (
