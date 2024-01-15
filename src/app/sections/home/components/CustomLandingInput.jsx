@@ -10,9 +10,9 @@ import {
 import Image from "next/image";
 import React from "react";
 import { IoSearch } from "react-icons/io5";
-import locationIcon from "../../../../../public/images/locationHero.png";
+import locationIcon from "@assets/images/locationHero.png";
 import { MobileDatePicker } from "@mui/x-date-pickers";
-import UnionImg from "../../../../../public/images/Union.svg";
+import UnionImg from "@assets/images/Union.svg";
 
 const locations = [
   {

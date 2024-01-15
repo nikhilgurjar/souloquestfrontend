@@ -1,9 +1,8 @@
-"use client";
 import HistoryCard from "./HistoryCard";
 import HistoryWrapper from "./HistoryWrapper.client";
-import calenderimg from "../../../../public/images/clanderImg.png";
-import gridicons_history from "../../../../public/images/gridicons_history.png";
-import carbon_map from "../../../../public/images/carbon_map.png";
+import calenderimg from "@assets/images/clanderImg.png";
+import gridicons_history from "@assets/images/gridicons_history.png";
+import carbon_map from "@assets/images/carbon_map.png";
 import { Box, Stack } from "@mui/material";
 const SouloHistory = () => {
   const data = [

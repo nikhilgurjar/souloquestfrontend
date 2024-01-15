@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Card, Typography } from "@mui/material";
 import Image from "next/image";
-import home from "../../../../../public/images/Vector.png";
+import home from "@assets/images/Vector.png";
 const ServiceCard = ({ title, imgUrl, service, color }) => {
   return (
     <Card

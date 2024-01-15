@@ -1,10 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ThemeRegistry from "@/themeregistery/ThemeRegistry";
-import { AuthProvider } from "@/utils/SessionProvider";
-import MainLayout from "./layouts/MainLayout";
 import Header from "./nav-section/header";
 import FooterPage from "./sections/footer/FooterPage";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +23,7 @@ export default function RootLayout({ children }) {
           {/* </MainLayout> */}
           <FooterPage />
         </ThemeRegistry>
+        <Analytics />
       </body>
     </html>
   );

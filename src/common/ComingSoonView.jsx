@@ -17,10 +17,9 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
-import useCountdown from "@/hooks/useCountDown";
 // import Image from "@/components/image";
 import Link from "next/link";
-import illustration from "../../public/images/illustrations/illustration_comingsoon.svg";
+import illustration from "@assets/images/illustrations/illustration_comingsoon.svg";
 import Image from "next/image";
 
 // ----------------------------------------------------------------------
@@ -47,10 +46,7 @@ const _socials = [
   },
 ];
 export default function ComingSoonView() {
-  const { days, hours, minutes, seconds } = useCountdown(
-    new Date("05/07/2024 21:30")
-  );
-  console.log(days);
+ 
 
   return (
     <Box
@@ -81,20 +77,7 @@ export default function ComingSoonView() {
         }}
       />
 
-      <Stack
-        direction="row"
-        justifyContent="center"
-        divider={<Box sx={{ mx: { xs: 1, sm: 2.5 } }}>:</Box>}
-        sx={{ typography: "h5" }}
-      >
-        <TimeBlock label="Days" value={days} />
-
-        <TimeBlock label="Hours" value={hours} />
-
-        <TimeBlock label="Minutes" value={minutes} />
-
-        <TimeBlock label="Seconds" value={seconds} />
-      </Stack>
+     
 
       <TextField
         fullWidth

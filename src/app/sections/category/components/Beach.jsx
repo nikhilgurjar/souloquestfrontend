@@ -2,12 +2,12 @@
 import { Box, Container } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import card1 from "../../../../../public/images/beach/Card 01.png";
-import card2 from "../../../../../public/images/beach/Card 02.png";
-import card3 from "../../../../../public/images/beach/Card 03.png";
-import card4 from "../../../../../public/images/beach/Card 04.png";
-import card5 from "../../../../../public/images/beach/Card 05.png";
-import card6 from "../../../../../public/images/beach/Card 06.png";
+import card1 from "@assets/images/beach/Card 01.png";
+import card2 from "@assets/images/beach/Card 02.png";
+import card3 from "@assets/images/beach/Card 03.png";
+import card4 from "@assets/images/beach/Card 04.png";
+import card5 from "@assets/images/beach/Card 05.png";
+import card6 from "@assets/images/beach/Card 06.png";
 
 const ImageWithOverlay = ({ src, alt, height }) => (
   <Box

@@ -1,11 +1,11 @@
 'use client';
 import React from "react";
-import illusionBg from "../../../../public/images/illusionBg.png";
-import ladyImg from "../../../../public/images/HeroLadyImg.png";
-import cardImg from "../../../../public/images/card.png";
-import smallCardImg from "../../../../public/images/smallCard.png";
-import trainImg from "../../../../public/images/Frame 11.png";
-import planeImg from "../../../../public/images/Frame 10.png";
+import illusionBg from "@assets/images/illusionBg.png";
+import ladyImg from "@assets/images/HeroLadyImg.png";
+import cardImg from "@assets/images/card.png";
+import smallCardImg from "@assets/images/smallCard.png";
+import trainImg from "@assets/images/Frame 11.png";
+import planeImg from "@assets/images/Frame 10.png";
 
 import { Typography, Stack, Box, Unstable_Grid2 as Grid } from "@mui/material";
 
