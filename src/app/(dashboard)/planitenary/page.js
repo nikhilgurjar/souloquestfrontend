@@ -2,7 +2,7 @@
 import React from 'react'
 import { Box } from "@mui/material";
 import Image from "next/image";
-import itenaryImg from "@assets/images/itenary/Rectangle 19389.png";
+import itenaryImg from "@assets/images/itenary/Rectangle_19389.png";
 import ItenaryForm from "./components/ItenaryForm";
 
 const page = () => {

@@ -4,8 +4,8 @@ import illusionBg from "@assets/images/illusionBg.png";
 import ladyImg from "@assets/images/HeroLadyImg.png";
 import cardImg from "@assets/images/card.png";
 import smallCardImg from "@assets/images/smallCard.png";
-import trainImg from "@assets/images/Frame 11.png";
-import planeImg from "@assets/images/Frame 10.png";
+import trainImg from "@assets/images/Frame_11.png";
+import planeImg from "@assets/images/Frame_10.png";
 
 import { Typography, Stack, Box, Unstable_Grid2 as Grid } from "@mui/material";
 
