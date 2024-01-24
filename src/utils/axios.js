@@ -13,3 +13,10 @@ axiosInstance.interceptors.response.use((response) => response, (error) => {
     return Promise.reject((error.response && error.response.data) || 'Something went wrong')
 });
 export default axiosInstance;
+
+
+// const client = new Client();
+
+// client
+//     .setEndpoint('https://cloud.appwrite.io/v1')
+//     .setProject('65abb8e5bdc4ddeabe39');

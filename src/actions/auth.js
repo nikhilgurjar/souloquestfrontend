@@ -1,4 +1,4 @@
-import axios from "@/utils/axios";
+import axios from "axios";
 const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
     const axiosConfig = {
         url: '/api/user/'+url,
@@ -13,10 +13,12 @@ const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
     return new Promise((resolve, reject) => {
       axios(axiosConfig)
           .then(response => {
+            console.log(response)
               resolve(response.data);
           })
           .catch(error => {
-              reject(error?.error || error?.message || 'Something went wrong');
+              console.log(error.response.data.error);
+              reject(error?.response?.data?.error || error?.error || error?.message || 'Something went wrong');
           });
   });
   };
@@ -38,7 +40,7 @@ export const updatePassword = async ({oldPassword, password}) =>{
 }
 export const updateProfile = async ({name, email, profilePic, phoneNumber, country, state, city, about}) =>{
   return await apiRequest({
-    url: 'updateprofile',
+    url: 'updateProfile',
     method: 'POST',
     data: { name, email, profilePic, phoneNumber, country, state, city, about },
   })

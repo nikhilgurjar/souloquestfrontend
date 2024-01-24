@@ -11,6 +11,7 @@ import FormProvider, { RHFTextField } from '@/components/hook-form';
 import { useSelector } from '@/redux/store';
 import { toast } from 'react-toastify';
 import dayjs from 'dayjs';
+import { usePartnerFinder } from './PartnerContext';
 const RequestForm = ({handleClose}) => {
 
     const RequestSchema = Yup.object().shape({
@@ -26,14 +27,16 @@ const RequestForm = ({handleClose}) => {
         defaultValues,
     });
 
-    const departureDate = useSelector(state=>state.partnerFinder.departureDate)
-    const location = useSelector(state=>state.partnerFinder.location)
+    const { departureDate, location } = usePartnerFinder()
+
     const { reset, setError, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful }, } = methods;
-    
+    console.log(location);
     const onSubmit = async (data) =>{
       try {
-        const response = await postPartnerRequest({departureDate: dayjs(departureDate).format('YYYY-MM-DD'), location: location.label, description: data.description, title: data.title});
-      handleClose();
+        
+        const response = await postPartnerRequest({departureDate: dayjs(departureDate).format('YYYY-MM-DD'), location: location, description: data.description, title: data.title});
+        console.log(response);
+        toast.success("Request Added Successfully!!")
       } catch (error) {
         setError('afterSubmit', {
           ...error,
@@ -43,6 +46,7 @@ const RequestForm = ({handleClose}) => {
       }
       finally{
         reset();
+        handleClose();
       }
     }
   return (

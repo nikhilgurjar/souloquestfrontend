@@ -55,11 +55,13 @@ export default function AuthLoginForm() {
       const res = await login({ email, password });
       dispatch(logInUser({ user: res.user }));
       toast.success("Login Successfully");
-      if(router?.query?.returnUrl){
-        router.push(router.query.returnUrl);
+      console.info(router)
+      if(localStorage.getItem("from")){
+        localStorage.removeItem("from");
+        router.push(localStorage.getItem("from"));
         return;
       }
-      router.push("/profile");
+      router.push("/findpartner");
     } catch (error) {
       toast.error(
         error || error.error || error.message || "Something went wrong"

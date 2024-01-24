@@ -4,11 +4,13 @@ import React, { Suspense } from 'react'
 import Filters from './components/filter/Filters'
 import RequestList from './components/RequestList'
 import NewRequest from './components/NewRequest'
+import { PartnerFinderProvider } from './components/PartnerContext';
 
 const ParterFinderPage = () => {
   
 
   return (
+    <PartnerFinderProvider>
     <Container >
       <Filters/>
       <Suspense fallback="loading....">
@@ -16,6 +18,7 @@ const ParterFinderPage = () => {
       <NewRequest />
       </Suspense>
     </Container>
+    </PartnerFinderProvider>
   )
 }
 

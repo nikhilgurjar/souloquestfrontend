@@ -52,7 +52,7 @@ export default function AuthRegisterForm() {
       const response = register({ email, password, name });
       toast.success("Successfully Registered")
       dispatch(logInUser({user: response.user}))
-      router.push('/profile');
+      router.push('/findpartner');
     } catch (error) {
       toast.error("Invalid Credentials");
       reset();
