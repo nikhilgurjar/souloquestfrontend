@@ -19,9 +19,11 @@ import { RHFTextField, RHFSelect } from '@/components/hook-form';
 import { states } from '@/data';
 import { updateProfile } from '@/actions/auth';
 import { toast } from 'react-toastify';
+import { useDispatch } from '@/redux/store';
+import { setUser } from '@/redux/slices/user';
 
 export default function AccountGeneral({user}) {
-    
+    const dispatch = useDispatch()
     const [profilePicFile, setProfilePicFile] = React.useState(null);
     const defaultValues = {
         name: user?.name || '',
@@ -65,7 +67,8 @@ export default function AccountGeneral({user}) {
             city: data.city,
             about: data.about
           });
-
+          console.log(response);
+          dispatch(setUser({user: response.user}))
           toast.success('Profile updated successfully');
         }
         catch (error) {

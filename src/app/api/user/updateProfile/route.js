@@ -1,3 +1,4 @@
+import { getDataFromToken } from "@/lib/helper";
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/User";
 import { auth } from "@/utils/authConfig";
@@ -5,14 +6,9 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
-    const session =  await auth();
+    const userId = await getDataFromToken(req);
+    if(!userId) NextResponse.redirect('/login');
 
-    if(!session || !session?.user){
-      return NextResponse.json(
-        { message: "Unauthorized" },
-        { status: 401 }
-      );
-    }
    const {name, email, profilePic, phoneNumber, state, city, about} = await req.json();
     if (!email || !name || !profilePic || !state || !city || !about) {
       return NextResponse.json(
@@ -23,7 +19,7 @@ export async function POST(req) {
 
     await connectMongoDB();
     
-    const existingUser = await User.findOneAndUpdate({ email }, { name, profilePic, phoneNumber, state, city, about },{ new: true });
+    const existingUser = await User.findByIdAndUpdate(userId, { name, profilePic, phoneNumber, state, city, about },{ new: true });
     if (!existingUser) {
       return NextResponse.json(
         { message: "User not found." },

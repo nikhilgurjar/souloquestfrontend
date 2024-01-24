@@ -3,13 +3,18 @@ import React from 'react'
 import { MobileDatePicker } from '@mui/x-date-pickers';
 import { InputAdornment, InputBase } from '@mui/material';
 import {HiOutlineCalendarDays} from "react-icons/hi2";
-import { useDispatch, useSelector } from '@/redux/store';
-import { setDepartureDate } from '@/redux/slices/partner';
 import dayjs from 'dayjs';
+import { usePartnerFinder } from '../PartnerContext';
 
-const TravelFilterTime = ({departureDate, handleChangeDepartureDay}) => {
+const TravelFilterTime = () => {
 
+  const {departureDate, setDepartureDate} = usePartnerFinder();
 
+  const handleChangeDepartureDay = (newValue) => {
+    console.info(newValue)
+      setDepartureDate(newValue)
+  };
+  
   return (
     <MobileDatePicker
     value={departureDate!=null ? dayjs(departureDate): null}

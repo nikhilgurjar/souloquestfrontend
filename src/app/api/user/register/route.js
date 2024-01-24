@@ -1,7 +1,8 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/User";
 import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
+import bcryptjs from "bcryptjs";
+import { getJWTToken } from "@/lib/helper";
 
 export async function POST(req) {
   try {
@@ -19,15 +20,37 @@ export async function POST(req) {
     if (existingUser) {
       return NextResponse.json(
         { message: "User already exists." },
-        { status: 409 }
+        { status: 400 }
       );
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    
+    //hash password
+    const salt = await bcryptjs.genSalt(10)
+    const hashedPassword = await bcryptjs.hash(password, salt)
+
     const user = await User.create({ name, email, password: hashedPassword });
+    const tokenData = {
+      id: user._id,
+      username: user.username,
+      email: user.email
+  }
+  //create token
+  const token = await getJWTToken(tokenData);
+
+  const response = NextResponse.json({
+      message: "Registeration successful",
+      success: true,
+  })
+  response.cookies.set("token", token, {
+      httpOnly: true, 
+      secure: process.env.ENVIRONMENT === "production",
+      sameSite: "strict",
+      path: '/', // Accessible site-wide
+			maxAge: 86400, // 24-hours or whatever you like
+  })
     user.password = undefined;
-    return NextResponse.json({ message: "User registered.", user: user }, { status: 201 });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       { message: "An error occurred while registering the user." },

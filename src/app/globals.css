@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.chatContainer{
+    max-height: calc(100dvh - 82px);
+    min-height: 736px;
+}

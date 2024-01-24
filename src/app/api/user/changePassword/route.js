@@ -1,21 +1,15 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/User";
 import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
-import { auth } from "@/utils/authConfig";
+import bcryptjs from "bcryptjs";
+import { getDataFromToken } from "@/lib/helper";
 
 export async function POST(req) {
   try {
-    const session =  await auth();
-
-    if(!session || !session?.user){
-      return NextResponse.json(
-        { message: "Unauthorized" },
-        { status: 401 }
-      );
-    }
-   const {oldPassword, password} = await req.json();
-    const userId = session?.user?._id
+    const userId = await getDataFromToken(request);
+    if(!userId) NextResponse.redirect('/login');
+    
+    const {oldPassword, password} = await req.json();
 
     await connectMongoDB();
     
@@ -35,7 +29,10 @@ export async function POST(req) {
       );
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    //hash password
+    const salt = await bcryptjs.genSalt(10)
+    const hashedPassword = await bcryptjs.hash(password, salt);
+    
     existingUser.password = hashedPassword;
     await existingUser.save();
 

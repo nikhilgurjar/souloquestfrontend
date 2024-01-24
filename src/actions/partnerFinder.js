@@ -1,4 +1,4 @@
-import axios from '@/utils/axios';
+import axios from 'axios';
 
 const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
     const axiosConfig = {
@@ -17,7 +17,12 @@ const apiRequest = async ({ url, method = 'GET', data, headers = {} }) => {
                 resolve(response.data);
             })
             .catch(error => {
-                reject(error?.error || error?.message || 'Something went wrong');
+              console.log(error);
+              if(error?.response?.status==401){
+                localStorage.setItem('from', window.location.pathname);
+                window.location = '/login'
+              };
+              reject(error?.response?.data?.error || error?.error || error?.message || 'Something went wrong');
             });
     });
   };
@@ -33,6 +38,19 @@ export const fetchPartnerRequests = async ({departureDate, location}) =>{
         console.error('Error:', error);
         throw error;
     }
+  }
+
+export const fetchAllPartnerRequests = async () =>{
+    try {
+          const data = await apiRequest({
+              url: ``,
+              method: 'GET',
+          });
+          return data;
+      } catch (error) {
+          console.error('Error:', error);
+          throw error;
+      }
   }
 
 export const postPartnerRequest = async ({departureDate, location, description, title}) =>{
@@ -53,7 +71,7 @@ export const joinaRoom = async ({ room_id }) =>{
   try {
     const data = await apiRequest({
         url: `/joinroom?room_id=${room_id}`,
-        method: 'POST',
+        method: 'GET',
     });
     return data;
   }

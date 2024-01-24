@@ -12,7 +12,7 @@ const RequestItem = ({request}) => {
 
   const handleJoin = async () =>{
     try{
-      await joinaRoom(request.room_id);
+      await joinaRoom({room_id: request.room_id});
       toast.success('Room Joined')
       router.push('/chat');
     }

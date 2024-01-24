@@ -24,8 +24,8 @@ const participants = [
     }
   ]
 const ConversationList = () => {
-    
-  const [messages, setMessage] = React.useState([]);
+  
+    const [messages, setMessage] = React.useState([]);
     const onOpenLightbox = () =>{};
     const scrollRef = React.useRef(null);
     const conversationListRef = collection(db,  'messages');

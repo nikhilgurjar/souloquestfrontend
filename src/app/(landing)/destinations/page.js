@@ -6,7 +6,7 @@ import ItenaryButton from "./components/ItenaryButton";
 
 const page = () => {
   return (
-    <div style={{minHeight:"100vh",mt:15}}>
+    <div className="min-h-screen px-5 mt-24  md:px-10 desktop:px-20">
       <Destination />
       <ItenaryButton />
     </div>

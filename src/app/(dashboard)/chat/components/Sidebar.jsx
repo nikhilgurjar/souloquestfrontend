@@ -49,7 +49,7 @@ const ChatSidebar = () => {
 
 
     const renderContent = (
-        <Box>
+        <Box className="h-screen">
           <Stack direction={'column'} alignItems={'flex-start'} p={3} textAlign={'left'} spacing={2} sx={{ maxHeight: "100vh" }}>
           <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'} sx={{ width: '100%'}} >
           <Typography variant="h5">Chats</Typography>
